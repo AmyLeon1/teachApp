@@ -1,0 +1,18 @@
+<div><h1>Login Page</h1></div>
+
+<div class="container">
+<!-- databiding to use errorMessage from .ts file-->
+<!-- use angular attribute
+ only show this message if invalid login =true-->
+<div class="alert alert-warning" *ngIf="invalidLogin">{{errorMessage}}</div>
+
+<div>
+User Name: <input type="text" name="username" [(ngModel)]="username" >
+Password: <input type="text" name="password" [(ngModel)]="password">
+
+<!-- eventbinding
+(click) + method-->
+
+<button (click)=handleLogin() class="btn btn-success">Login</button>
+</div>
+</div>
