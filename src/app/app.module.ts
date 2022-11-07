@@ -13,11 +13,12 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { ProfileComponent } from './profile/profile.component';
 import { TodoComponent } from './todo/todo.component';
+import {HttpIntercepterBasicAuthService} from "./service/http/http-intercepter-basic-auth.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { TodoComponent } from './todo/todo.component';
     HttpClientModule,
 
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
