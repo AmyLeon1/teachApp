@@ -9,6 +9,7 @@ import {LogoutComponent} from "./logout/logout.component";
 import {RouteGuardService} from "./service/route-guard.service";
 import {ProfileComponent} from "./profile/profile.component";
 import {TodoComponent} from "./todo/todo.component";
+import {AddPostComponent} from "./add-post/add-post.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent, canActivate:[RouteGuardService]},
   {path: 'profile', component: ProfileComponent, canActivate:[RouteGuardService]},
   {path: 'todo/:id', component: TodoComponent, canActivate:[RouteGuardService]},
+  {path: 'add-post', component: AddPostComponent, canActivate:[RouteGuardService]},
   //make sure this path is always last
   // otherwise redirect to home
   { path: '**', component: ErrorComponent }

@@ -18,7 +18,9 @@ import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { ProfileComponent } from './profile/profile.component';
 import { TodoComponent } from './todo/todo.component';
+import { AddPostComponent } from './add-post/add-post.component';
 import {HttpIntercepterBasicAuthService} from "./service/http/http-intercepter-basic-auth.service";
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {HttpIntercepterBasicAuthService} from "./service/http/http-intercepter-b
     FooterComponent,
     LogoutComponent,
     ProfileComponent,
-    TodoComponent
+    TodoComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,

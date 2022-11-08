@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {HardCodedAuthenticationService} from "../service/hard-coded-authentication.service";
+import {BasicAuthenticationService} from "../service/basic-authentication.service";
 
 @Component({
 
@@ -12,14 +13,16 @@ export class LoginComponent implements OnInit{
 
   //default username
   username = "AmyLeon"
-  password : string = ""
+  password : string = "dummy"
   errorMessage="Invalid Credentials"
   invalidLogin = false
 
   //create instance of the router as we want to use it to redirect to profile page
   //dependency injection
   //declare it as constructor argument
-  constructor(private router: Router, private hardcodedAuthenticationService: HardCodedAuthenticationService) {
+  constructor(private router: Router, private hardcodedAuthenticationService: HardCodedAuthenticationService,
+              private basicAuthenticationService: BasicAuthenticationService
+  ) {
   }
 
   ngOnInit(): void {
@@ -39,6 +42,26 @@ export class LoginComponent implements OnInit{
       this.invalidLogin =true
     }
   }
-
+//TODO: this is not  correct
+  handleBasicAuthLogin(){
+    (this.basicAuthenticationService.executeAuthenticationService(this.username,this.password))
+      .subscribe({
+        next: data => {this.router.navigate(['profile', this.username]), this.invalidLogin = false},
+        error:err => {console.log, this.invalidLogin = true}
+        }
+      );
+  }
 
 }
+
+// data=>{
+//   this.router.navigate(["profile", this.username])
+//   this.invalidLogin =false
+// },
+//   ()=>{
+//     console.log()
+//     this.invalidLogin = true
+//   }
+//
+// )
+
