@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {HelloWorldBean} from "./data/welcome-data.service";
 import {map} from "rxjs";
+import {API_URL} from "../constants";
 
 //constant variables
 export const TOKEN="token";
@@ -15,6 +16,7 @@ export class BasicAuthenticationService {
 
   constructor(private http: HttpClient) { }
 
+
   authenticate(username:string, password:string){
     //console.log("before " + this.isUserLoggedIn())
     if(username==="AmyLeon" && password ==="dummy"){
@@ -24,19 +26,22 @@ export class BasicAuthenticationService {
       return true;
     }
     return false;
-
   }
 
+
+
   executeAuthenticationService(username:string ,password:string){
-    //btoa encoding
-    let basicAuthHeaderString = "Basic" + window.btoa(username + ":" + password);
+
+    let basicAuthHeaderString = "Basic " + window.btoa(username + ":" + password);
 
     //create instance of HttpHeaders and pass in the object with Authorization
     //value populated
     let headers = new HttpHeaders({
       Authorization: basicAuthHeaderString
     })
-    return this.http.get<AuthenticationBean>(`http://localhost:8080/basicauth`,
+
+    return this.http.get<AuthenticationBean>
+    (`${API_URL}/basicauth`,
       //if this is successful do this as well .pipe()
       {headers}).pipe(
         map(
@@ -46,15 +51,14 @@ export class BasicAuthenticationService {
             return data;
           }
         )
-    ) //not sure if comma is needed
+    ); //not sure if comma is needed
   }
-
 
 
   getAuthenticatedToken(){
     //if it's valid return the token
     if(this.getAuthenticatedUser())
-    return sessionStorage.getItem(TOKEN)
+      return sessionStorage.getItem(TOKEN)
   }
 
 
@@ -73,8 +77,6 @@ export class BasicAuthenticationService {
     sessionStorage.removeItem(TOKEN);
     sessionStorage.clear();
   }
-
-
 
 
 }

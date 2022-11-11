@@ -15,11 +15,11 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  //{ path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
   {path: 'account/:name', component: AccountComponent, canActivate:[RouteGuardService]},
   {path: 'todoList', component: TodoListComponent, canActivate:[RouteGuardService]},
   {path: 'logout', component: LogoutComponent, canActivate:[RouteGuardService]},
-  {path: 'profile', component: ProfileComponent, canActivate:[RouteGuardService]},
+  {path: 'profile', component: ProfileComponent},
   {path: 'todo/:id', component: TodoComponent, canActivate:[RouteGuardService]},
   {path: 'add-post', component: AddPostComponent, canActivate:[RouteGuardService]},
   //make sure this path is always last

@@ -1,19 +1,48 @@
 <div><h1>Login Page</h1></div>
 
 <div class="container">
-<!-- databiding to use errorMessage from .ts file-->
-<!-- use angular attribute
- only show this message if invalid login =true-->
-<div class="alert alert-warning" *ngIf="invalidLogin">{{errorMessage}}</div>
+<!-- upon submission of form loginUser() method is evoked-->
+  <form #loginform="ngForm" (ngSubmit)="loginUser()">
 
-<div>
-User Name: <input type="text" name="username" [(ngModel)]="username" >
-Password: <input type="text" name="password" [(ngModel)]="password">
+    <small class ="text-danger" *ngIf="invalidLogin">{{errorMessage}}</small>
 
-<!-- eventbinding
-(click) + method-->
+<!--class binding for conditionals []-->
+<!--   EMAIL  -->
+<div class="form-group">
+  <label for="email"> Email:</label>
 
-<!--<button (click)=handleLogin() class="btn btn-success">Login</button>-->
-  <button (click)=handleBasicAuthLogin() class="btn btn-success">Login</button>
+  <!-- When email box is invalid it appears red - bootstrap feature        -->
+  <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="user.email" required pattern="^\w+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$"
+  #email="ngModel"
+  [class.is-invalid]="email.invalid && email.touched">
+<!--Email: <input type="text" name="email" [(ngModel)]="user.email" >-->
+<!--  <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is a required field</small>-->
+  <div *ngIf="email.errors && email.invalid && email.touched">
+    <small class="text-danger" *nfIf="email.errors.required">Email is a required field</small>
+    <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email address</small>
+  </div>
 </div>
+
+<!-- PASSWORD-->
+    <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="user.password"
+    required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+      <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is a required field</small>
+    </div>
+
+<!--ChHECKBOX-->
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember">Remember me</label>
+    </div>
+  <button [disabled]="loginform.form.invalid" type="submit" class = "btn btn-info">Login</button>
+  </form>
+
+
+<!-- LINK TO REGISTRATION PAGE -->
+  <small class="float-right"(click)="gotoregistration()">New user? Register here</small>
+<!--  <small class="float-right" [routerLink]="['register']" >New user? Register here</small>-->
 </div>
+
+
+
