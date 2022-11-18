@@ -3,14 +3,14 @@
 <div class="container">
 <!-- upon submission of form loginUser() method is evoked-->
   <form #loginform="ngForm" (ngSubmit)="loginUser()">
-
+<!--  <form #loginform="ngForm" (ngSubmit)="handleBasicAuthLogin()">-->
     <small class ="text-danger" *ngIf="invalidLogin">{{errorMessage}}</small>
 
+
 <!--class binding for conditionals []-->
-<!--   EMAIL  -->
+<!--   EMAIL-->
 <div class="form-group">
   <label for="email"> Email:</label>
-
   <!-- When email box is invalid it appears red - bootstrap feature        -->
   <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="user.email" required pattern="^\w+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$"
   #email="ngModel"
@@ -22,6 +22,23 @@
     <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email address</small>
   </div>
 </div>
+
+
+
+<!--    <div class="form-group">-->
+<!--      <label for="username"> Username:</label>-->
+
+<!--      &lt;!&ndash; When email box is invalid it appears red - bootstrap feature        &ndash;&gt;-->
+<!--      <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="user.username" required-->
+<!--             #username="ngModel"-->
+<!--             [class.is-invalid]="username.invalid && username.touched">-->
+<!--      &lt;!&ndash;Email: <input type="text" name="email" [(ngModel)]="user.email" >&ndash;&gt;-->
+<!--      &lt;!&ndash;  <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is a required field</small>&ndash;&gt;-->
+<!--      <div *ngIf="username.errors && username.invalid && username.touched">-->
+<!--        <small class="text-danger" *nfIf="username.errors.required">Email is a required field</small>-->
+
+<!--      </div>-->
+<!--    </div>-->
 
 <!-- PASSWORD-->
     <div class="form-group">

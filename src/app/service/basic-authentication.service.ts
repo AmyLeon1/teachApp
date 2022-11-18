@@ -17,20 +17,40 @@ export class BasicAuthenticationService {
   constructor(private http: HttpClient) { }
 
 
-  authenticate(username:string, password:string){
-    //console.log("before " + this.isUserLoggedIn())
-    if(username==="AmyLeon" && password ==="dummy"){
-      //sending details to session storage if login is successful
-      sessionStorage.setItem('authenticatedUser', username);
-      //console.log("after " + this.isUserLoggedIn())
-      return true;
-    }
-    return false;
+
+
+
+
+  //**JWT AUTH
+
+
+  executeJWTAuthenticationService(username:string, password:string) {
+
+    return this.http.post<any>(
+      `${API_URL}/authenticate`,{
+        username,
+        password
+      }).pipe(
+      map(
+        data => {
+          sessionStorage.setItem(AUTHENTICATED_USER, username);
+          sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
+          return data;
+        }
+      )
+    );
+    //console.log("Execute Hello World Bean Service")
   }
 
 
 
+
   executeAuthenticationService(username:string ,password:string){
+
+    //**Important - method logic**
+    //basic auth string
+    //set it as header
+    //pass it into th http call
 
     let basicAuthHeaderString = "Basic " + window.btoa(username + ":" + password);
 
@@ -41,7 +61,7 @@ export class BasicAuthenticationService {
     })
 
     return this.http.get<AuthenticationBean>
-    (`${API_URL}/basicauth`,
+    ("http://localhost:8080/basicauth" ,
       //if this is successful do this as well .pipe()
       {headers}).pipe(
         map(
