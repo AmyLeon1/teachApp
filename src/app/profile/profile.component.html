@@ -1,0 +1,22 @@
+
+<div class="container">
+You can manage your todos <a routerLink="/todoList">here</a>
+</div>
+
+<div class="container">
+  Click here to get a customized welcome message
+  <!-- eventbinding -->
+  <button (click)=getWelcomeMessage() class="btn btn-success">Get Welcome Message</button>
+</div>
+
+<div class="container" *ngIf="welcomeMessageFromService">
+  <h2>Your customized message</h2>
+  <!-- eventbinding -->
+  {{welcomeMessageFromService}}
+</div>
+
+<div class="container">
+  <h3>If you would like to add a post to your profile, please click here</h3>
+  <!-- eventbinding -->
+  <button onclick="location.href='post'" class="btn btn-success">Add Post</button>
+</div>

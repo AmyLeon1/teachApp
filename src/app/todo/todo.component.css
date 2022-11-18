@@ -1,0 +1,5 @@
+
+/*border shown on invalid form elements, not entire form*/
+.ng-invalid:not(form){
+  border-left: 5px solid red;
+}
