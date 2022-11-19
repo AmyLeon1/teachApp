@@ -23,7 +23,14 @@ import {HttpIntercepterBasicAuthService} from "./service/http/http-intercepter-b
 import {HttpClientInterceptor} from "./http-client-interceptor";
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { PostComponent } from './post/post.component';
+import { PostListComponent } from './post-list/post-list.component';
+import { TestComponent } from './test/test.component';
+import { BlogListComponent } from './blog-list/blog-list.component';
+import { BlogComponent } from './blog/blog.component';
+import { PublicProfileListComponent } from './public-profile-list/public-profile-list.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +46,12 @@ import { PostComponent } from './post/post.component';
     ProfileComponent,
     TodoComponent,
     AddPostComponent,
-    PostComponent
+    PostComponent,
+    PostListComponent,
+    TestComponent,
+    BlogListComponent,
+    BlogComponent,
+    PublicProfileListComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +60,8 @@ import { PostComponent } from './post/post.component';
     ReactiveFormsModule,
     HttpClientModule,
     EditorModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    Ng2SearchPipeModule
 
   ],
   providers: [
@@ -56,4 +69,5 @@ import { PostComponent } from './post/post.component';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

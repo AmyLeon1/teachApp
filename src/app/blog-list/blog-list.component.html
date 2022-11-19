@@ -1,0 +1,46 @@
+<p>blog-list works!</p>
+
+
+<div class=""alert alert-success *ngIf="message">{{message}}</div>
+
+<div class="container">
+  <table class="table">
+
+    <!-- specify caption style to stop it going below table
+    <caption style="caption-side: top">TODO: </caption>
+    -->
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th> Description</th>
+      <th>Update</th>
+      <th>Delete</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <!-- *ngFor : as if there is a for loop around the entire <tr> section -->
+    <tr *ngFor="let blog of blogs">
+
+      <td>{{blog.title}}</td>
+      <!-- |date = a pipe, gives it more normal date format
+      turn one value into another format-->
+      <td>{{blog.description}}</td>
+      <td><button (click) = "updateBlog(blog.id)" class="btn btn-success">Update</button></td>
+      <td><button (click) = "deleteBlog(blog.id)" class="btn btn-warning">Delete</button></td>
+
+<!--      <td><button (click) = "updateTodo(todo.id)" class="btn btn-success">Update</button></td>-->
+<!--      <td><button (click) = "deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>-->
+    </tr>
+
+    </tbody>
+
+  </table>
+
+  <div class="row">
+    <button (click) = "addBlog()" class="btn btn-success">Add</button>
+  </div>
+</div>
+

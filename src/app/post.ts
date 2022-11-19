@@ -7,12 +7,18 @@ export class Post{
   // user = new User()
 
 
-  id:number;
-  title:string;
-  body:string;
-  username:string;
+  // id:number;
+  // title:string;
+  // body:string;
+  // email:string;
 
 
-  constructor() {
+
+  constructor(
+    public id: number,
+    public title:string,
+    public body:string,
+    public email:string
+  ) {
   }
 }

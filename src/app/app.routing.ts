@@ -9,8 +9,14 @@ import {LogoutComponent} from "./logout/logout.component";
 import {RouteGuardService} from "./service/route-guard.service";
 import {ProfileComponent} from "./profile/profile.component";
 import {TodoComponent} from "./todo/todo.component";
-import {AddPostComponent} from "./add-post/add-post.component";
+//import {AddPostComponent} from "./add-post/add-post.component";
 import {PostComponent} from "./post/post.component";
+import {PostListComponent} from "./post-list/post-list.component";
+import {TestComponent} from "./test/test.component";
+import {AddPostComponent} from "./add-post/add-post.component";
+import {BlogListComponent} from "./blog-list/blog-list.component";
+import {BlogComponent} from "./blog/blog.component";
+import {PublicProfileListComponent} from "./public-profile-list/public-profile-list.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +29,13 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent, canActivate:[RouteGuardService]},
   {path: 'todo/:id', component: TodoComponent, canActivate:[RouteGuardService]},
   {path: 'add-post', component: AddPostComponent},
-  {path: 'post', component: PostComponent},
+  {path: 'post', component: PostComponent, canActivate:[RouteGuardService]},
+  {path: 'postList', component: PostListComponent},
+  {path: 'test', component: TestComponent},
+  {path: 'blogList', component: BlogListComponent, canActivate:[RouteGuardService]},
+  {path: 'blog/:id', component: BlogComponent, canActivate:[RouteGuardService]},
+  {path: 'publicProfileList', component: PublicProfileListComponent},
+
   //make sure this path is always last
   // otherwise redirect to home
   { path: '**', component: ErrorComponent }

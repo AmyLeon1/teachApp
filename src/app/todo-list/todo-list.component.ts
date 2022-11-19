@@ -24,6 +24,7 @@ export class Todo{
 })
 export class TodoListComponent implements OnInit {
 
+
   message: string
   email = this.service.getAuthenticatedUser();
 

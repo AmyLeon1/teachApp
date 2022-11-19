@@ -1,0 +1,34 @@
+<p>blog works!</p>
+
+<h1>Todo</h1>
+
+
+<div class="container">
+
+  <!--  only show when a field is edited-->
+<!--  <div class="alert alert-warning" *ngIf="blogForm.dirty && blogForm.invalid">Enter valid values</div>-->
+<!--  <div class="alert alert-warning" *ngIf="blogForm.dirty && description.invalid">Enter at least 5 characters</div>-->
+
+
+  <!--  only allow saveTOdo() if form is not invalid-->
+  <form (ngSubmit)="!blogForm.invalid && saveBlog()" #blogForm="ngForm">
+    <fieldset class="form-group">
+      <label for="title">Title</label>
+
+      <!--use banana box so we can load the description -->
+      <!--#description = ngModel = template reference -->
+      <input type="text" [(ngModel)]="blog.title" #title="ngModel" class="form-control" name="title" required="required" minlength="5">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Description</label>
+      <!--use banana box so we can load the description -->
+      <!--#description = ngModel = template reference -->
+      <input type="text" [(ngModel)]="blog.description" #description="ngModel" class="form-control" name="description" required="required" minlength="5">
+    </fieldset>
+
+    <button type ="submit" class="btn btn-success" >Save</button>
+
+  </form>
+</div>
+
