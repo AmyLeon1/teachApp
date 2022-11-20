@@ -13,8 +13,9 @@ import {Post} from "../post";
 export class RegistrationService {
 
   user = new User();
+  //public currentUser:string;
 
-  //dependecy injection
+  //dependency injection
   //allows us to make http calls
   constructor(private http: HttpClient) { }
 
@@ -28,6 +29,18 @@ export class RegistrationService {
 
 
     }
+
+
+
+  // ** METHOD TO CHECK USER ROLE**
+  //retrieve value of role from session storage
+  //want to check if user is a teacher - do not return if role is student
+  isUserTeacher(){
+    let role = sessionStorage.getItem("role")
+    return !(role === "student");
+  }
+
+
 
     //added as string to avoid error in component.ts class
   getAuthenticatedUser(){
