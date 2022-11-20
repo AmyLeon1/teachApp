@@ -52,6 +52,8 @@ export class HardCodedAuthenticationService {
 
   logout(){
     sessionStorage.removeItem("authenticatedUser");
+    sessionStorage.removeItem('role');
+    sessionStorage.removeItem('email');
     sessionStorage.clear();
   }
 }

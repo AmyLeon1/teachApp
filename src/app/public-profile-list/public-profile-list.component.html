@@ -4,6 +4,8 @@
 </div>
 
 <ng-container *ngFor="let user of users">
+<!--  only display users that are registered as teachers-->
+  <div *ngIf="user.role == 'teacher'">
 <div class="profie-container" *ngIf="searchText === '' || user.username.toLowerCase().includes(searchText)">
   <div class="profile-card">
     <div>
@@ -19,6 +21,7 @@
     </div>
   </div>
 </div>
+  </div>
   </ng-container>
 
 

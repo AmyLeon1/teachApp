@@ -31,6 +31,9 @@ import { PublicProfileListComponent } from './public-profile-list/public-profile
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchComponent } from './search/search.component';
 import { PublicProfileComponent } from './public-profile/public-profile.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
+
+
 
 // @ts-ignore
 @NgModule({
@@ -55,7 +58,10 @@ import { PublicProfileComponent } from './public-profile/public-profile.componen
     BlogComponent,
     PublicProfileListComponent,
     SearchComponent,
-    PublicProfileComponent
+    PublicProfileComponent,
+    AddCommentComponent,
+
+
   ],
   imports: [
     BrowserModule,

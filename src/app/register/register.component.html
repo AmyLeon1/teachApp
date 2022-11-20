@@ -47,6 +47,17 @@
       <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is a required field</small>
     </div>
 
+<!--    give radio tags same name to only allow one to be chosen-->
+    <div class="form-group">
+      <label>
+        Are you a student or a teacher? Please choose one:
+      </label>  <br>
+      <input type="radio" id="student" name="role" value="student" [(ngModel)]="user.role" #role="ngModel" required/> Student
+      <br>
+      <input type="radio" id="teacher" name="role" value="teacher" [(ngModel)]="user.role" #role="ngModel" required/> Teacher <br/>
+
+    </div>
+
 
 
 <!--    &lt;!&ndash;        CONFIRM PASSWORD         &ndash;&gt;-->

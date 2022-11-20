@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit{
   password : string = "dummy"
   errorMessage="Invalid Credentials"
   invalidLogin = false
+  currentUserRole:User //currentUserRole to hold the role of logged in user
 
   //create user object
   user = new User();
@@ -98,6 +99,9 @@ export class LoginComponent implements OnInit{
           //TODO: not sure if this is working sessionStorage
           sessionStorage.setItem("authenticatedUser", this.user.email);
           sessionStorage.setItem("username", this.user.username);
+          this.currentUserRole = data;
+          //setting the role of current user into session storage
+          sessionStorage.setItem('role', this.currentUserRole.role)
           this.router.navigate(["profile"]);
           this.invalidLogin=false;},
         error:err => {

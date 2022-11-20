@@ -19,6 +19,8 @@ import {BlogComponent} from "./blog/blog.component";
 import {PublicProfileListComponent} from "./public-profile-list/public-profile-list.component";
 import {SearchComponent} from "./search/search.component";
 import {PublicProfileComponent} from "./public-profile/public-profile.component";
+import {AddCommentComponent} from "./add-comment/add-comment.component";
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,6 +40,7 @@ const routes: Routes = [
   {path: 'blog/:id', component: BlogComponent, canActivate:[RouteGuardService]},
   {path: 'publicProfileList', component: PublicProfileListComponent},
   {path: 'publicProfileList/userProfile/:email', component: PublicProfileComponent},
+  {path: 'publicProfileList/userProfile/:email/comment/:id', component: AddCommentComponent},
   {path: 'search', component: SearchComponent},
 
   //make sure this path is always last

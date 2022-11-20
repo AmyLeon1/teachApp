@@ -6,6 +6,14 @@ import {Todo} from "../todo-list/todo-list.component";
 
 
 
+export class Comment{
+  constructor(
+    public commentId: number,
+    public body:string,
+  ){}
+}
+
+
 export class Blog{
   constructor(
     public id: number,
@@ -63,12 +71,6 @@ export class BlogListComponent implements OnInit {
     //when id is -1 let's assume user is trying to add
     this.router.navigate(['blog', -1])
   }
-
-
-
-
-
-
 
 
 

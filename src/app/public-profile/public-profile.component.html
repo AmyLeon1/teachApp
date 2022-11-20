@@ -60,33 +60,118 @@
 <!--</div>-->
 
 
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1"></div>
+<!--          <form (ngSubmit)="saveComment()" #commentForm="ngForm">-->
+            <form #commentForm="ngForm">
+          <div class="col-md-8">
+            <tr *ngFor="let blog of blogs">
+
+            <h1 class="blog-title">{{blog.title}}</h1>
+            <span>
+                    <p>by {{blog.email}}</p>
+                    <p>Id: {{blog.id}}</p>
+                </span>
+            <hr>
+            <p [innerHTML]="blog.description"></p>
+            <hr>
+
+              <div class="comment-wrapper">
+
+                <div class="profile-buttons">
+                  <a [routerLink]="['comment', blog.id]">View Page</a>
+                        <button class="btn btn-show">View Page</button>
+                </div>
+
+              </div>
 
 
-
-
-
-  <div class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-8">
-          <tr *ngFor="let blog of blogs">
-          <h1 class="blog-title">{{blog.title}}</h1>
-          <span>
-                  <p>by {{blog.email}}</p>
-              </span>
-          <hr>
-          <p [innerHTML]="blog.description"></p>
-          <hr>
+          </div>
+          </form>
         </div>
-      </div>
 
+      </div>
     </div>
-  </div>
+
+
+
+<!--  <form (ngSubmit)="!blogForm.invalid && saveBlog()" #blogForm="ngForm">-->
+<!--    <fieldset class="form-group">-->
+<!--      <label for="title">Title</label>-->
+
+<!--      &lt;!&ndash;use banana box so we can load the description &ndash;&gt;-->
+<!--      &lt;!&ndash;#description = ngModel = template reference &ndash;&gt;-->
+<!--      <input type="text" [(ngModel)]="blog.title" #title="ngModel" class="form-control" name="title" required="required" minlength="5">-->
+<!--    </fieldset>-->
+
+<!--    <fieldset class="form-group">-->
+<!--      <label>Description</label>-->
+<!--      &lt;!&ndash;use banana box so we can load the description &ndash;&gt;-->
+<!--      &lt;!&ndash;#description = ngModel = template reference &ndash;&gt;-->
+<!--      <input type="text" [(ngModel)]="blog.description" #description="ngModel" class="form-control" name="description" required="required" minlength="5">-->
+<!--    </fieldset>-->
+
+<!--    <button type ="submit" class="btn btn-success" >Save</button>-->
+
+<!--  </form>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ********************** THIS IS GOOD VERSION! ******************************-->
+
+<!--  <div class="content">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-1"></div>-->
+<!--        <div class="col-md-8">-->
+<!--          <tr *ngFor="let blog of blogs">-->
+<!--          <h1 class="blog-title">{{blog.title}}</h1>-->
+<!--          <span>-->
+<!--                  <p>by {{blog.email}}</p>-->
+<!--              </span>-->
+<!--          <hr>-->
+<!--          <p [innerHTML]="blog.description"></p>-->
+<!--          <hr>-->
+<!--            <div class="comment-wrapper">-->
+
+<!--&lt;!&ndash;            <div class="comment-wrapper">&ndash;&gt;-->
+<!--              &lt;!&ndash;        <img src="img/smile.PNG" class="icon" alt="">&ndash;&gt;-->
+<!--              <input type="text" class="comment-box" placeholder="Add a comment">-->
+<!--              <button onclick="saveComment()" class="comment-btn">post</button>-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
 
 </div>
-
 </body>
+
+
+<!--class="comment-box"-->
 
 
 <!--<div class="container">-->
