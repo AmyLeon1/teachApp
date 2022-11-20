@@ -17,6 +17,8 @@ import {AddPostComponent} from "./add-post/add-post.component";
 import {BlogListComponent} from "./blog-list/blog-list.component";
 import {BlogComponent} from "./blog/blog.component";
 import {PublicProfileListComponent} from "./public-profile-list/public-profile-list.component";
+import {SearchComponent} from "./search/search.component";
+import {PublicProfileComponent} from "./public-profile/public-profile.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,6 +37,8 @@ const routes: Routes = [
   {path: 'blogList', component: BlogListComponent, canActivate:[RouteGuardService]},
   {path: 'blog/:id', component: BlogComponent, canActivate:[RouteGuardService]},
   {path: 'publicProfileList', component: PublicProfileListComponent},
+  {path: 'publicProfileList/userProfile/:email', component: PublicProfileComponent},
+  {path: 'search', component: SearchComponent},
 
   //make sure this path is always last
   // otherwise redirect to home

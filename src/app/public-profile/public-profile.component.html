@@ -1,0 +1,109 @@
+
+<body>
+<!--only show if api loads user-->
+<div *ngIf="user != undefined">
+<div class="row">
+  <div class="col-12">
+    <div class="text-center">
+      <h1>Hello, I am {{user.username}} </h1>
+
+    </div>
+  </div>
+
+</div>
+
+  <div class="row">
+    <div class="col-5">
+      <img src ="/assets/user-icon.png" alt="user icon" style="width:220px; height:140px;">
+    </div>
+    <div class="col-7">
+      <p>{{user.username}}</p>
+      <p>{{user.email}}</p>
+    </div>
+  </div>
+
+
+
+
+
+
+<!--  <div class="container">-->
+<!--    <table class="table">-->
+
+<!--      &lt;!&ndash; specify caption style to stop it going below table-->
+<!--      <caption style="caption-side: top">TODO: </caption>-->
+<!--      &ndash;&gt;-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th>Title</th>-->
+<!--        <th> Description</th>-->
+<!--        <th>Update</th>-->
+<!--        <th>Delete</th>-->
+
+
+
+<!--      </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      &lt;!&ndash; *ngFor : as if there is a for loop around the entire <tr> section &ndash;&gt;-->
+<!--      <tr *ngFor="let blog of blogs">-->
+
+<!--        <td>{{blog.title}}</td>-->
+<!--        &lt;!&ndash; |date = a pipe, gives it more normal date format-->
+<!--        turn one value into another format&ndash;&gt;-->
+<!--        <td>{{blog.description}}</td>-->
+<!--      </tr>-->
+
+<!--      </tbody>-->
+
+<!--    </table>-->
+<!--</div>-->
+
+
+
+
+
+
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+          <tr *ngFor="let blog of blogs">
+          <h1 class="blog-title">{{blog.title}}</h1>
+          <span>
+                  <p>by {{blog.email}}</p>
+              </span>
+          <hr>
+          <p [innerHTML]="blog.description"></p>
+          <hr>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+
+
+<!--<div class="container">-->
+
+<!--  <div>-->
+
+<!--    <div>-->
+<!--    <img src ="/assets/user-icon.png" alt="user icon" style="width:220px; height:140px;">-->
+<!--    </div>-->
+<!--    <div>Name: </div>-->
+<!--    <div>About me: </div>-->
+
+<!--    <div class ="profile-name"><h4>{{user.username}}</h4></div>-->
+<!--    <div class ="profile-email"><h4>{{user.email}}</h4></div>-->
+
+<!--  </div>-->
+
+
+
+<!--</div>-->

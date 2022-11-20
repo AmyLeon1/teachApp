@@ -29,6 +29,8 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogComponent } from './blog/blog.component';
 import { PublicProfileListComponent } from './public-profile-list/public-profile-list.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchComponent } from './search/search.component';
+import { PublicProfileComponent } from './public-profile/public-profile.component';
 
 // @ts-ignore
 @NgModule({
@@ -51,7 +53,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     TestComponent,
     BlogListComponent,
     BlogComponent,
-    PublicProfileListComponent
+    PublicProfileListComponent,
+    SearchComponent,
+    PublicProfileComponent
   ],
   imports: [
     BrowserModule,

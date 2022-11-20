@@ -15,6 +15,8 @@ export class PublicProfileListComponent implements OnInit {
   users:User[]
   email:string
 
+  chosenEmail:string
+
   constructor(  private todoService:TodoDataService,
                 private router: Router, private service: RegistrationService) { }
 
@@ -40,6 +42,13 @@ export class PublicProfileListComponent implements OnInit {
         this.users=response;
       }
     )
+  }
+
+  searchText:string=''
+
+  onSearchTextEntered(searchValue: string){
+    this.searchText = searchValue;
+    //console.log(this.searchText);
   }
 
   // refreshBlogs(){

@@ -1,0 +1,28 @@
+.profie-container{
+  display: inline-flex;
+}
+.profile-card{
+  width:220px;
+  height:320px;
+  margin:10px;
+  background-color: #F8F9F9;
+}
+.profile-name{
+  text-align: center;
+}
+.profile-email{
+  text-align: center;
+}
+.profile-buttons{
+  display:flex;
+}
+.btn {
+  width: 140px;
+  height: 30px;
+  border: none;
+  margin: 5px 3px;
+}
+
+.btn-show{
+  background-color: #ABEBC6;
+}
