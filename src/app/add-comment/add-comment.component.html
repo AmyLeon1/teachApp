@@ -19,7 +19,7 @@
   </div>
 
 
-  <div class="container">
+  <div class="comment-box">
     <form (ngSubmit)="saveComment(blog.id)" #commentForm="ngForm">
     <p>Leave a comment</p>
     <input type="text" [(ngModel)]="comment.body" #body="ngModel" class="form-control" name="body">
@@ -42,11 +42,9 @@
           <p>{{comment.body}}</p>
 
   </div>
-
-
-
+</div>
+</div>
 
 
 </div>
-<!--</div>-->
 

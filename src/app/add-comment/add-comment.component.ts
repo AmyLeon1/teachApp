@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {BlogDataService} from "../service/data/blog-data-service";
 import {Blog} from "../blog-list/blog-list.component";
 import {Comment} from "../blog-list/blog-list.component";
+import {User} from "../user";
 
 @Component({
   selector: 'app-add-comment',
@@ -13,6 +14,7 @@ export class AddCommentComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private blogService:BlogDataService, private router: Router
   ) { }
+
 
   blog:Blog | undefined
   blogs:Blog[]
@@ -26,11 +28,24 @@ export class AddCommentComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => this.getBlog(params["id"]))
     this.route.params.subscribe(params => this.saveComment(params["id"]))
+    this.route.params.subscribe(params => this.refreshComments(params["id"]))
 
 
     this.comment = new Comment(this.commentId, '');
+    this.refreshComments(this.id);
 
   }
+
+
+  refreshComments(id:any){
+    this.blogService.retrieveAllComments(id).subscribe(
+      response=>{
+        //when response is received assign it to todos
+        this.comments=response;
+      }
+    )
+  }
+
 
 
   saveComment(id:any) {
@@ -43,7 +58,8 @@ export class AddCommentComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data)
-            // this.router.navigate(["blogList"]);
+            //allows for page to be reloaded after submission of comment
+            window.location.reload();
           }
         )
     }
@@ -55,7 +71,9 @@ export class AddCommentComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data);
-            //this.router.navigate(["blogList"]);
+            //allows for page to be reloaded after submission of comment
+            window.location.reload();
+
           }
         )
     }

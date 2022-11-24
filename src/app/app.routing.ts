@@ -20,6 +20,7 @@ import {PublicProfileListComponent} from "./public-profile-list/public-profile-l
 import {SearchComponent} from "./search/search.component";
 import {PublicProfileComponent} from "./public-profile/public-profile.component";
 import {AddCommentComponent} from "./add-comment/add-comment.component";
+import {AppointmentBookingComponent} from "./appointment-booking/appointment-booking.component";
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path: 'publicProfileList', component: PublicProfileListComponent},
   {path: 'publicProfileList/userProfile/:email', component: PublicProfileComponent},
   {path: 'publicProfileList/userProfile/:email/comment/:id', component: AddCommentComponent},
+  {path: 'publicProfileList/userProfile/:email/bookAppointment/:email', component: AppointmentBookingComponent},
   {path: 'search', component: SearchComponent},
 
   //make sure this path is always last

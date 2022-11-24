@@ -38,6 +38,13 @@ export class BlogDataService{
   //   return this.http.get<Comment>(`${API_URL}/users/${email}/blogs/${id}/comments/{cid}`)
   // }
 
+  retrieveAllComments(id: any){
+    //use ticks and not commas for url
+    //ticks did not work ,commas used
+    return this.http.get<Comment[]>(`http://localhost:8080/blogs/${id}/comments`)
+
+  }
+
 
 
 

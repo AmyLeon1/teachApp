@@ -32,7 +32,18 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchComponent } from './search/search.component';
 import { PublicProfileComponent } from './public-profile/public-profile.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
-
+import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatTableModule,
+  MatProgressSpinnerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatToolbarModule,
+} from '@angular/material';
 
 
 // @ts-ignore
@@ -60,7 +71,7 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     SearchComponent,
     PublicProfileComponent,
     AddCommentComponent,
-
+    AppointmentBookingComponent,
 
   ],
   imports: [
@@ -71,7 +82,16 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     HttpClientModule,
     EditorModule,
     NgxWebstorageModule.forRoot(),
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [

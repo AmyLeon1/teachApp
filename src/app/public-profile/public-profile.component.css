@@ -4,3 +4,9 @@ body{
 .row{
   margin-bottom: 100px;
 }
+.booking{
+  margin-bottom: 30px;
+  border-style: ridge;
+  border-radius: 10px;
+
+}
