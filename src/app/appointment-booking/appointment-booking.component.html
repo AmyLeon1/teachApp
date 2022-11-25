@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Title</title>
+</head>
+
+<body>
+
+<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+
+<div class ="container">
+  <p> To reserve a class with {{user.username}} please fill out the form below: </p>
+</div>
+
+
+<div class="form-container">
+  <form (submit)="saveAppointment(user.email)">
+    <mat-form-field>
+      <input [(ngModel)]="appointment.date" name="date" matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Make Appointment</button>
+  </form>
+</div>
+
+
+
+
+<mat-grid-list [cols]="5" gutterSize="20px" rowHeight="70px">
+  <form>
+    <mat-grid-tile>
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <input type="datetime-local" matInput name="dateTime" formControlName="dateTime" placeholder="Please choose a date and time">
+
+    </mat-form-field>
+    </mat-grid-tile>
+  </form>
+</mat-grid-list>
+
+</body>
+</html>
+
+
+
+
+
+
+<!--    <input class="text"-->
+<!--           [(ngModel)]="appointment.date" #body="ngModel"placeholder="Enter date" name="date">-->
+
+<!--    <input class="text"-->
+<!--           [(ngModel)]="appointment.studentEmail" placeholder="Enter student email" name="studentEmail">-->
+
+
+
+
+<!--    <mat-form-field>-->
+<!--      <input [(ngModel)]="name" name="name" matInput placeholder="Name">-->
+<!--    </mat-form-field>-->
+<!--    <mat-form-field>-->
+<!--      <input [(ngModel)]="email" name="email" matInput placeholder="Email" type="email">-->
+<!--    </mat-form-field>-->

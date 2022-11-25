@@ -1,6 +1,7 @@
 export class User {
   //speicify fields similarly to java
   id:number;
+  auth_user_id:number;
   email:string;
   username:string;
   password:string;

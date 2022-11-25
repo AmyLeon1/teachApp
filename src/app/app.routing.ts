@@ -42,7 +42,7 @@ const routes: Routes = [
   {path: 'publicProfileList', component: PublicProfileListComponent},
   {path: 'publicProfileList/userProfile/:email', component: PublicProfileComponent},
   {path: 'publicProfileList/userProfile/:email/comment/:id', component: AddCommentComponent},
-  {path: 'publicProfileList/userProfile/:email/bookAppointment/:email', component: AppointmentBookingComponent},
+  {path: 'publicProfileList/userProfile/:email/bookAppointment', component: AppointmentBookingComponent},
   {path: 'search', component: SearchComponent},
 
   //make sure this path is always last

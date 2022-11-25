@@ -44,6 +44,8 @@ import {
   MatNativeDateModule,
   MatToolbarModule,
 } from '@angular/material';
+import {MatGridListModule} from "@angular/material/grid-list";
+
 
 
 // @ts-ignore
@@ -74,26 +76,27 @@ import {
     AppointmentBookingComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    appRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    EditorModule,
-    NgxWebstorageModule.forRoot(),
-    Ng2SearchPipeModule,
-    MatTableModule,
-    MatProgressSpinnerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatToolbarModule,
-    BrowserAnimationsModule,
+    imports: [
+        BrowserModule,
+        appRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        EditorModule,
+        NgxWebstorageModule.forRoot(),
+        Ng2SearchPipeModule,
+        MatTableModule,
+        MatProgressSpinnerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatToolbarModule,
+        BrowserAnimationsModule,
+        MatGridListModule
 
-  ],
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true}
   ],
