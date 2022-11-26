@@ -45,6 +45,8 @@ import {
   MatToolbarModule,
 } from '@angular/material';
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatIconModule} from "@angular/material/icon";
+import { BookingManagerComponent } from './booking-manager/booking-manager.component';
 
 
 
@@ -74,29 +76,32 @@ import {MatGridListModule} from "@angular/material/grid-list";
     PublicProfileComponent,
     AddCommentComponent,
     AppointmentBookingComponent,
+    BookingManagerComponent,
+
 
   ],
-    imports: [
-        BrowserModule,
-        appRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        EditorModule,
-        NgxWebstorageModule.forRoot(),
-        Ng2SearchPipeModule,
-        MatTableModule,
-        MatProgressSpinnerModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatToolbarModule,
-        BrowserAnimationsModule,
-        MatGridListModule
+  imports: [
+    BrowserModule,
+    appRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    EditorModule,
+    NgxWebstorageModule.forRoot(),
+    Ng2SearchPipeModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatIconModule
 
-    ],
+  ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true}
   ],

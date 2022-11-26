@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+
+</head>
+
+<body>
+
+<div class="container">
+  <table class="table">
+
+    <!-- specify caption style to stop it going below table
+    <caption style="caption-side: top">TODO: </caption>
+    -->
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th> Target Date</th>
+      <th>is Completed</th>
+      <th>Update</th>
+      <th>Delete</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <!-- *ngFor : as if there is a for loop around the entire <tr> section -->
+    <tr *ngFor="let appointment of appointments">
+
+      <td>{{appointment.date | date}}</td>
+      <!-- |date = a pipe, gives it more normal date format
+      turn one value into another format-->
+      <td>{{appointment.appId}}</td>
+      <td>{{appointment.studentEmail}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+
+
+
+</html>

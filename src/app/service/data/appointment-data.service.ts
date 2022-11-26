@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Appointment} from "../../appointment";
 import {User} from "../../user";
 import * as url from "url";
+import {Todo} from "../../todo-list/todo-list.component";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,20 @@ export class AppointmentDataService {
   createAppointment( email:any, appointment: Appointment){
     //pass todo into the body of the request
    return this.http.post(`${API_URL}/users/${email}/appointments`,appointment);
+
+  }
+
+  retrieveAllAppointments(email: any){
+    //use ticks and not commas for url
+    //ticks did not work ,commas used
+    return this.http.get<Appointment[]>(`http://localhost:8080/users/${email}/appointments`)
+
+  }
+
+  retrieveAllStudentAppointments(email: any){
+    //use ticks and not commas for url
+    //ticks did not work ,commas used
+    return this.http.get<Appointment[]>(`http://localhost:8080/users/${email}/appointments/studentEmail`)
 
   }
 

@@ -5,6 +5,7 @@ import {RegistrationService} from "../service/registration.service";
 import {ActivatedRoute} from "@angular/router";
 import {Blog, Comment} from "../blog-list/blog-list.component";
 import {User} from "../user";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-appointment-booking',
@@ -28,11 +29,20 @@ export class AppointmentBookingComponent implements OnInit {
 
     this.appointment = new Appointment(this.id, this.date, this.studentEmail)
 
-  //   this.appointment = new Appointment(this.appId,
-  //     const date = new Date(this.appointment.date)
-  //
-  // );
-  //   this.blog = new Blog(this.id, this.email, '', '');
+    if(this.currentMonth<10){
+      this.FinalMonth= "0"+this.currentMonth;
+    }else{
+      this.FinalMonth=this.currentMonth;
+    }
+
+    if(this.currentDay<10){
+      this.FinalDay= "0"+this.currentDay;
+    }else{
+      this.FinalDay=this.currentDay;
+    }
+
+    this.TodaysDate = this.currentYear + "-" + this.FinalMonth + "-" + this.FinalDay;
+
 
   }
 
@@ -43,13 +53,33 @@ export class AppointmentBookingComponent implements OnInit {
   public msg: string;
   public successMsg: string;
   public errorMsg: string;
-  //date:string
+  date:string
   name: string;
   //email:string
   studentEmail:string
-  date:string
+  // date:Date
   id:number
   auth_user_id:any
+  min:any ="2022-11-26"
+  minDate = new Date(2022, 11)
+  date1=new Date();
+
+  currentYear=this.date1.getUTCFullYear();
+  currentMonth=this.date1.getUTCMonth();
+  currentDay=this.date1.getUTCDate();
+  FinalMonth:any
+  FinalDay:any
+
+  TodaysDate:any
+
+  workedDays =["1", "2"]
+
+
+  myFilter =(d:Date): boolean => {
+    const day = d.getDay();
+    //makes Saturday & Sundays not available to book
+    return day !== 0 && day !== 6
+  }
   //teacherEmail: string
 
 //   //sending comment
@@ -104,23 +134,66 @@ export class AppointmentBookingComponent implements OnInit {
   // }
 
 
+  // //FUNCTIONING METHOD!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // saveAppointment(email:any) {
+  //   this.appId=-1;
+  //   if (this.appId === -1) {
+  //     //setting student email with the current logged-in users email
+  //     this.appointment.studentEmail = this.service.getAuthenticatedUser();
+  //     //this.appointment.date= new Date(this.appointment.date).toDateString();
+  //
+  //     //passing in email, blogID, and the comment
+  //     this.appService.createAppointment( email, this.appointment)
+  //       .subscribe(
+  //         data => {
+  //           console.log("in create appointment data section")
+  //           console.log(data)
+  //           this.successMsg = `Appointment successfully for booked for ${this.appointment.date}`;
+  //         },
+  //
+  //       )
+  //   }
+  //   else {
+  //     //call blogseviced
+  //     this.appService.updateAppointment( email, this.appId, this.appointment)
+  //       //subscribe to make the call
+  //       //returns content of updated blog
+  //       .subscribe(
+  //         data => {
+  //           console.log(data);
+  //           //allows for page to be reloaded after submission of comment
+  //           window.location.reload();
+  //
+  //         }
+  //       )
+  //   }
+  // }
 
-  saveAppointment(email:any) {
+
+
+
+  // *** REGISTER USER ***
+  saveAppointment(email:any){
     this.appId=-1;
     if (this.appId === -1) {
-      //setting student email with the current logged-in users email
       this.appointment.studentEmail = this.service.getAuthenticatedUser();
-      //this.appointment.date= new Date(this.appointment.date).toDateString();
+      this.appService.createAppointment(email, this.appointment)
+        .subscribe({
+            next: data => {
 
-      //passing in email, blogID, and the comment
-      this.appService.createAppointment( email, this.appointment)
-        .subscribe(
-          data => {
-            console.log("in create appointment data section")
-            console.log(data)
-            this.successMsg = `Appointment successfully for booked for ${this.appointment.date}`;
+              console.log("in create appointment data section")
+              console.log(data)
+              this.successMsg = `Appointment successfully for booked for ${this.appointment.date}`;
+
+
+            },
+
+            error: err => {
+              console.log("error occured"),
+                this.errorMsg = "There are no classes available, please select another date/time"
+            }
           }
-        )
+        );
     }
     else {
       //call blogseviced

@@ -12,6 +12,8 @@
 
       <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/profile" class="nav-link">My
         Account</a></li>
+      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/manageBooking" class="nav-link">My
+        Bookings</a></li>
       <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/blogList" class="nav-link">My
         Blog Posts</a></li>
     </ul>

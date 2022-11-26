@@ -12,36 +12,55 @@
 <div class ="container">
   <p> To reserve a class with {{user.username}} please fill out the form below: </p>
 </div>
-
-
-<div class="form-container">
+<div class="container">
   <form (submit)="saveAppointment(user.email)">
-    <mat-form-field>
-      <input [(ngModel)]="appointment.date" name="date" matInput [matDatepicker]="picker" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
+    <label for="date">Choose a date:</label>
+    <input type="date" [(ngModel)] = "appointment.date" [value]="TodaysDate"   [min]="TodaysDate" name="date" step="0">
+    <br><br>
     <button mat-raised-button color="primary">Make Appointment</button>
   </form>
+
 </div>
-
-
-
-
-<mat-grid-list [cols]="5" gutterSize="20px" rowHeight="70px">
-  <form>
-    <mat-grid-tile>
-    <mat-form-field appearance="outline" floatLabel="auto">
-      <input type="datetime-local" matInput name="dateTime" formControlName="dateTime" placeholder="Please choose a date and time">
-
-    </mat-form-field>
-    </mat-grid-tile>
-  </form>
-</mat-grid-list>
-
 </body>
 </html>
+
+
+
+
+
+
+
+<!--<div class="form-container">-->
+<!--  <form (submit)="saveAppointment(user.email)">-->
+<!--    <mat-form-field>-->
+<!--      <input [(ngModel)]="appointment.date"  matInput [matDatepicker]="picker" [value]="TodaysDate" [min]="TodaysDate" name="date "placeholder="{{TodaysDate}}">-->
+<!--      <mat-datepicker-toggle matSuffix [for]="picker">-->
+
+<!--      </mat-datepicker-toggle>-->
+
+<!--      <mat-datepicker #picker></mat-datepicker>-->
+<!--    </mat-form-field>-->
+
+
+
+<!--    <button mat-raised-button color="primary">Make Appointment</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+
+
+
+
+<!--<mat-grid-list [cols]="5" gutterSize="20px" rowHeight="70px">-->
+<!--  <form>-->
+<!--    <mat-grid-tile>-->
+<!--      <mat-form-field appearance="outline" floatLabel="auto">-->
+<!--        <input type="datetime-local" matInput name="dateTime" formControlName="dateTime" placeholder="Please choose a date and time">-->
+
+<!--      </mat-form-field>-->
+<!--    </mat-grid-tile>-->
+<!--  </form>-->
+<!--</mat-grid-list>-->
 
 
 

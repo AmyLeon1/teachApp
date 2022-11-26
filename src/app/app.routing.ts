@@ -21,6 +21,7 @@ import {SearchComponent} from "./search/search.component";
 import {PublicProfileComponent} from "./public-profile/public-profile.component";
 import {AddCommentComponent} from "./add-comment/add-comment.component";
 import {AppointmentBookingComponent} from "./appointment-booking/appointment-booking.component";
+import {BookingManagerComponent} from "./booking-manager/booking-manager.component";
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path: 'publicProfileList/userProfile/:email', component: PublicProfileComponent},
   {path: 'publicProfileList/userProfile/:email/comment/:id', component: AddCommentComponent},
   {path: 'publicProfileList/userProfile/:email/bookAppointment', component: AppointmentBookingComponent},
+  {path: 'manageBooking', component: BookingManagerComponent},
   {path: 'search', component: SearchComponent},
 
   //make sure this path is always last
