@@ -47,6 +47,10 @@ import {
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatIconModule} from "@angular/material/icon";
 import { BookingManagerComponent } from './booking-manager/booking-manager.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { AppointmentBookingTimesComponent } from './appointment-booking-times/appointment-booking-times.component';
+import { AppointmentBookingDateConfirmComponent } from './appointment-booking-date-confirm/appointment-booking-date-confirm.component';
+import { AppointmentBookingTimeComponent } from './appointment-booking-time/appointment-booking-time.component';
 
 
 
@@ -77,6 +81,10 @@ import { BookingManagerComponent } from './booking-manager/booking-manager.compo
     AddCommentComponent,
     AppointmentBookingComponent,
     BookingManagerComponent,
+    ScheduleComponent,
+    AppointmentBookingTimesComponent,
+    AppointmentBookingDateConfirmComponent,
+    AppointmentBookingTimeComponent,
 
 
   ],
@@ -99,7 +107,8 @@ import { BookingManagerComponent } from './booking-manager/booking-manager.compo
     MatToolbarModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    MatIconModule
+    MatIconModule,
+
 
   ],
   providers: [

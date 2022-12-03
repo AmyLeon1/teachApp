@@ -4,13 +4,15 @@ export class Appointment{
   appId:number
   date: any;
   studentEmail: any;
-  user:User
+  time:any
+  email:any
 
 
 
-  constructor(appId:number,
+  constructor(
+    appId:any,
   date:any,
-  studentEmail:string,
+  studentEmail:any, time:any, email:any
 
 ) {
   }
