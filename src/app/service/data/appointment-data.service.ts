@@ -41,7 +41,7 @@ export class AppointmentDataService {
   //createAppointment(user:User, appointment: Appointment)
   createAppointment(email: any, appointment: Appointment) {
     //pass todo into the body of the request
-    return this.http.post(`${API_URL}/users/${email}/appointments2`, appointment);
+    return this.http.post(`${API_URL}/users/${email}/appointments4`, appointment);
 
   }
 

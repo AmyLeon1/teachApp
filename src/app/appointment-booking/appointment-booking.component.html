@@ -41,7 +41,7 @@
   <form (ngSubmit)="saveAppointment(user.email)" #timeForm="ngForm">
   <ng-container *ngFor="let availableTimes of availableTimes">
 
-    <p> <label> <input type="radio"  name="timeapp" value="{{availableTimes.time}}" [(ngModel)]="time" #time="ngModel"> {{availableTimes.time}}</label></p>
+    <p> <label> <input type="radio"  name="timeapp" value="{{availableTimes.time}}" [(ngModel)]="time" > {{availableTimes.time}}</label></p>
 <!--   <p>{{availableTimes.time}}</p>-->
 
 </ng-container>

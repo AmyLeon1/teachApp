@@ -10,9 +10,9 @@ export class Appointment{
 
 
   constructor(
-    appId:any,
-  date:any,
-  studentEmail:any, time:any, email:any
+  //   appId:any,
+  // date:any,
+  // studentEmail:any, time:any, email:any
 
 ) {
   }

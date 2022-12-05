@@ -1,0 +1,34 @@
+nav{
+  display:flex;
+  background-color: #fff;
+}
+
+header{
+  /*color: #9CAF88;*/
+  /*color:blue;*/
+  background-color: #fff;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 64px;
+  font-size: 16px;
+  position: relative;
+}
+
+/*for the brand name in navbar*/
+.navbar-brand{
+  color: lightpink;
+}
+
+/* for text in the nav bar*/
+.nav-link{
+  color: #9CAF88
+}
+/* when hovering over nav list option */
+.nav-link.active,
+.nav-link:hover{
+  color: darkolivegreen;
+}
+
+

@@ -1,10 +1,11 @@
 <!--TODO: Use router links to webpages instead of a href -->
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<!--  navbar-expand-md navbar-dark bg-dark-->
+  <nav class="navbar navbar-expand-md">
     <div><a href="" class="navbar-brand">TeachIT</a></div>
 
     <ul class="navbar-nav">
-      <li><a routerLink="/publicProfileList" class="nav-link">Teachers</a></li>
+
       <!--only show todos if user is logged in -->
 
       <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/todoList" class="nav-link">Todos</a>
@@ -16,11 +17,13 @@
         Bookings</a></li>
       <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/blogList" class="nav-link">My
         Blog Posts</a></li>
+      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/schedule" class="nav-link">Manage Schedule</a></li>
     </ul>
 
 
     <!-- bootstrap feature to allow it appear in right hand corner-->
     <ul class="navbar-nav navbar-collapse justify-content-end">
+      <li><a routerLink="/publicProfileList" class="nav-link">View our teachers</a></li>
       <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/register" class="nav-link">Register</a>
       </li>
       <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/login" class="nav-link">Login</a>

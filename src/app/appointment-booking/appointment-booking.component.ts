@@ -17,7 +17,49 @@ import {AppDate} from "../AppDate";
 })
 export class AppointmentBookingComponent implements OnInit {
 
+
+  user:User
+  appointment: Appointment
+  availableDateObj:availableDate
+  appDate: AppDate
+  foundDate:AppDate | undefined
+  foundId:any
+  time:any =""
+
+
+
+
+  availableTimes: availableTime[]
+  createdAppointment:Appointment
+  appId:number
+  public msg: string;
+  public successMsg: string;
+  public errorMsg: string;
+  date:string
+  name: string;
+  email:any
+  //email:string
+  studentEmail = ""
+
+  // date:Date
+  id:number
+  dateTest:any
+  auth_user_id:any
+  min:any ="2022-11-26"
+  minDate = new Date(2022, 11)
+  date1=new Date();
+
+  currentYear=this.date1.getUTCFullYear();
+  currentMonth=this.date1.getUTCMonth();
+  currentDay=this.date1.getUTCDate();
+  FinalMonth:any
+  FinalDay:any
+
+  TodaysDate:any
+
   constructor(private appService: AppointmentDataService, private service: RegistrationService, private route: ActivatedRoute, private router: Router) {
+  this.appointment=new Appointment()
+
   }
 
 
@@ -29,10 +71,14 @@ export class AppointmentBookingComponent implements OnInit {
     this.route.params.subscribe(params => this.getDate(params["email"]))
     this.route.params.subscribe(params => this.getDate1(params["email"]))
     this.getAllTimesForDate()
+    this.appointment=new Appointment()
+    this.appointment.studentEmail=this.service.getAuthenticatedUser();
+    this.appointment.date=this.date;
+
 
 
    // this.appointment = new Appointment(this.id, this.date, this.time, this.studentEmail)
-    this.appointment = new Appointment(this.appId, this.date,this.studentEmail,this.time, this.email)
+   // this.appointment = new Appointment(this.appId, this.date,this.studentEmail,this.time, this.email)
 
 
 
@@ -53,41 +99,10 @@ export class AppointmentBookingComponent implements OnInit {
 
   }
 
-  user:User
-  appointment: Appointment
-  availableDateObj:availableDate
-  appDate: AppDate
-  foundDate:AppDate | undefined
-  foundId:any
-  time:any =""
 
-  availableTimes: availableTime[]
-  createdAppointment:Appointment
-  appId:number
-  public msg: string;
-  public successMsg: string;
-  public errorMsg: string;
-  date:string
-  name: string;
-  email:any
-  //email:string
-  studentEmail = this.service.getAuthenticatedUser();
 
-  // date:Date
-  id:number
-  dateTest:any
-  auth_user_id:any
-  min:any ="2022-11-26"
-  minDate = new Date(2022, 11)
-  date1=new Date();
 
-  currentYear=this.date1.getUTCFullYear();
-  currentMonth=this.date1.getUTCMonth();
-  currentDay=this.date1.getUTCDate();
-  FinalMonth:any
-  FinalDay:any
 
-  TodaysDate:any
 
   workedDays =["1", "2"]
 
@@ -142,7 +157,7 @@ export class AppointmentBookingComponent implements OnInit {
   // }
 
   // *** REGISTER USER ***
-  // saveAppointment(email:any){
+  // saveAppointment1(email:any){
   //
   //
   //   this.appService.createAppointment(email, this.appointment )
@@ -157,13 +172,40 @@ export class AppointmentBookingComponent implements OnInit {
   //     );
   // }
 
+  saveAppointment(email:any){
+    this.appId=-1;
+    if(this.appId === -1){
+      this.appointment.studentEmail = this.service.getAuthenticatedUser();
+      this.appointment.date = this.date
+      this.appointment.time = this.time
+      this.appointment.email = email;
+      this.appService.createAppointment( email, this.appointment)
+        .subscribe({
+          next:data=>{
+            console.log("In data section of save method")
+            this.successMsg = `Appointment successfully for booked for ${this.appointment.date}`;
+          },
+          error:err => {
+            console.log("error occured")
+          }
+
+        }
+        )
+    }
+  }
+
 
   // //FUNCTIONING METHOD!!!!!!!!!!!!!!!!!!!!!!!!!!
-  saveAppointment(email:any) {
+  saveAppointment1(email:any) {
     this.appId=-1;
     if (this.appId === -1) {
-      //setting student email with the current logged-in users email
       this.appointment.studentEmail = this.service.getAuthenticatedUser();
+      this.appointment.date = this.date
+      this.appointment.time = this.time
+      this.appointment.email = email;
+      console.log("Printing student email;" , this.appointment.studentEmail)
+      //setting student email with the current logged-in users email
+      //this.appointment.studentEmail = this.service.getAuthenticatedUser();
       //this.appointment.date= new Date(this.appointment.date).toDateString();
 
       //passing in email, blogID, and the comment
@@ -178,7 +220,6 @@ export class AppointmentBookingComponent implements OnInit {
         )
     }
     else {
-      //call blogseviced
       this.appService.updateAppointment( email, this.appId, this.appointment)
         //subscribe to make the call
         //returns content of updated blog
