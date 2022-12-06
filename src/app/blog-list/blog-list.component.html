@@ -1,5 +1,53 @@
-<p>blog-list works!</p>
+<!DOCTYPE html>
+<html>
 
+<head>
+
+</head>
+<body>
+
+<div class="top-bar">
+</div>
+
+<div class="wrapper">
+  <!--  put top menu here-->
+  <div class="sidebar">
+    <span class="logo-span"><a href="" class="logo">TeachIT</a></span>
+    <ul>
+      <li>
+        <a routerLink="/profile">
+          <!--          <span class="icon"><i class="fas fa-user-shield"></i></span>-->
+          <span class="item">MyAccount</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="regService.isUserTeacher();" routerLink="/todoList" class="todos">
+          <span>Todos</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/manageBooking"  class="bookings">
+          <span> My Bookings</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="regService.isUserTeacher();" routerLink="/blogList" class="active">
+          <span> My Blog Posts</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="regService.isUserTeacher();" routerLink="/schedule" class="schedule">
+          <span> Manage Schedule</span>
+        </a>
+      </li>
+      <li>
+        <a  routerLink="/logout" class="logout">
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <div class=""alert alert-success *ngIf="message">{{message}}</div>
 
@@ -12,8 +60,8 @@
     <thead>
     <tr>
       <th>Title</th>
-      <th> Description</th>
-      <th>Update</th>
+      <th> Content</th>
+      <th>Edit</th>
       <th>Delete</th>
 
 
@@ -28,7 +76,7 @@
       <!-- |date = a pipe, gives it more normal date format
       turn one value into another format-->
       <td>{{blog.description}}</td>
-      <td><button (click) = "updateBlog(blog.id)" class="btn btn-success">Update</button></td>
+      <td><button (click) = "updateBlog(blog.id)" class="btn btn-success">Edit</button></td>
       <td><button (click) = "deleteBlog(blog.id)" class="btn btn-warning">Delete</button></td>
 
 <!--      <td><button (click) = "updateTodo(todo.id)" class="btn btn-success">Update</button></td>-->
@@ -43,4 +91,5 @@
     <button (click) = "addBlog()" class="btn btn-success">Add</button>
   </div>
 </div>
-
+</body>
+</html>

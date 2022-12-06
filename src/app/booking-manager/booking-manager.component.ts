@@ -17,7 +17,7 @@ export class BookingManagerComponent implements OnInit {
   email = this.regService.getAuthenticatedUser();
   studentEmail= this.regService.getAuthenticatedUser();
 
-  constructor(private appService: AppointmentDataService, private http:HttpClient, private regService: RegistrationService,
+  constructor(private appService: AppointmentDataService, private http:HttpClient, public regService: RegistrationService,
               private route:ActivatedRoute) { }
 
   ngOnInit(): void {

@@ -34,7 +34,7 @@ export class BlogListComponent implements OnInit {
   email = this.regService.getAuthenticatedUser();
   blogs: Blog[]
 
-  constructor( private router: Router, private regService: RegistrationService, private blogService: BlogDataService) { }
+  constructor( private router: Router, public regService: RegistrationService, private blogService: BlogDataService) { }
 
   ngOnInit(): void {
     this.refreshBlogs();

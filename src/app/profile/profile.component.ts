@@ -14,15 +14,14 @@ import {User} from "../user";
 export class ProfileComponent implements OnInit {
 
   message = "Welcome to your account"
-  welcomeMessageFromService:string = ""
+
   name: string = ''
   user: User
   //email = this.user.email //this.regService.getAuthenticatedUser();
   blogs: Blog[]
 
 
-  constructor(private regService: RegistrationService, private service: WelcomeDataService
-              //private blogService: BlogDataService
+  constructor(public regService: RegistrationService
   ) {
 
   }
@@ -44,32 +43,9 @@ export class ProfileComponent implements OnInit {
 
 
 
-  getWelcomeMessage() {
 
-    this.service.executeHelloWorldBeanService().subscribe(
-      {
-        next: response =>this.handleSuccessfulResponse(response),
-        error: error => this.handleErrorResponse(error)
-      });
 
-    // this.service.executeHelloWorldBeanService().subscribe(
-    //   //arrow function
-    //   response => this.handleSuccessfulResponse(response),
-    //   error=>this.handleErrorResponse(error)
-    // );
-  }
 
-  handleSuccessfulResponse(response: HelloWorldBean){
-    this.welcomeMessageFromService = response.message;
-  }
 
-  handleErrorResponse(error:any){
-    this.welcomeMessageFromService = error.message;
-  }
-
-  // handleErrorResponse(error: { error: { message: string; }; })
-  // {
-  //   this.welcomeMessageFromService = error.error.message;
-  // }
 
 }

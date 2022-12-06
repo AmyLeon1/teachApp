@@ -1,36 +1,71 @@
 <html>
 <head>
-
+  <meta charset="utf-8" name="viewport"
+        content= "width=device-width, initial-scale=1.0">
 </head>
 <body>
-<meta charset="utf-8" name="viewport"
-      content= "width=device-width, initial-scale=1.0">
-<div class="container">
-You can manage your todos <a routerLink="/todoList">here</a>
+
+<div class="top-bar">
+
 </div>
 
-<div class="container">
-  Click here to get a customized welcome message
-  <!-- eventbinding -->
-  <button (click)=getWelcomeMessage() class="btn btn-success">Get Welcome Message</button>
+<div class="wrapper">
+  <!--  put top menu here-->
+  <div class="sidebar">
+    <span class="logo-span"><a href="" class="logo">TeachIT</a></span>
+    <ul>
+      <li>
+        <a routerLink="/profile" class="active">
+<!--          <span class="icon"><i class="fas fa-user-shield"></i></span>-->
+          <span class="item">MyAccount</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="regService.isUserTeacher();" routerLink="/todoList" class="todos">
+          <span>Todos</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/manageBooking" class="bookings">
+         <span> My Bookings</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="regService.isUserTeacher();" routerLink="/blogList" class="blogs">
+         <span> My Blog Posts</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="regService.isUserTeacher();" routerLink="/schedule" class="schedule">
+         <span> Manage Schedule</span>
+        </a>
+      </li>
+      <li>
+        <a  routerLink="/logout" class="logout">
+         <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
+<!--<header>-->
+<!-- <app-menu></app-menu>-->
+<!--</header>-->
 
-<div class="container">
-  <h2> It's good to see you again! </h2>
-  <!-- eventbinding -->
-  <button (click)=getWelcomeMessage() class="btn btn-success">Get Welcome Message</button>
-</div>
+<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;You can manage your todos <a routerLink="/todoList">here</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-<div class="container" *ngIf="welcomeMessageFromService">
-  <h2>Your customized message</h2>
-  <!-- eventbinding -->
-  {{welcomeMessageFromService}}
-</div>
+<!--<div class="container">-->
+<!--  <h2> It's good to see you again! </h2>-->
 
-<div class="container">
-  <h3>If you would like to add a post to your profile, please click here</h3>
-  <!-- eventbinding -->
-  <button onclick="location.href='post'" class="btn btn-success">Add Post</button>
-</div>
+<!--</div>-->
+
+
+<!--<div class="container">-->
+<!--  <h3>If you would like to add a post to your profile, please click here</h3>-->
+<!--  &lt;!&ndash; eventbinding &ndash;&gt;-->
+<!--  <button onclick="location.href='post'" class="btn btn-success">Add Post</button>-->
+<!--</div>-->
 </body>
 </html>
