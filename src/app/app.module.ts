@@ -34,16 +34,16 @@ import { PublicProfileComponent } from './public-profile/public-profile.componen
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatTableModule,
-  MatProgressSpinnerModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatButtonModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatToolbarModule,
-} from '@angular/material';
+// import {
+//   MatTableModule,
+//   MatProgressSpinnerModule,
+//   MatFormFieldModule,
+//   MatInputModule,
+//   MatButtonModule,
+//   MatDatepickerModule,
+//   MatNativeDateModule,
+//   MatToolbarModule,
+// } from '@angular/material';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatIconModule} from "@angular/material/icon";
 import { BookingManagerComponent } from './booking-manager/booking-manager.component';
@@ -51,6 +51,10 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { AppointmentBookingTimesComponent } from './appointment-booking-times/appointment-booking-times.component';
 import { AppointmentBookingDateConfirmComponent } from './appointment-booking-date-confirm/appointment-booking-date-confirm.component';
 import { AppointmentBookingTimeComponent } from './appointment-booking-time/appointment-booking-time.component';
+import { MatDialogModule} from "@angular/material/dialog";
+
+
+
 
 
 
@@ -97,14 +101,14 @@ import { AppointmentBookingTimeComponent } from './appointment-booking-time/appo
     EditorModule,
     NgxWebstorageModule.forRoot(),
     Ng2SearchPipeModule,
-    MatTableModule,
-    MatProgressSpinnerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatToolbarModule,
+    // MatTableModule,
+    // MatProgressSpinnerModule,
+    // MatFormFieldModule,
+    // MatInputModule,
+    // MatButtonModule,
+    // MatDatepickerModule,
+    // MatNativeDateModule,
+    // MatToolbarModule,
     BrowserAnimationsModule,
     MatGridListModule,
     MatIconModule,

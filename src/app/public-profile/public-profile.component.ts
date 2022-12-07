@@ -14,7 +14,7 @@ import {Comment} from "../blog-list/blog-list.component";
 })
 export class PublicProfileComponent implements OnInit {
 
-  constructor(private service: RegistrationService, private route:ActivatedRoute,private blogService:BlogDataService, private router: Router ) { }
+  constructor(public service: RegistrationService, private route:ActivatedRoute,private blogService:BlogDataService, private router: Router ) { }
 
   user: User | undefined;
 

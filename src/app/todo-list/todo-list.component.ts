@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {TodoDataService} from "../service/data/todo-data.service";
 import {Router} from "@angular/router";
 import {RegistrationService} from "../service/registration.service";
+import{MatDialog} from '@angular/material/dialog';
+import {TodoComponent} from "../todo/todo.component";
+// import '~bootstrap/dist/css/bootstrap.min.css';
 
 //class for to dos
 export class Todo{
@@ -50,11 +53,15 @@ export class TodoListComponent implements OnInit {
   //dependency injection
   constructor(
     private todoService:TodoDataService,
-    private router: Router, private service: RegistrationService) { }
+    private router: Router, public service: RegistrationService, private dialogRef:MatDialog) { }
 
   //initialise todos
   ngOnInit(): void {
    this.refreshTodos();
+  }
+
+  openDialog(){
+    this.dialogRef.open(TodoComponent);
   }
 
 
@@ -93,3 +100,5 @@ export class TodoListComponent implements OnInit {
   }
 
 }
+
+
