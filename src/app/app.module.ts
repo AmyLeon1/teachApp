@@ -52,6 +52,7 @@ import { AppointmentBookingTimesComponent } from './appointment-booking-times/ap
 import { AppointmentBookingDateConfirmComponent } from './appointment-booking-date-confirm/appointment-booking-date-confirm.component';
 import { AppointmentBookingTimeComponent } from './appointment-booking-time/appointment-booking-time.component';
 import { MatDialogModule} from "@angular/material/dialog";
+import {DatePipe} from "@angular/common";
 
 
 
@@ -116,7 +117,8 @@ import { MatDialogModule} from "@angular/material/dialog";
 
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi:true},
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

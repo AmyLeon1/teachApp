@@ -1,13 +1,19 @@
 *{
   list-style: none;
   text-decoration: none;
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
-html{
-  min-height:100vh;
+app-root{
+  background: #f5f6fa;
+}
+html {
+  min-height: 100vh;
+
+
 }
 .container h1{
   /*text-shadow: 2px 2px #adadad;*/
@@ -16,6 +22,7 @@ html{
 }
 body{
   /*background: #f5f6fa;*/
+  /*background: white;*/
   background: white;
   height:100vh;
   margin:100px;

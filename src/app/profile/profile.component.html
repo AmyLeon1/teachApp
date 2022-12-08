@@ -3,7 +3,7 @@
   <meta charset="utf-8" name="viewport"
         content= "width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body ng-app>
 
 <div class="top-bar">
 
@@ -67,5 +67,43 @@
 <!--  &lt;!&ndash; eventbinding &ndash;&gt;-->
 <!--  <button onclick="location.href='post'" class="btn btn-success">Add Post</button>-->
 <!--</div>-->
+
+<section>
+  <form class="searchForm" (ngSubmit)=" wordSearch()" #date1Form="ngForm">
+    <h1>Dictionary</h1>
+    <input type="search" name="searchBox" id="searchBox">
+<!--    <input type="button" name="submit" value="submit" onclick="wordSearch()">-->
+    <button id="btn">Search</button>
+<!--    <input type="reset" value="reset" onclick="reloadPage()">-->
+<!--    <form class="reloadForm" (ngSubmit)=" reloadPage()" #date1Form="ngForm">-->
+<!--&lt;!&ndash;      <button id="refresh-btn">Clear</button>&ndash;&gt;-->
+<!--    </form>-->
+    <button id="refresh-btn" (click)="reloadPage()">Clear</button>
+  </form>
+  <div class="searchResult" id="searchResult">
+    <div>
+      <h1>Word</h1>
+      <p id="word"></p>
+    </div>
+    <div>
+      <h1>Definition</h1>
+      <p id="definition"></p>
+    </div>
+    <div>
+      <h1>Example</h1>
+      <p id="example"></p>
+    </div>
+    <div>
+      <h1>How To Spell?</h1>
+      <p id="spell"></p>
+    </div>
+  </div>
+</section>
+
+<div class="word-of-day">
+  <h3>Word of the day</h3>
+  <p id="wod"></p>
+</div>
+
 </body>
 </html>
