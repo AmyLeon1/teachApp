@@ -1,29 +1,43 @@
 <!--&lt;!&ndash;<p>public-profile works!</p>&ndash;&gt;-->
-<div>
-  <app-search (searchTextChanged)="onSearchTextEntered($event)" ></app-search>
+
+<html>
+<body>
+
+<div class="top-bar">
+  <div class="logo-span"><a href="" class="logo">TeachIT</a></div>
+
+  <div class="search">
+    <app-search (searchTextChanged)="onSearchTextEntered($event)" ></app-search>
+  </div>
 </div>
 
+<div class="container">
+<!--<div class="search">-->
+<!--  <app-search (searchTextChanged)="onSearchTextEntered($event)" ></app-search>-->
+<!--</div>-->
+
 <ng-container *ngFor="let user of users">
-<!--  only display users that are registered as teachers-->
-  <div *ngIf="user.role == 'teacher'">
-<div class="profie-container" *ngIf="searchText === '' || user.username.toLowerCase().includes(searchText)">
+<!--  only display users that are registered as teachers--><div *ngIf="user.role == 'teacher'">
+<div class="profile-container" *ngIf="searchText === '' || user.username.toLowerCase().includes(searchText)">
   <div class="profile-card">
     <div>
 <!--      <img src="user-icon.png" alt="user icon" width="200" height="200">-->
-      <img src ="/assets/user-icon.png" alt="user icon" style="width:220px; height:140px;">
+      <img src ="/assets/user-icon.png" alt="user icon" id="image" style="width:220px; height:140px;">
     </div>
     <div class ="profile-name"><h4>{{user.username}}</h4></div>
     <div class ="profile-email"><h4>{{user.email}}</h4></div>
 
     <div class="profile-buttons">
       <a [routerLink]="['userProfile', user.email]">View Page</a>
-<!--      <button class="btn btn-show">View Page</button>-->
+
     </div>
   </div>
 </div>
   </div>
   </ng-container>
-
+</div>
+</body>
+</html>
 
 
 

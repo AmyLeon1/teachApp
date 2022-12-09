@@ -23,13 +23,14 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+
 html{
   min-height:100vh;
+
 }
 
-
 body{
-  background: white;
+
   height:100vh;
   margin:100px;
   padding:0;

@@ -1,11 +1,57 @@
-.profie-container{
-  display: inline-flex;
+*{
+  text-decoration: none;
+}
+.container{
+  margin-top:100px;
+}
+.top-bar{
+  background: rgb(5, 68, 104);
+  width: 90%;
+  height: 69px;
+  line-height: 80%;
+  width:108%;
+
+  overflow: hidden;
+  position: fixed;
+  top:0;
+  left:0;
+}
+.search-container{
+
+  padding-bottom:10px;
+  margin-bottom:700px;
+  margin-top: 0;
+  margin-left:100px;
+
+
+}
+.logo{
+  width:100px;
+  display: block;
+  padding: 10px 30px;
+
+  color: rgb(241, 237, 237);
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+}
+.logo-span{
+  width:150px;
+}
+.profile-container{
+  /*display: inline-flex;*/
+  display:inline-block;
+  float:left;
 }
 .profile-card{
   width:220px;
   height:320px;
   margin:10px;
   background-color: #F8F9F9;
+}
+#image{
+  border-radius: 100%;
+  border-style: solid;
 }
 .profile-name{
   text-align: center;
@@ -14,7 +60,9 @@
   text-align: center;
 }
 .profile-buttons{
-  display:flex;
+
+  text-align: center;
+  align-items: center;
 }
 .btn {
   width: 140px;
@@ -23,8 +71,15 @@
   margin: 5px 3px;
 }
 
-.btn-show{
+.btn-show {
+
+  align-items: center;
+  text-align: center;
   background-color: #ABEBC6;
+  color:white;
+}
+a{
+  color:#9c9c9c;
 }
 .blogs{
 
