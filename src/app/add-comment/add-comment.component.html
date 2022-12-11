@@ -1,3 +1,52 @@
+<html>
+<body>
+
+<div class="top-bar">
+</div>
+
+<div class="wrapper">
+  <!--  put top menu here-->
+  <div class="sidebar">
+    <span class="logo-span"><a href="" class="logo">TeachIT</a></span>
+    <ul>
+      <li>
+        <a routerLink="/profile">
+          <!--          <span class="icon"><i class="fas fa-user-shield"></i></span>-->
+          <span class="item">MyAccount</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="service.isUserTeacher();" routerLink="/todoList" class="todos">
+          <span>Todos</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/manageBooking"  class="bookings">
+          <span> My Bookings</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="service.isUserTeacher();" routerLink="/blogList" class="active">
+          <span> My Blog Posts</span>
+        </a>
+      </li>
+      <li>
+        <a *ngIf="service.isUserTeacher();" routerLink="/schedule" class="schedule">
+          <span> Manage Schedule</span>
+        </a>
+      </li>
+      <li>
+        <a  routerLink="/logout" class="logout">
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+
 
 <div class="content">
   <div class="container">
@@ -48,3 +97,5 @@
 
 </div>
 
+</body>
+</html>

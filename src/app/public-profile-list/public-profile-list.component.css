@@ -15,17 +15,29 @@
   position: fixed;
   top:0;
   left:0;
+
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
 }
-.search-container{
+.search{
 
-  padding-bottom:10px;
-  margin-bottom:700px;
+  padding:50px 0 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*margin-bottom:700px;*/
   margin-top: 0;
-  margin-left:100px;
 
+  position: fixed;
+  top:-60px;
+  margin-left: 400px;
+
+  /*margin-left:500px;*/
 
 }
 .logo{
+  float:left;
   width:100px;
   display: block;
   padding: 10px 30px;
@@ -47,39 +59,38 @@
   width:220px;
   height:320px;
   margin:10px;
-  background-color: #F8F9F9;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 #image{
   border-radius: 100%;
   border-style: solid;
 }
 .profile-name{
+  margin: 15px 0 0 0;
   text-align: center;
 }
 .profile-email{
+  margin: 10px 0 0 0;
   text-align: center;
 }
 .profile-buttons{
-
+  margin: 50px 0 0 0;
+  padding:10px;
+  height:51px;
   text-align: center;
   align-items: center;
-}
-.btn {
-  width: 140px;
-  height: 30px;
-  border: none;
-  margin: 5px 3px;
-}
-
-.btn-show {
-
-  align-items: center;
-  text-align: center;
-  background-color: #ABEBC6;
-  color:white;
+  /*background-color: 174F59; #3E4E81;*/
+  background-color: #E9B629;
 }
 a{
-  color:#9c9c9c;
+  margin-top: 15px;
+ padding:10px;
+  color:white;
+}
+a:hover{
+  opacity:0.7;
 }
 .blogs{
 

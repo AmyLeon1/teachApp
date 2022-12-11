@@ -1,8 +1,10 @@
 .footer{
   position: fixed;
-  display: flex;
+  /*display: flex;*/
   bottom:0;
   width:100%;
   height:40px;
-  background-color:#222222;
+  background-color: rgb(5, 68, 104);
+  color:white;
+  text-align: center;
 }

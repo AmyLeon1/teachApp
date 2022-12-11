@@ -109,11 +109,23 @@ body{
 /*  padding: 0;*/
 /*  font-family: 'Segoe UI';*/
 /*}*/
+.right{
+  float:right;
+  margin-top: 15px;
+
+}
 
 section {
   display: flex;
+  margin-left: 300px;
   align-items: center;
   flex-direction: column;
+  background-color: white;
+  width:350px;
+  padding:0;
+  justify-content: center;
+  box-shadow: 7px 7px 7px  7px #dad8d8;
+  border-radius: 20px;
 }
 
 section .searchForm h1 {
@@ -121,13 +133,14 @@ section .searchForm h1 {
   justify-content: center;
   font-size: 40px;
   padding: 0px 0px;
-  margin: 40px 0px 15px 0px;
-  font-weight: 500;
+  margin: 40px 0px 30px 0px;
+  font-weight: 400;
 }
 
 section .searchForm input[type=search] {
-  min-width: 400px;
-  margin: 20px 10px;
+
+  min-width: 300px;
+  margin: 40px 10px;
   padding: 15px 20px;
   background-color: #ece7e7;
   font-size: 18px;
@@ -150,7 +163,7 @@ section .searchForm input[type=search]:focus {
 section .searchForm input[type=button] {
   margin: 0px 20px;
   padding: 15px 40px;
-  background-color: #f3b786;
+  background-color:  rgb(5, 68, 104);
   color: #fff;
   border: none;
   font-size: 20px;
@@ -159,29 +172,36 @@ section .searchForm input[type=button] {
   transition: box-shadow 0.5s;
   outline: none;
 }
+.buttons{
+  dsisplay: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 2px;
+}
 #btn{
   margin: 0px 20px;
   padding: 15px 40px;
-  background-color: #f3b786;
+  background-color: rgb(5, 68, 104);
   color: #fff;
   border: none;
   font-size: 20px;
   border-radius: 50px;
-  box-shadow: 10px 10px 15px #a8a8a8;
+  box-shadow: 7px 7px 7px #dad8d8;
   transition: box-shadow 0.5s;
   outline: none;
 }
 
 #btn:hover {
   box-shadow: 5px 5px 15px #aaa;
-  background-color: #f1a566;
+  background-color: rgb(1, 41, 65);
+  /*background-color: #f1a566;*/
 }
 
 
 #refresh-btn{
   margin: 0px 0px;
   padding: 15px 40px;
-  background-color: #f3b786;
+  background-color:  rgb(5, 68, 104);
   color: #fff;
   border: none;
   font-size: 20px;
@@ -193,7 +213,9 @@ section .searchForm input[type=button] {
 
 #refresh-btn:hover {
   box-shadow: 5px 5px 15px #aaa;
-  background-color: #f1a566;
+  background-color: rgb(1, 41, 65);
+    /*rgb(4, 58, 88);*/
+  /*background-color: #f1a566;*/
 }
 
 section .searchResult {
@@ -210,4 +232,29 @@ section .searchResult div h1 {
 
 section .searchResult div p {
   font-size: 28px;
+}
+
+.word-of-day{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  float:right;
+  border-radius: 20px;
+  background-color:white;
+  box-shadow: 7px 7px 7px 7px #dad8d8;
+  height: 100px;
+  width:350px;
+  color:black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /*width:100vw;*/
+}
+.word-of-day h3{
+  padding-top:10px;
+}
+#wod{
+  font-style: italic;
+
+  padding-top: 10px;
+  font-size: 20px;
 }

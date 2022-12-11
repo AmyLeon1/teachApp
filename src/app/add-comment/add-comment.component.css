@@ -1,5 +1,105 @@
+*{
+
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+html{
+  min-height:100vh;
+  background: #f1f1f1;
+}
+body{
+  position:relative;
+  background: #f1f1f1;
+  height:100%;
+}
+
+.top-bar{
+  background: rgb(5, 68, 104);
+  /*width: 90%;*/
+  height: 69px;
+  line-height: 80%;
+  /*width:108%;*/
+  /*overflow: hidden;*/
+  position: sticky;
+  top:0;
+  left:0;
+}
+
+
+.wrapper .sidebar{
+  background: rgb(5, 68, 104);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 100vh;
+  padding: 20px 0;
+  transition: all 0.5s ease;
+}
+.logo{
+  display: block;
+  padding: 10px 30px;
+  color: rgb(241, 237, 237);
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+}
+
+.wrapper .sidebar ul li a{
+  display: block;
+  padding: 13px 30px;
+  border-bottom: 1px solid #10558d;
+  color: rgb(241, 237, 237);
+  font-size: 16px;
+  position: relative;
+}
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+  color: #0c7db1;
+
+  background:white;
+  border-right: 2px solid rgb(5, 68, 104);
+}
+
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon{
+  color: #0c7db1;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before{
+  display: block;
+}
+
+
+
+/*.row{*/
+/*  margin-bottom: 100px;*/
+/*}*/
+
+
+.content{
+  margin-left: 400px;
+  width:700px;
+
+}
+.container{
+  background: white;
+
+}
 .comment-box{
   margin-top:20px;
   margin-bottom: 20px;
+  width:400px;
+  margin-left: auto;
+  margin-right:auto;
 
+}
+form{
+  align-textS: center;
 }

@@ -5,18 +5,23 @@
 </head>
 <body>
 
+<div class="top-bar">
+
+</div>
+
 <!--<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>-->
 <!--<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>-->
 
-<div class ="container">
-  <p> To reserve a class with {{user.username}} please fill out the form below: </p>
-</div>
-
-<div class = "container">
+<!--<div class ="container">-->
+<!--  <p> To reserve a class with {{user.username}} please fill out the form below: </p>-->
+<!--</div>-->
+<div class="container">
+<h1>Make a reservation</h1>
+<div class = "date">
   <form (ngSubmit)="getDate1(user.email)" #date1Form="ngForm">
 
     <fieldset class="form-group">
-      <label>Please select a date</label>
+      <label class="date-label">Please select a date</label>
       <!--use banana box so we can load the description
       specify the layout of date field-->
       <input type="date" #targetDate="ngModel" [(ngModel)]="this.date"
@@ -24,7 +29,7 @@
              class="form-control" name="targetDate" required="required">
     </fieldset>
 
-    <button type ="submit" class="btn btn-success" >Save</button>
+    <button type ="submit" class="date-btn" >Save</button>
   </form>
 
 </div>
@@ -32,10 +37,11 @@
 
 <div *ngIf="isDateFound()">
 
-  <h3> Please choose a time from below </h3>
+  <h4> Select a time </h4>
 
+  <div class="time">
   <form (ngSubmit)="getAllTimesForDate()">
-    <button type ="submit"  class="btn btn-success" >To view available times, please click here </button>
+    <button type ="submit"  class="time-btn" >To view available times, please click here </button>
   </form>
 
   <form (ngSubmit)="saveAppointment(user.email)" #timeForm="ngForm">
@@ -45,15 +51,16 @@
 <!--   <p>{{availableTimes.time}}</p>-->
 
 </ng-container>
-    <button type ="submit"  class="btn btn-success" >Make appointment </button>
+    <button type ="submit"  class="app-btn" >Make appointment </button>
   </form>
 
   <form>
 
   </form>
+  </div>
 </div>
 
-
+</div>
 </body>
 </html>
 

@@ -1,3 +1,84 @@
+html{
+  height:100vh;
+  max-width:100vw;
+}
+body{
+  width:100%;
+  height:100%
+}
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.top-bar{
+  background: rgb(5, 68, 104);
+  width: 90%;
+  height: 69px;
+  line-height: 80%;
+  width:108%;
+  overflow: hidden;
+  position: fixed;
+  top:0;
+  left:0;
+}
+h1{
+  text-align: center;
+  margin-top:100px;
+}
+.date{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding:20px;
+  width:50%;
+  border-style: none;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2)
+
+}
+
 .container{
   margin-bottom: 50px;
+}
+.date-label{
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.date-btn{
+  margin-top: 10px;
+  margin-left: 40%;
+  background-color: #E9B629;
+  color: whitesmoke;
+  border-style: none;
+  border-radius:10%;
+}
+.time{
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding:20px;
+  width:50%;
+  border-style: none;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2)
+
+}
+.time-btn{
+
+  background-color: #E9B629;
+  color: whitesmoke;
+  border-style: none;
+  border-radius:10%;
+
+}
+.app-btn{
+  background-color: #E9B629;
+  color: whitesmoke;
+  border-style: none;
+  border-radius:10%;
 }

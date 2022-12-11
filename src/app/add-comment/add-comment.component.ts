@@ -4,6 +4,7 @@ import {BlogDataService} from "../service/data/blog-data-service";
 import {Blog} from "../blog-list/blog-list.component";
 import {Comment} from "../blog-list/blog-list.component";
 import {User} from "../user";
+import {RegistrationService} from "../service/registration.service";
 
 @Component({
   selector: 'app-add-comment',
@@ -12,7 +13,8 @@ import {User} from "../user";
 })
 export class AddCommentComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private blogService:BlogDataService, private router: Router
+  constructor(private route:ActivatedRoute,private blogService:BlogDataService, private router: Router,
+              public service:RegistrationService
   ) { }
 
 

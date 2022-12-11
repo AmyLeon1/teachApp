@@ -67,18 +67,28 @@
 <!--  &lt;!&ndash; eventbinding &ndash;&gt;-->
 <!--  <button onclick="location.href='post'" class="btn btn-success">Add Post</button>-->
 <!--</div>-->
+<div class="right">
 
+
+<div class="word-of-day">
+  <h3>Word of the day</h3>
+  <p id="wod"></p>
+</div>
+
+  <div>
 <section>
   <form class="searchForm" (ngSubmit)=" wordSearch()" #date1Form="ngForm">
     <h1>Dictionary</h1>
-    <input type="search" name="searchBox" id="searchBox">
+    <input type="search" name="searchBox" id="searchBox" placeholder="Type your word here ...">
 <!--    <input type="button" name="submit" value="submit" onclick="wordSearch()">-->
+    <div class="buttons">
     <button id="btn">Search</button>
 <!--    <input type="reset" value="reset" onclick="reloadPage()">-->
 <!--    <form class="reloadForm" (ngSubmit)=" reloadPage()" #date1Form="ngForm">-->
 <!--&lt;!&ndash;      <button id="refresh-btn">Clear</button>&ndash;&gt;-->
 <!--    </form>-->
     <button id="refresh-btn" (click)="reloadPage()">Clear</button>
+    </div>
   </form>
   <div class="searchResult" id="searchResult">
     <div>
@@ -99,11 +109,9 @@
     </div>
   </div>
 </section>
-
-<div class="word-of-day">
-  <h3>Word of the day</h3>
-  <p id="wod"></p>
+  </div>
 </div>
+
 
 </body>
 </html>
