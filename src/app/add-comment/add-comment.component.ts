@@ -25,6 +25,7 @@ export class AddCommentComponent implements OnInit {
   commentId:number
   body:string
   id:number
+  owner = this.service.getAuthenticatedUser();
   //id:number
 
   ngOnInit(): void {
@@ -33,7 +34,7 @@ export class AddCommentComponent implements OnInit {
     this.route.params.subscribe(params => this.refreshComments(params["id"]))
 
 
-    this.comment = new Comment(this.commentId, '');
+    this.comment = new Comment(this.commentId, '',this.owner);
     this.refreshComments(this.id);
 
   }
@@ -47,8 +48,6 @@ export class AddCommentComponent implements OnInit {
       }
     )
   }
-
-
 
   saveComment(id:any) {
     this.commentId=-1;
@@ -80,6 +79,37 @@ export class AddCommentComponent implements OnInit {
         )
     }
   }
+
+  // saveComment(id:any) {
+  //   this.commentId=-1;
+  //   if (this.commentId === -1) {
+  //     //create new t do
+  //
+  //     //passing in email, blogID, and the comment
+  //     this.blogService.createComment(id, this.comment)
+  //       .subscribe(
+  //         data => {
+  //           console.log(data)
+  //           //allows for page to be reloaded after submission of comment
+  //           window.location.reload();
+  //         }
+  //       )
+  //   }
+  //   else {
+  //     //call blogseviced
+  //     this.blogService.updateComment( id, this.commentId, this.comment)
+  //       //subscribe to make the call
+  //       //returns content of updated blog
+  //       .subscribe(
+  //         data => {
+  //           console.log(data);
+  //           //allows for page to be reloaded after submission of comment
+  //           window.location.reload();
+  //
+  //         }
+  //       )
+  //   }
+  // }
 
 
 

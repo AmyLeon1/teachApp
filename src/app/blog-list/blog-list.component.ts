@@ -10,6 +10,7 @@ export class Comment{
   constructor(
     public commentId: number,
     public body:string,
+    public owner:string
   ){}
 }
 

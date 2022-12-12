@@ -1,3 +1,4 @@
+
 *{
 
   list-style: none;
@@ -10,12 +11,24 @@
 
 html{
   min-height:100vh;
-  background: #f1f1f1;
+  background: #f3f5f7;
 }
 body{
   position:relative;
-  background: #f1f1f1;
+  background: #f3f5f7;
   height:100%;
+}
+
+.back-to-user{
+  position:absolute;
+  top:80px;
+  left:255px;
+
+}
+#back-to-user-btn{
+  font-size: 16px;
+  padding:10px;
+  border-radius: 10px;
 }
 
 .top-bar{
@@ -84,22 +97,66 @@ body{
 
 
 .content{
+  margin-top:100px;
   margin-left: 400px;
   width:700px;
+  background-color: white;
+  border-radius:10px;
+  padding:30px;
 
 }
 .container{
-  background: white;
+  /*background: #f3f5f7;*/
+  margin-left: 20px;
+  padding:30px;
 
 }
+.line-break{
+  padding-bottom:30px;
+}
+.blog-title{
+  margin-bottom:20px;
+  text-align: center;
+}
+.blog-body{
+  margin-bottom: 50px;
+}
+h5{
+  text-align: center;
+}
 .comment-box{
-  margin-top:20px;
+  /*margin-top:20px;*/
   margin-bottom: 20px;
   width:400px;
   margin-left: auto;
   margin-right:auto;
 
 }
+.comment p{
+  text-align:center;
+  /*box-shadow: 1px 1px 1px 1px #adadad;*/
+  border-bottom: #dad8d8;
+  border-bottom-style: solid;
+  padding:10px;
+  width:400px;
+}
+.comment.body{
+  width:250px;
+}
+.comment-owner{
+  width:250px;
+  float:right;
+  color:#adadad;
+  font-size:12px;
+  text-align: right;
+}
+button{
+  border-radius:1px;
+  background-color: #E9B629;
+  color:white;
+  border-style: none;
+}
 form{
   align-textS: center;
+  margin-bottom: 20px;
 }

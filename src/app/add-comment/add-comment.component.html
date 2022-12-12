@@ -1,4 +1,7 @@
 <html>
+<head>
+  <script src="https://kit.fontawesome.com/a767667934.js" crossorigin="anonymous"></script>
+</head>
 <body>
 
 <div class="top-bar">
@@ -44,9 +47,9 @@
   </div>
 </div>
 
-
-
-
+<div class="back-to-user">
+  <button id="back-to-user-btn">< Return</button>
+</div>
 
 <div class="content">
   <div class="container">
@@ -55,44 +58,46 @@
       <!--          <form (ngSubmit)="saveComment()" #commentForm="ngForm">-->
         <div class="col-md-8">
             <h1 class="blog-title">{{blog.title}}</h1>
-            <span>
-                    <p>by {{blog.email}}</p>
-                    <p>Id: {{blog.id}}</p>
-                </span>
-            <hr>
-            <p [innerHTML]="blog.description"></p>
-            <hr>
+
+<!--            <hr>-->
+            <p class="blog-body" [innerHTML]="blog.description"></p>
+
 
         </div>
     </div>
   </div>
+  <div class="container">
+    <hr class="line-break">
+    <div class="row">
+<!--      <div class="col-md-1"></div>-->
+      <h5>Comments</h5>
+<!--      <div class="col-md-8">-->
+      <div class="comment">
+        <tr *ngFor="let comment of comments">
+        <td class="comment.body">{{comment.body}} </td>
+          <td class="comment-owner">~ {{comment.owner}}</td>
 
+
+<!--          <div class="comment">-->
+<!--          <p>{{comment.body}}                 by {{comment.owner}}</p>-->
+<!--          </div>-->
+
+        </tr>
+
+  </div>
+</div>
+</div>
 
   <div class="comment-box">
     <form (ngSubmit)="saveComment(blog.id)" #commentForm="ngForm">
-    <p>Leave a comment</p>
-    <input type="text" [(ngModel)]="comment.body" #body="ngModel" class="form-control" name="body">
-    <button type="btn btn-submit">Add comment</button>
+      <p>Leave a comment <i class="fa-regular fa-comment"></i></p>
+
+      <input type="text" [(ngModel)]="comment.body" #body="ngModel" class="form-control" name="body" maxlength="30">
+      <button type="btn btn-submit">Add comment</button>
     </form>
 
 
   </div>
-
-
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-1"></div>
-      <p>Comments:</p>
-      <div class="col-md-8">
-        <tr *ngFor="let comment of comments">
-
-
-          <p>{{comment.body}}</p>
-
-  </div>
-</div>
-</div>
 
 
 </div>
