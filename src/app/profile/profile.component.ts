@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
 
   name: string = ''
   user: User
+  userEmail=this.regService.getAuthenticatedUser();
   blogs: Blog[]
   date:any
 

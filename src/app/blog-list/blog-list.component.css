@@ -104,3 +104,31 @@ button:hover{
   color: rgb(5, 68, 104);
   transition:.5s;
 }
+
+.blog-c{
+  float:left;
+  clear:left;
+  margin-left:400px;
+  padding:100px;
+  align-items: center;
+
+}
+.blog-c h2{
+  margin-bottom: 20px;
+  margin-left: 150px;
+}
+
+.blog-card{
+  float:left;
+  clear:left;
+  width:500px;
+  height:320px;
+  margin:10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.blog-card p{
+  margin-top:10px;
+}

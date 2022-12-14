@@ -15,10 +15,14 @@ html{
   /*box-sizing: border-box*/
 }
 
-body{
+html, body{
   box-sizing: border-box;
+  position:relative;
+  min-height:100vh;
   margin:0;
   padding:0;
+  background:#f2f2f2;
+  overflow-y: scroll;
 }
 
 header{
@@ -27,9 +31,7 @@ header{
   margin-right: 70px;
   margin-left: 0px;
   padding:0;
-
-
-
+  background: #f2f2f2;
 }
 
 .content{
@@ -41,10 +43,96 @@ header{
   flex: 1;
     display: flex;
     align-items: center;
-
-
+}
+.hero-section{
+  height:500px;
+  width:100%;
+}
+.hero-section img{
+  height:600px;
+  width:100%;
+}
+.hero-section .hero-text{
+  position:absolute;
+  top: 30%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+.hero-section .hero-text h2{
 
 }
+.hero-section .hero-text p{
+  font-style: italic;
+  padding: 20px 0 20px 0;
+}
+.hero-section button{
+  background: #8e44ad;
+  height:50px;
+  width:80px;
+  border-radius: 5px;
+  border-style: none;
+  color:white;
+
+}
+.info-section{
+  display:flex;
+  justify-content: center;
+  position:absolute;
+  left:50%;
+  top:95%;
+  transform: translate(-50%, -50%);
+  margin:20px;
+  padding:40px;
+  width: 850px;
+}
+.info-section span{
+
+}
+#info-icon{
+  vertical-align: middle;
+  horiz-align: center;
+}
+.info-one{
+  margin:20px;
+}
+.info-two{
+  margin:20px;
+ }
+.info-three{
+  margin:20px;
+}
+.image-section{
+  display: flex;
+  position: absolute;
+  top: 120%;
+  width:100%;
+
+}
+.image-section .picture{
+  float:left;
+  width: 50%;
+  /*width:750px;*/
+  height:400px;
+  margin:0;
+  padding:0;
+}
+.image-section .picture img{
+  height:400px;
+  width:600px;
+  float:right;
+}
+
+.image-section .image-section-text{
+  float:left;
+  width:50%;
+}
+.image-section .image-section-text p{
+  padding:100px 50px 50px 50px;
+
+}
+
+
+
 .title{
   color: lightpink;
     font-size: 3.2em;
@@ -60,6 +148,31 @@ header{
   letter-spacing: 0.7px;
   line-height: 32px;
   margin-bottom: 48px;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
 
 

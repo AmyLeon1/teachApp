@@ -51,6 +51,29 @@
 
 <div class=""alert alert-success *ngIf="message">{{message}}</div>
 
+
+<div class="container">
+ <ng-container *ngFor="let blog of blogs">
+
+  <!--      <div class="blogs">-->
+  <div class="blog-card">
+
+    <!--      <div class="blog-title">-->
+    <h5 class="blog-title">{{blog.title}}</h5>
+    <!--      </div>-->
+    <hr>
+    <!--      <div class="blog-description">-->
+    <p [innerHTML]="blog.description">
+    </p>
+
+    <div class="profile-buttons">
+      <a [routerLink]="['comment', blog.id]">View Comments</a>
+    </div>
+
+  </div>
+  </ng-container>
+</div>
+
 <div class="container">
   <table class="table">
 

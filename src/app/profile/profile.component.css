@@ -22,18 +22,150 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
-
-
 html{
   min-height:100vh;
+  min-width: 100vw;
+  background: #f2f2f2;
+  margin:0;
+  padding:0;
+  overflow-y: scroll;
+
+}
+ body{
+   position:relative;
+  height:100vh;
+   width:100%;
+  padding:0;
+   /*background: #fafafa;*/
+   background: #f2f2f2;
+   overflow-y: scroll;
 
 }
 
-body{
-
-  height:100vh;
-  margin:100px;
+header{
+  position:fixed;
+  width:100%;
+  top:0;
   padding:0;
+  margin:0;
+}
+
+nav{
+  background: #f2f2f2;
+}
+.content{
+  position:absolute;
+  top:65%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  margin:0 auto;
+  height:100%;
+  width:70%;
+  /*padding:50px;*/
+  /*flex: 1;*/
+  /*display: flex;*/
+  /*align-items: center;*/
+  background: #f2f2f2;
+
+}
+.first-row{
+  margin-top: 50px;
+  display: flex;
+}
+.user-details{
+  background: white;
+  width:40%;
+  height:150px;
+  border-radius: 5px;
+  padding:20px;
+  margin:4px;
+}
+.upcoming-lessons{
+  background: white;
+  border-radius: 5px;
+  width:20%;
+  padding:20px;
+  margin:4px;
+  border-radius: 5px;
+}
+.reminder{
+  background: white;
+  border-radius: 5px;
+  width:40%;
+  padding:20px 0 20px 20px;
+  margin:4px;
+  border-radius: 5px;
+}
+.second-row{
+  background: white;
+  border-radius: 5px;
+  /*width:100%;*/
+  margin: 20px 2px 20px 4px;
+  padding:20px;
+}
+
+.second-row h5{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.second-row p{
+  text-align: center;
+}
+
+.tools-heading{
+  margin-top:60px;
+}
+
+.third-row{
+  display:flex;
+  /*width:100%;*/
+  margin: 20px 2px 20px 4px;
+}
+section {
+  display: flex;
+  /*margin-left: 300px;*/
+  /*margin:30px 0 30px 50px;*/
+  margin: 30px 2px 20px 3px;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  width:557px;
+  height:400px;
+  padding:0;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.third-row .word-of-day{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right:4px;
+  padding-top:40px;
+
+  /*float:right;*/
+  /*border-radius: 20px;*/
+  background-color:white;
+  height: 200px;
+  width:450px;
+  color:black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.word-of-day h3{
+  padding-top:10px;
+}
+#wod{
+  font-style: italic;
+  padding-top: 10px;
+  font-size: 20px;
+}
+.welcome h1{
+  color:black;
+
+  text-align: center;
+  width:100%;
 }
 .top-bar{
   background: rgb(5, 68, 104);
@@ -115,26 +247,15 @@ body{
 
 }
 
-section {
-  display: flex;
-  margin-left: 300px;
-  align-items: center;
-  flex-direction: column;
-  background-color: white;
-  width:350px;
-  padding:0;
-  justify-content: center;
-  box-shadow: 7px 7px 7px  7px #dad8d8;
-  border-radius: 20px;
-}
+
 
 section .searchForm h1 {
   display: flex;
   justify-content: center;
   font-size: 40px;
   padding: 0px 0px;
-  margin: 40px 0px 30px 0px;
-  font-weight: 400;
+  margin: 150px 0px 30px 0px;
+  font-weight: 350;
 }
 
 section .searchForm input[type=search] {
@@ -181,7 +302,7 @@ section .searchForm input[type=button] {
 #btn{
   margin: 0px 20px;
   padding: 15px 40px;
-  background-color: rgb(5, 68, 104);
+  background-color: #8e44ad;
   color: #fff;
   border: none;
   font-size: 20px;
@@ -201,7 +322,7 @@ section .searchForm input[type=button] {
 #refresh-btn{
   margin: 0px 0px;
   padding: 15px 40px;
-  background-color:  rgb(5, 68, 104);
+  background-color:  #8e44ad;
   color: #fff;
   border: none;
   font-size: 20px;
@@ -234,21 +355,21 @@ section .searchResult div p {
   font-size: 28px;
 }
 
-.word-of-day{
-  margin-top: 30px;
-  margin-bottom: 30px;
-  float:right;
-  border-radius: 20px;
-  background-color:white;
-  box-shadow: 7px 7px 7px 7px #dad8d8;
-  height: 100px;
-  width:350px;
-  color:black;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  /*width:100vw;*/
-}
+/*.word-of-day{*/
+/*  margin-top: 30px;*/
+/*  margin-bottom: 30px;*/
+/*  float:right;*/
+/*  !*border-radius: 20px;*!*/
+/*  background-color:white;*/
+/*  box-shadow: 7px 7px 7px 7px #dad8d8;*/
+/*  height: 100px;*/
+/*  width:350px;*/
+/*  color:black;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  flex-direction: column;*/
+/*  !*width:100vw;*!*/
+/*}*/
 .word-of-day h3{
   padding-top:10px;
 }
@@ -258,3 +379,29 @@ section .searchResult div p {
   padding-top: 10px;
   font-size: 20px;
 }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+

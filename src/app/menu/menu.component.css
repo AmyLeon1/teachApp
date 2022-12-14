@@ -1,29 +1,33 @@
-nav{
+#nav{
   display:flex;
-  background-color: #fff;
+  /*background-color: #fff;*/
+  background: #f2f2f2;
 }
 
 header{
   /*color: #9CAF88;*/
   /*color:blue;*/
-  background-color: #fff;
+  /*background-color: #fff;*/
+  background: #f2f2f2;
   top: 0;
   height: 80px;
   width: 100%;
-  justify-content: space-between;
-  padding: 0 64px;
+  /*justify-content: space-between;*/
+  padding: 0 60px;
   font-size: 16px;
   position: relative;
 }
 
 /*for the brand name in navbar*/
 .navbar-brand{
-  color: lightpink;
-}
+  color: #8e44ad;
+  font-width: 500;
 
+}
 /* for text in the nav bar*/
 .nav-link{
-  color: #9CAF88
+  color: black;
+  margin:5px;
 }
 /* when hovering over nav list option */
 .nav-link.active,
