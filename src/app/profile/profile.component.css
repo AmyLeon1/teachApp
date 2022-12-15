@@ -48,10 +48,12 @@ header{
   top:0;
   padding:0;
   margin:0;
+  background: white;
 }
 
 nav{
-  background: #f2f2f2;
+  /*background: #f2f2f2;*/
+  background: white;
 }
 .content{
   position:absolute;
@@ -66,7 +68,6 @@ nav{
   /*display: flex;*/
   /*align-items: center;*/
   background: #f2f2f2;
-
 }
 .first-row{
   margin-top: 50px;

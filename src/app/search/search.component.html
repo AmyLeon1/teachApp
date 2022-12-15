@@ -1,4 +1,12 @@
+<html>
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
 <div class="search-container">
-  <span id="label">Search:</span>
-  <input type="text" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
+  <i class="material-icons">search</i>
+  <input type="text" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()" placeholder="name/email">
 </div>
+</body>
+</html>

@@ -18,6 +18,10 @@ export class AppointmentDataService {
   constructor(private http: HttpClient) {
   }
 
+  cancelAppointment(id:any){
+    return this.http.delete(`${API_URL}/users/appointments/${id}`)
+  }
+
   getAllTimesForDate(id: any){
     return this.http.get<availableTime[]>(`${API_URL}/appointmentTimes/${id}/times/id`);
   }

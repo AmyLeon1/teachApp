@@ -22,8 +22,31 @@ export class BookingManagerComponent implements OnInit {
 
   ngOnInit(): void {
     // this.route.params.subscribe(params => this.refreshAppointments(params["email"]))
-    this.refreshStudentAppointments();
-    this.refreshAppointments();
+    if(this.regService.isUserTeacher()){
+      this.refreshAppointments()
+    }
+    if(!this.regService.isUserTeacher()){
+      this.refreshStudentAppointments()
+    }
+
+
+    // this.refreshStudentAppointments();
+    // this.refreshAppointments();
+  }
+
+
+  cancelAppointment(id:any){
+    this.appService.cancelAppointment(id).subscribe(
+      response=>{
+        // this.message =`Delete of Todo ${id}  Successful!`
+        //calling this method allows the list to update a
+        //so we don't have to refresh page to see updates
+        console.log("APP HAS BEEN DELETED!");
+        location.reload();
+        this.refreshAppointments();
+        this.refreshStudentAppointments()
+      }
+    )
   }
 
 
