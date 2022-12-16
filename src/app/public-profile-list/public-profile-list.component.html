@@ -23,6 +23,10 @@
       <div class="profile-container" *ngIf="searchText === '' || user.username.toLowerCase().includes(searchText)">
         <div class="profile-card">
           <div class="first-row">
+            <div class="user-details">
+              <p>{{user.username}}</p>
+              <p>{{user.email}}</p>
+            </div>
           <div class="profile-image">
             <img src="/assets/user-icon.png" alt="user icon" id="image" style="width:52px; height:52px;">
           </div>
