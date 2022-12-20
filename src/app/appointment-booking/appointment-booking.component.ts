@@ -101,7 +101,10 @@ export class AppointmentBookingComponent implements OnInit {
 
 
 
-
+  displayTimes(){
+    document.getElementById("get-times-list")!.style.display="block";
+    document.getElementById("time-form")!.style.display="block";
+  }
 
 
   workedDays =["1", "2"]

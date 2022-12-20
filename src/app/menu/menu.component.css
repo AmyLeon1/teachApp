@@ -1,8 +1,12 @@
-#nav{
+nav{
   display:flex;
   /*background-color: #fff;*/
   /*background: #f2f2f2;*/
   background:white;
+  z-index:500;
+  position:fixed;
+  top:0;
+  height:80px;
 }
 
 header{

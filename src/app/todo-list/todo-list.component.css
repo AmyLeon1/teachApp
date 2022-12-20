@@ -22,6 +22,9 @@ body{
   margin:100px;
   padding:0;
 }
+nav{
+  z-index: 500;
+}
 .top-bar{
   background: rgb(5, 68, 104);
   width: 90%;

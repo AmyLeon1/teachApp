@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../user";
 import {RegistrationService} from "../service/registration.service";
 import {Router} from "@angular/router";
+import {FileHandler} from "../file-handler";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: "app-register",
@@ -15,7 +17,7 @@ export class RegisterComponent implements OnInit {
   msg = "";
   invalidLogin=false;
 
-  constructor(private service: RegistrationService, private router:Router){
+  constructor(private service: RegistrationService, private router:Router, private sanitizer:DomSanitizer){
 
   }
 
@@ -36,6 +38,19 @@ export class RegisterComponent implements OnInit {
         }
       );
   }
+
+  onFileSelection(event:any){
+    console.log(event);
+    if(event.target.files){
+      const file =event.target.files[0];
+      const fileHandler: FileHandler={
+        file: file,
+        //create URL from the file
+        url: this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file))
+      }
+    }
+  }
+
 
 
 }

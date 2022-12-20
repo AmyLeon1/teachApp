@@ -35,6 +35,7 @@ header{
 nav{
   /*background: #f2f2f2;*/
   background: white;
+  z-index: 500;
 }
 .content{
   position:absolute;

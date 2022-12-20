@@ -33,7 +33,7 @@ header{
 }
 
 nav{
-  /*background: #f2f2f2;*/
+  z-index: 500;
   background: white;
 }
 .content{

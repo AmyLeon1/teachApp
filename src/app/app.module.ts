@@ -8,7 +8,6 @@ import {RegisterComponent} from "./register/register.component";
 import {LoginComponent} from "./login/login.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ErrorComponent } from './error/error.component';
-import { AccountComponent } from './account/account.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
@@ -34,6 +33,7 @@ import { PublicProfileComponent } from './public-profile/public-profile.componen
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { AppointmentBookingComponent } from './appointment-booking/appointment-booking.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FileSaverModule } from 'ngx-filesaver';
 // import {
 //   MatTableModule,
 //   MatProgressSpinnerModule,
@@ -53,6 +53,7 @@ import { AppointmentBookingDateConfirmComponent } from './appointment-booking-da
 import { AppointmentBookingTimeComponent } from './appointment-booking-time/appointment-booking-time.component';
 import { MatDialogModule} from "@angular/material/dialog";
 import {DatePipe} from "@angular/common";
+import { HomeworkUploadComponent } from './homework-upload/homework-upload.component';
 
 
 
@@ -67,7 +68,6 @@ import {DatePipe} from "@angular/common";
     RegisterComponent,
     LoginComponent,
     ErrorComponent,
-    AccountComponent,
     TodoListComponent,
     MenuComponent,
     FooterComponent,
@@ -90,6 +90,7 @@ import {DatePipe} from "@angular/common";
     AppointmentBookingTimesComponent,
     AppointmentBookingDateConfirmComponent,
     AppointmentBookingTimeComponent,
+    HomeworkUploadComponent,
 
 
   ],
@@ -113,6 +114,7 @@ import {DatePipe} from "@angular/common";
     BrowserAnimationsModule,
     MatGridListModule,
     MatIconModule,
+    FileSaverModule
 
 
   ],

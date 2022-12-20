@@ -12,6 +12,9 @@ body{
   width:100%;
   overflow: hidden;
 }
+nav{
+  z-index: 500;
+}
 .container{
   position: absolute;
   top:50%;

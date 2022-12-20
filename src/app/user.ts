@@ -1,3 +1,5 @@
+import {FileHandler} from "./file-handler";
+
 export class User {
   //speicify fields similarly to java
   id:number;
@@ -5,7 +7,8 @@ export class User {
   email:string;
   username:string;
   password:string;
-  role:string
+  role:string;
+  picture:FileHandler;
 
   constructor() {
   }

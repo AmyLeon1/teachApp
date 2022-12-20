@@ -3,7 +3,6 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import {ErrorComponent} from "./error/error.component";
-import {AccountComponent} from "./account/account.component";
 import {TodoListComponent} from "./todo-list/todo-list.component";
 import {LogoutComponent} from "./logout/logout.component";
 import {RouteGuardService} from "./service/route-guard.service";
@@ -24,6 +23,7 @@ import {AppointmentBookingComponent} from "./appointment-booking/appointment-boo
 import {BookingManagerComponent} from "./booking-manager/booking-manager.component";
 import {AppointmentBookingTimesComponent} from "./appointment-booking-times/appointment-booking-times.component";
 import {ScheduleComponent} from "./schedule/schedule.component";
+import {HomeworkUploadComponent} from "./homework-upload/homework-upload.component";
 
 
 const routes: Routes = [
@@ -31,7 +31,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  {path: 'account/:name', component: AccountComponent, canActivate:[RouteGuardService]},
   {path: 'todoList', component: TodoListComponent, canActivate:[RouteGuardService]},
   {path: 'logout', component: LogoutComponent, canActivate:[RouteGuardService]},
   {path: 'profile', component: ProfileComponent, canActivate:[RouteGuardService]},
@@ -51,6 +50,7 @@ const routes: Routes = [
   {path: 'manageBooking', component: BookingManagerComponent},
   {path: 'schedule', component: ScheduleComponent},
   {path: 'search', component: SearchComponent},
+  {path: 'homework', component: HomeworkUploadComponent},
 
   //make sure this path is always last
   // otherwise redirect to home
