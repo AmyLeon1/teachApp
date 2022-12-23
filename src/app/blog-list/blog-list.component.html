@@ -17,12 +17,10 @@
           <div class="buttons">
           <button (click) = "updateBlog(blog.id)" class="btn btn-success" id="edit-btn">Edit</button>
           <button (click) = "deleteBlog(blog.id)" class="btn btn-warning" id="delete-btn">Delete</button>
-            <button class="btn btn-warning" id="comment-btn">Comments</button>
+            <button (click)="goToBlog(blog.id)" class="btn btn-warning" id="comment-btn">Comments</button>
         </div>
                   </div>
             </ng-container>
-
-
 
           </div>
           </body>

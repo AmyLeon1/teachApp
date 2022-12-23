@@ -1,39 +1,200 @@
-<!--TODO: Use router links to webpages instead of a href -->
-<!--<header>-->
-<!--  navbar-expand-md navbar-dark bg-dark-->
-<!--  <nav class="navbar navbar-expand-md" id="nav">-->
-  <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-white" id="nav">
-    <div><a href="" class="navbar-brand">TeachIT</a></div>
-    <ul class="navbar-nav">
-      <!--only show todos if user is logged in -->
 
-      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/todoList" class="nav-link">Todos</a>
-      </li>
+<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-white" id="nav">
+  <div><a href="" class="navbar-brand">TeachIT</a></div>
+  <ul class="navbar-nav">
 
-      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/profile" class="nav-link">My
-        Account</a></li>
-      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/manageBooking" class="nav-link">My
-        Bookings</a></li>
-      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/blogList" class="nav-link">My
-        Blog Posts</a></li>
-      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/schedule" class="nav-link">Manage Schedule</a></li>
-    </ul>
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/todoList"
+           class="nav-link">Todos</a>
+    </li>
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/profile" class="nav-link">My
+      Account</a></li>
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/manageBooking" class="nav-link">My
+      Bookings</a></li>
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/blogList"
+           class="nav-link">My
+      Blog Posts</a></li>
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/schedule"
+           class="nav-link">Manage Schedule</a></li>
+  </ul>
 
 
-    <!-- bootstrap feature to allow it appear in right hand corner-->
-    <ul class="navbar-nav navbar-collapse justify-content-end">
-      <li><a routerLink="/publicProfileList" class="nav-link">View our teachers</a></li>
-      <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/register" class="nav-link">Register</a>
-      </li>
-      <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/login" class="nav-link">Login</a>
-      </li>
-      <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/logout" class="nav-link">Logout</a>
-      </li>
-    </ul>
+  <!-- bootstrap feature to allow it appear in right hand corner-->
+  <ul class="navbar-nav navbar-collapse justify-content-end">
+    <li><a routerLink="/publicProfileList" class="nav-link">View our teachers</a></li>
+    <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="openRegistrationModal()"
+           class="nav-link">Register</a>
+    </li>
+    <!--      <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/login" class="nav-link">Login</a>-->
+    <!--      </li>-->
+    <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="openModal()"
+           class="nav-link">Login</a>
+    </li>
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();"  role="button" (click)="logout()" class="nav-link">Logout</a>
+    </li>
+  </ul>
 
-  </nav>
+</nav>
 
-<!--</header>-->
+!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form class="form" #loginform="ngForm" (ngSubmit)="loginUser()">
+            <small class="text-danger" *ngIf="invalidLogin">{{errorMessage}}</small>
+
+            <!--   EMAIL-->
+            <div class="form-group">
+              <div class="text-field">
+                <!-- When email box is invalid it appears red - bootstrap feature        -->
+                <input type="email" name="email" [(ngModel)]="user.email" required
+                       pattern="^\w+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$"
+                       #email="ngModel"
+                       [class.is-invalid]="email.invalid && email.touched">
+                <span></span>
+                <label> Email:</label>
+                <div *ngIf="email.errors && email.invalid && email.touched">
+                  <small class="text-danger" *nfIf="email.errors.required">Email is a required field</small>
+                  <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email address</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- PASSWORD-->
+            <div class="form-group">
+              <div class="text-field">
+
+                <input type="password" name="password" [(ngModel)]="user.password"
+                       required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is a required
+                  field</small>
+                <span></span>
+                <label>Password:</label>
+              </div>
+            </div>
+            <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info">Login</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="registration-link">
+          <!-- LINK TO REGISTRATION PAGE -->
+          <small class="float-right" (click)="gotoregistration()">New user? Register here</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+!-- Registration Modal -->
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="registrationModalLabel">Register</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form class="form" #registrationform="ngForm" (ngSubmit)="registerUser()">
+
+            <small class="text-danger" *ngIf="invalidLogin">{{errorMessage}}</small>
+
+            <div class="form-group">
+              <div class="text-field">
+                <!-- When email box is invalid it appears red - bootstrap feature        -->
+                <input type="email" name="email" [(ngModel)]="user.email" required
+                       pattern="^\w+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$"
+                       #email="ngModel"
+                       [class.is-invalid]="email.invalid && email.touched">
+                <span></span>
+                <label> Email</label>
+                <!--Email: <input type="text" name="email" [(ngModel)]="user.email" >-->
+                <!--  <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is a required field</small>-->
+                <div *ngIf="email.errors && email.invalid && email.touched">
+                  <small class="text-danger" *ngIf="email.errors.required">Email is a required field</small>
+                  <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email address</small>
+                </div>
+              </div>
+            </div>
+
+            <!--        USERNAME          -->
+            <div class="form-group">
+              <div class="text-field">
+                <input type="text" name="username" [(ngModel)]="user.username" required
+                       #username="ngModel"
+                       [class.is-invalid]="username.invalid && username.touched">
+                <span></span>
+                <label> Username</label>
+                <div *ngIf="username.errors && username.invalid && username.touched">
+                  <small class="text-danger" *nfIf="username.errors.required">Username is a required field</small>
+                  <!--        <small class="text-danger" *ngIf="username.errors.pattern">Enter valid email address</small>-->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="text-field">
+                <input type="file" name="profilePic" [(ngModel)]="user.picture" required
+                       #selectFile="ngModel" (change)="onFileSelection($event)">
+                <span></span>
+                <label> Upload your picture here</label>
+
+              </div>
+            </div>
+
+            <!--         PASSWORD         -->
+            <div class="form-group">
+              <div class="text-field">
+                <input type="password" name="password" [(ngModel)]="user.password"
+                       #password="ngModel" required [class.is-invalid]="password.invalid && password.touched">
+                <span></span>
+                <label>Password</label>
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is a required
+                  field</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <!--      <div class="text-field">-->
+              <div class="radio-text">
+                <label class="radio-label">
+                  Are you a student or a teacher?<br> Please choose one:
+                </label>
+              </div>
+              <br>
+              <div class="radio-input">
+                <input type="radio" id="student" name="role" value="student" [(ngModel)]="user.role" #role="ngModel"
+                       required/> Student
+                <br>
+                <input type="radio" id="teacher" name="role" value="teacher" [(ngModel)]="user.role" #role="ngModel"
+                       required/> Teacher <br/>
+              </div>
+            </div>
+            <button [disabled]="registrationform.form.invalid" type="submit" class="btn btn-info"> Register</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 
 
 

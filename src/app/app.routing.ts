@@ -24,6 +24,7 @@ import {BookingManagerComponent} from "./booking-manager/booking-manager.compone
 import {AppointmentBookingTimesComponent} from "./appointment-booking-times/appointment-booking-times.component";
 import {ScheduleComponent} from "./schedule/schedule.component";
 import {HomeworkUploadComponent} from "./homework-upload/homework-upload.component";
+import {AddCommentTeacherComponent} from "./add-comment-teacher/add-comment-teacher.component";
 
 
 const routes: Routes = [
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path: 'publicProfileList', component: PublicProfileListComponent},
   {path: 'publicProfileList/userProfile/:email', component: PublicProfileComponent},
   {path: 'publicProfileList/userProfile/:email/comment/:id', component: AddCommentComponent},
+  {path: 'blogList/comment-teacher/:id', component: AddCommentTeacherComponent},
   {path: 'publicProfileList/userProfile/:email/bookAppointment', component: AppointmentBookingComponent},
   {path: 'publicProfileList/userProfile/:email/bookAppointment/book-time/:date', component: AppointmentBookingTimesComponent},
  // {path: 'book-time', component: AppointmentBookingTimesComponent},

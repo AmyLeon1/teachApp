@@ -54,6 +54,7 @@ import { AppointmentBookingTimeComponent } from './appointment-booking-time/appo
 import { MatDialogModule} from "@angular/material/dialog";
 import {DatePipe} from "@angular/common";
 import { HomeworkUploadComponent } from './homework-upload/homework-upload.component';
+import { AddCommentTeacherComponent } from './add-comment-teacher/add-comment-teacher.component';
 
 
 
@@ -91,6 +92,7 @@ import { HomeworkUploadComponent } from './homework-upload/homework-upload.compo
     AppointmentBookingDateConfirmComponent,
     AppointmentBookingTimeComponent,
     HomeworkUploadComponent,
+    AddCommentTeacherComponent,
 
 
   ],

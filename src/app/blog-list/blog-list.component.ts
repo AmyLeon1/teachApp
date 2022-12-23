@@ -38,9 +38,12 @@ export class BlogListComponent implements OnInit {
   constructor( private router: Router, public regService: RegistrationService, private blogService: BlogDataService) { }
 
   ngOnInit(): void {
+    // refreshBlogs method here so blogs are displayed automatically
+    // when the page is loaded
     this.refreshBlogs();
   }
 
+  //method to retrieve all blogs
   refreshBlogs(){
     this.blogService.retrieveAllBlogs(this.email).subscribe(
       response=>{
@@ -50,6 +53,7 @@ export class BlogListComponent implements OnInit {
     )
   }
 
+  // *** Method to delete a blog *** //
   deleteBlog(id:any){
     this.blogService.deleteBlog(this.email, id).subscribe(
       response=>{
@@ -60,22 +64,23 @@ export class BlogListComponent implements OnInit {
 
       }
     )
-
   }
-
+  // ***    Method to update a blog      *** //
   updateBlog(id:any){
     console.log(id);
     this.router.navigate(['blog', id])
   }
 
+  // ***   Method to create a new blog       *** //
   addBlog(){
-    //when id is -1 let's assume user is trying to add
+    //id = -1 to say that user is creating a new post
     this.router.navigate(['blog', -1])
   }
 
-
-
-
+  // ***   Method to go to the blog page that displays comments and post   *** //
+  goToBlog(id:any){
+    this.router.navigate(['blogList/comment-teacher', id])
+  }
 
 
 }

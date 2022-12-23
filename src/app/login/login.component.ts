@@ -5,6 +5,8 @@ import {BasicAuthenticationService} from "../service/basic-authentication.servic
 import {NgForm} from '@angular/forms';
 import {RegistrationService} from "../service/registration.service";
 import {User} from "../user";
+
+
 @Component({
 
   selector: 'app-login',
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit{
   invalidLogin = false
   currentUserRole:User //currentUserRole to hold the role of logged in user
 
+
   //create user object
   user = new User();
 
@@ -33,6 +36,7 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
   }
 
 
