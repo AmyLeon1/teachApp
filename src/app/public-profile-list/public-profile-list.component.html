@@ -2,17 +2,17 @@
 <head>
 </head>
 <body>
-<header>
-  <nav>
-    <app-menu></app-menu>
-  </nav>
-</header>
+<header></header>
+<nav>
+  <app-menu></app-menu>
+</nav>
+
 
 <div class="banner">
   <div class="banner-text"><p id="title">Find the right teacher for you</p>
-  <p id="p-details">Looking to connect with a new or existing tutor? Browse our
-  tutors to find the perfect teacher for you</p>
-    <app-search (searchTextChanged)="onSearchTextEntered($event)" ></app-search>
+    <p id="p-details">Looking to connect with a new or existing tutor? Browse our
+      tutors to find the perfect teacher for you</p>
+    <app-search (searchTextChanged)="onSearchTextEntered($event)" class="search"></app-search>
   </div>
   <img src="assets/teacher-search.jpg" alt="teaching-image" style="height:200px; width:300px">
 </div>
@@ -23,24 +23,24 @@
       <div class="profile-container" *ngIf="searchText === '' || user.username.toLowerCase().includes(searchText)">
         <div class="profile-card">
           <div class="first-row">
-          <div class="profile-image">
-            <img src="/assets/user-icon.png" alt="user icon" id="image" style="width:52px; height:52px;">
-          </div>
+            <div class="profile-image">
+              <img src="/assets/user-icon.png" alt="user icon" id="image" style="width:52px; height:52px;">
+            </div>
 
             <div class="user-details">
-            <p>{{user.username}}</p>
-            <p>{{user.email}}</p>
+              <p>{{user.username}}</p>
+              <p>{{user.email}}</p>
             </div>
-<!--          <div class="profile-name"><p>{{user.username}}</p></div>-->
-<!--          <div class="profile-email"><p>{{user.email}}</p></div>-->
-        </div>
-        <div class="profile-buttons">
-          <a [routerLink]="['userProfile', user.email]">View Page</a>
+            <!--          <div class="profile-name"><p>{{user.username}}</p></div>-->
+            <!--          <div class="profile-email"><p>{{user.email}}</p></div>-->
+          </div>
+          <div class="profile-buttons">
+            <button (click)="goToPage(this.user.email)" id="go-to-page-btn"> View Page</button>
+          </div>
         </div>
       </div>
     </div>
-</div>
-</ng-container>
+  </ng-container>
 </div>
 
 </body>

@@ -107,9 +107,27 @@ header{
   margin: 10px 10px;
   font-size: 14px;
 }
+.about-me-section{
+  margin-top:20px;
+}
+#about-me{
+  font-size: 16px;
+  font-weight: 400;
+  font-color:black;
+
+}
+.text-area{
+  min-height:150px;
+  max-height:250px;
+  min-width:100%;
+  max-width:100%;
+}
 .form button{
-  width:100%;
+  width:70%;
   height:50px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
   border:1px solid;
   background-color: #8e44ad;
   border-radius: 25px;
@@ -123,6 +141,10 @@ header{
   border-color: #831caf;
   transition:.5s;
 }
+.button{
+  text-align:center;
+  margin: 10px 0 10px 0;
+}
 
 .registration-link{
 
@@ -135,9 +157,17 @@ header{
 .registration-link:hover{
   text-decoration: underline;
 }
-.registration-link a{
-  color:#2691d9;
-  text-decoration: none;
+
+.modal-footer{
+  text-align:center;
+}
+.login-link{
+  margin-left:auto;
+  margin-right:auto;
+
+}
+.link-small:hover{
+  color:purple;
 }
 
 

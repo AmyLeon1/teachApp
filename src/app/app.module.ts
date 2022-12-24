@@ -17,13 +17,9 @@ import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { ProfileComponent } from './profile/profile.component';
 import { TodoComponent } from './todo/todo.component';
-import { AddPostComponent } from './add-post/add-post.component';
 import {HttpIntercepterBasicAuthService} from "./service/http/http-intercepter-basic-auth.service";
 import {HttpClientInterceptor} from "./http-client-interceptor";
 import {NgxWebstorageModule} from 'ngx-webstorage';
-import { PostComponent } from './post/post.component';
-import { PostListComponent } from './post-list/post-list.component';
-import { TestComponent } from './test/test.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogComponent } from './blog/blog.component';
 import { PublicProfileListComponent } from './public-profile-list/public-profile-list.component';
@@ -48,17 +44,10 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatIconModule} from "@angular/material/icon";
 import { BookingManagerComponent } from './booking-manager/booking-manager.component';
 import { ScheduleComponent } from './schedule/schedule.component';
-import { AppointmentBookingTimesComponent } from './appointment-booking-times/appointment-booking-times.component';
-import { AppointmentBookingDateConfirmComponent } from './appointment-booking-date-confirm/appointment-booking-date-confirm.component';
-import { AppointmentBookingTimeComponent } from './appointment-booking-time/appointment-booking-time.component';
 import { MatDialogModule} from "@angular/material/dialog";
 import {DatePipe} from "@angular/common";
 import { HomeworkUploadComponent } from './homework-upload/homework-upload.component';
 import { AddCommentTeacherComponent } from './add-comment-teacher/add-comment-teacher.component';
-
-
-
-
 
 
 // @ts-ignore
@@ -75,10 +64,6 @@ import { AddCommentTeacherComponent } from './add-comment-teacher/add-comment-te
     LogoutComponent,
     ProfileComponent,
     TodoComponent,
-    AddPostComponent,
-    PostComponent,
-    PostListComponent,
-    TestComponent,
     BlogListComponent,
     BlogComponent,
     PublicProfileListComponent,
@@ -88,9 +73,6 @@ import { AddCommentTeacherComponent } from './add-comment-teacher/add-comment-te
     AppointmentBookingComponent,
     BookingManagerComponent,
     ScheduleComponent,
-    AppointmentBookingTimesComponent,
-    AppointmentBookingDateConfirmComponent,
-    AppointmentBookingTimeComponent,
     HomeworkUploadComponent,
     AddCommentTeacherComponent,
 
@@ -105,14 +87,6 @@ import { AddCommentTeacherComponent } from './add-comment-teacher/add-comment-te
     EditorModule,
     NgxWebstorageModule.forRoot(),
     Ng2SearchPipeModule,
-    // MatTableModule,
-    // MatProgressSpinnerModule,
-    // MatFormFieldModule,
-    // MatInputModule,
-    // MatButtonModule,
-    // MatDatepickerModule,
-    // MatNativeDateModule,
-    // MatToolbarModule,
     BrowserAnimationsModule,
     MatGridListModule,
     MatIconModule,

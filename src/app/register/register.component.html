@@ -75,11 +75,20 @@
       </label>
     </div><br>
       <div class="radio-input">
-      <input type="radio" id="student" name="role" value="student" [(ngModel)]="user.role" #role="ngModel" required/> Student
+      <input type="radio" id="student" name="role" value="Student" [(ngModel)]="user.role" #role="ngModel" required/> Student
       <br>
-      <input type="radio" id="teacher" name="role" value="teacher" [(ngModel)]="user.role" #role="ngModel" required/> Teacher <br/>
+      <input type="radio" id="teacher" name="role" value="Teacher" [(ngModel)]="user.role" #role="ngModel" required/> Teacher <br/>
       </div>
     </div>
+
+    <div class="form-group">
+      <div class="text-field">
+        <label>Tell us about yourself. This will be displayed on your public profile</label>
+        <input type="text" name="about-me">
+
+      </div>
+    </div>
+
     <button [disabled]="registrationform.form.invalid" type="submit" class="btn btn-info"> Register </button>
   </form>
 </div>

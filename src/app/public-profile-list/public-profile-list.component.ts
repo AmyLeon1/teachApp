@@ -24,6 +24,11 @@ export class PublicProfileListComponent implements OnInit {
     this.refreshUsers();
   }
 
+  // **** Method to redirect to desired users profile ****//
+  goToPage(userEmail:any){
+    this.router.navigate(['publicProfileList/userProfile', userEmail])
+  }
+
   getUser(){
     this.service.retrieveUser(this.email).subscribe(
       response=>{
@@ -32,8 +37,6 @@ export class PublicProfileListComponent implements OnInit {
       }
     )
   }
-
-
 
   refreshUsers(){
     this.service.retrieveAllUsers().subscribe(
@@ -51,13 +54,6 @@ export class PublicProfileListComponent implements OnInit {
     //console.log(this.searchText);
   }
 
-  // refreshBlogs(){
-  //   this.todoService.retrieveAllTodos(this.email).subscribe(
-  //     response=>{
-  //       //when response is received assign it to todos
-  //       this.todos=response;
-  //     }
-  //   )
-  // }
+
 
 }

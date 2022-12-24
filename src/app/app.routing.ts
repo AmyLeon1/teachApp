@@ -8,11 +8,6 @@ import {LogoutComponent} from "./logout/logout.component";
 import {RouteGuardService} from "./service/route-guard.service";
 import {ProfileComponent} from "./profile/profile.component";
 import {TodoComponent} from "./todo/todo.component";
-//import {AddPostComponent} from "./add-post/add-post.component";
-import {PostComponent} from "./post/post.component";
-import {PostListComponent} from "./post-list/post-list.component";
-import {TestComponent} from "./test/test.component";
-import {AddPostComponent} from "./add-post/add-post.component";
 import {BlogListComponent} from "./blog-list/blog-list.component";
 import {BlogComponent} from "./blog/blog.component";
 import {PublicProfileListComponent} from "./public-profile-list/public-profile-list.component";
@@ -21,7 +16,6 @@ import {PublicProfileComponent} from "./public-profile/public-profile.component"
 import {AddCommentComponent} from "./add-comment/add-comment.component";
 import {AppointmentBookingComponent} from "./appointment-booking/appointment-booking.component";
 import {BookingManagerComponent} from "./booking-manager/booking-manager.component";
-import {AppointmentBookingTimesComponent} from "./appointment-booking-times/appointment-booking-times.component";
 import {ScheduleComponent} from "./schedule/schedule.component";
 import {HomeworkUploadComponent} from "./homework-upload/homework-upload.component";
 import {AddCommentTeacherComponent} from "./add-comment-teacher/add-comment-teacher.component";
@@ -36,10 +30,6 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent, canActivate:[RouteGuardService]},
   {path: 'profile', component: ProfileComponent, canActivate:[RouteGuardService]},
   {path: 'todo/:id', component: TodoComponent, canActivate:[RouteGuardService]},
-  {path: 'add-post', component: AddPostComponent},
-  {path: 'post', component: PostComponent, canActivate:[RouteGuardService]},
-  {path: 'postList', component: PostListComponent},
-  {path: 'test', component: TestComponent},
   {path: 'blogList', component: BlogListComponent, canActivate:[RouteGuardService]},
   {path: 'blog/:id', component: BlogComponent, canActivate:[RouteGuardService]},
   {path: 'publicProfileList', component: PublicProfileListComponent},
@@ -47,14 +37,10 @@ const routes: Routes = [
   {path: 'publicProfileList/userProfile/:email/comment/:id', component: AddCommentComponent},
   {path: 'blogList/comment-teacher/:id', component: AddCommentTeacherComponent},
   {path: 'publicProfileList/userProfile/:email/bookAppointment', component: AppointmentBookingComponent},
-  {path: 'publicProfileList/userProfile/:email/bookAppointment/book-time/:date', component: AppointmentBookingTimesComponent},
- // {path: 'book-time', component: AppointmentBookingTimesComponent},
   {path: 'manageBooking', component: BookingManagerComponent},
   {path: 'schedule', component: ScheduleComponent},
   {path: 'search', component: SearchComponent},
   {path: 'homework', component: HomeworkUploadComponent},
-
-  //make sure this path is always last
   // otherwise redirect to home
   { path: '**', component: ErrorComponent }
 ];

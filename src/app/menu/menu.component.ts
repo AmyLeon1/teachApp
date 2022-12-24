@@ -42,6 +42,14 @@ export class MenuComponent implements OnInit {
   openRegistrationModal(){
     this.regFormModal.show();
   }
+  closeRegModalOpenLoginModal(){
+    this.regFormModal.hide();
+    this.formModal.show();
+  }
+  closeLoginOpenRegModal(){
+    this.formModal.hide();
+    this.regFormModal.show();
+  }
 
 
   hideModal(){
@@ -95,16 +103,21 @@ export class MenuComponent implements OnInit {
 
 
   }
-
-
+   input:any=document.getElementById("about-me-text");
+  // user.about =  this.input.value;
 
   // *** REGISTER USER ***
   registerUser(){
+   let input:any=document.getElementById("about-me-text");
+    this.user.aboutMe =  input.value;
+    // this.input=document.getElementById("about-me-text");
+    console.log("PRINTING ABOUT",this.user.aboutMe )
     this.regService.registerUserFromRemote(this.user)
       .subscribe({
           next: data => {
-            this.router.navigate(['login']),
+            // this.router.navigate(['login']),
               this.regFormModal.hide(),
+                this.formModal.show(),
               this.msg="Registration successful"},
 
           error:err => {console.log("error occured"),

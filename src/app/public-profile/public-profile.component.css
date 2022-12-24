@@ -73,6 +73,9 @@ nav {
   float: left;
   margin: 30px;
 }
+#user-role{
+  color:#9C9CAC;
+}
 
 .about-me {
   position: absolute;
@@ -122,15 +125,17 @@ nav {
   font-size: 16px;
   padding: 10px;
 }
-
+.blog-container{
+  margin-bottom:20px;
+}
 .third-section {
   background: white;
   border-radius: 10px;
   min-height: 200px;
   max-height: fit-content;
-  width: 400px;
+  width: 490px;
   position: relative;
-  margin: 0 0 15px 15px;
+  margin: 0 15px 15px 0;
   float: left;
 }
 

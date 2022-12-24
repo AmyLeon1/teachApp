@@ -77,7 +77,9 @@
                 <label>Password:</label>
               </div>
             </div>
+            <div class="button">
             <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info">Login</button>
+            </div>
           </form>
 
         </div>
@@ -85,7 +87,7 @@
       <div class="modal-footer">
         <div class="registration-link">
           <!-- LINK TO REGISTRATION PAGE -->
-          <small class="float-right" (click)="gotoregistration()">New user? Register here</small>
+          <small class="link-small" role="button" (click)="closeLoginOpenRegModal()">New user? Register here</small>
         </div>
       </div>
     </div>
@@ -142,7 +144,7 @@
 
             <div class="form-group">
               <div class="text-field">
-                <input type="file" name="profilePic" [(ngModel)]="user.picture" required
+                <input type="file" name="profilePic" [(ngModel)]="user.picture"
                        #selectFile="ngModel" (change)="onFileSelection($event)">
                 <span></span>
                 <label> Upload your picture here</label>
@@ -178,13 +180,24 @@
                        required/> Teacher <br/>
               </div>
             </div>
-            <button [disabled]="registrationform.form.invalid" type="submit" class="btn btn-info"> Register</button>
+
+            <div class="form-group">
+              <div class="about-me-section">
+                <p id="about-me">Tell us about yourself. This will be displayed on your public profile</p>
+                <textarea class="text-area" id="about-me-text"   name="about-me" placeholder="type here..."></textarea>
+
+              </div>
+            </div>
+            <div class="button">
+            <button type="submit" class="btn btn-info"> Register</button>
+            </div>
           </form>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="login-link">
+        <small class="link-small" role ="button" (click)= "closeRegModalOpenLoginModal()">Already have an account? Login here </small>
+      </div>
       </div>
     </div>
   </div>
@@ -193,7 +206,7 @@
 
 
 
-
+<!--[disabled]="registrationform.form.invalid"-->
 
 
 

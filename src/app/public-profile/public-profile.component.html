@@ -8,8 +8,10 @@
 
 <body>
 <header>
-  <app-menu></app-menu>
 </header>
+<nav>
+  <app-menu></app-menu>
+</nav>
 
 <div class="content">
   <div class="first-row">
@@ -19,13 +21,12 @@
       </div>
       <div class="profile-info">
         <p>{{user.username}}</p>
-        <p> Speaks </p>
+        <p id="user-role"> {{user.role}} </p>
       </div>
       <div class="about-me">
         <h5> About Me </h5>
         <hr>
-        <p id="about-me-"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua.</p>
+        <p id="about-me-text"[innerHTML]="user.aboutMe"></p>
       </div>
     </div>
   </div>
@@ -42,7 +43,7 @@
     </div>
   </div>
   <h3 class="section-heading"> Posts </h3>
-  <ng-container *ngFor="let blog of blogs">
+  <ng-container *ngFor="let blog of blogs" class="blog-container">
     <div class="third-section">
       <p id="blog-title">{{blog.title}}</p>
       <p id="blog-description">{{blog.description}}</p>
