@@ -15,9 +15,8 @@ declare var window:any;
 })
 export class MenuComponent implements OnInit {
 
-  // user:User;
-  user = new User();
 
+  user = new User();
   formModal:any;
   regFormModal:any;
   invalidLogin = false

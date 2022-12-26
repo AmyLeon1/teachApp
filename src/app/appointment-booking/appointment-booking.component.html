@@ -43,8 +43,9 @@
                             [(ngModel)]="time"  [class.is-invalid]="targetTime.touched && targetTime.untouched" required>
             {{availableTimes.time}}</label></p>
 
-          <button type="submit" class="app-times-btn" [disabled]="timeForm.form.invalid">Make appointment</button>
+
         </ng-container>
+          <button type="submit" class="app-times-btn" [disabled]="timeForm.form.invalid">Make appointment</button>
         </fieldset>
       </form>
       </div>

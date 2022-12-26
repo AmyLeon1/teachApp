@@ -99,6 +99,12 @@ export class AppointmentDataService {
 
   }
 
+  retrieveAllDates(email: any) {
+    //use ticks and not commas for url
+    //ticks did not work ,commas used
+    return this.http.get<AppDate[]>(`http://localhost:8080/appointmentDates/${email}/dates`)
+  }
+
 
 
 

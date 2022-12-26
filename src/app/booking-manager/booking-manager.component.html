@@ -10,15 +10,27 @@
   </nav>
 
 <div class="content">
+  <div class="alert alert-success alert-dismissible fade show" id="success-alert" *ngIf="message">{{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
   <div class="first-row">
     <div class="lessons-container">
+      <div class="no-appointments" *ngIf="thereAreNoAppointments()">
+        <p class="no-appointments-p">You currently have no classes booked</p>
+        <p class="link-to-teachers" *ngIf="!regService.isUserTeacher()">
+          Click the button below to browse teachers</p>
+        <p class="link-to-teachers" *ngIf="regService.isUserTeacher()">
+          <span class="material-icons" id="event-busy-icon">event_busy</span>
+          </p>
+         <p  *ngIf="!regService.isUserTeacher()"> <button class="btn btn-success" id="go-btn" (click)="goToTeachers()"> Go </button>
+        </p>
+        </div>
       <table>
         <tr *ngFor="let appointment of appointments">
           <td>{{appointment.date | date}}</td>
           <td>{{appointment.time}}</td>
           <td *ngIf="regService.isUserTeacher()">{{appointment.studentEmail}}</td>
           <td *ngIf="!regService.isUserTeacher()">{{appointment.email}}</td>
-          <td><button (click) = "cancelAppointment(appointment.appId)" class="btn btn-warning">Cancel</button></td>
+          <td><button id="cancel-btn" (click) = "cancelAppointment(appointment.appId)" class="btn btn-warning">Cancel</button></td>
         </tr>
       </table>
     </div>

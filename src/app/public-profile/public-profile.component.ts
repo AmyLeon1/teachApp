@@ -94,32 +94,6 @@ export class PublicProfileComponent implements OnInit {
     }
   }
 
-  // showBlogId(){
-  //   console.log(this.blog.id)
-  // }
-
-  // getBlogId(){
-  //   let b = this.blog.id
-  //   console.log(b)
-  // }
-
-
-  // getBlogId(blog:any){
-  // this.blogId = this.blog.id;
-  //
-  // }
-
-  //
-  // getBlogId(email:any, id:any){
-  //   this.blogService.retrieveBlog(email, id).subscribe(
-  //     response=>{
-  //       //when response is received assign it to todos
-  //       // this.blog=response;
-  //       this.blogId = response.id;
-  //
-  //     }
-  //   )
-  // }
 
   gotoPage() {
     this.router.navigate(['comment', this.blog.id]);
@@ -136,9 +110,6 @@ export class PublicProfileComponent implements OnInit {
       }
     )
   }
-
-
-
 
 
 

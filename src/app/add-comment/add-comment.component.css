@@ -75,7 +75,11 @@ nav{
 .display-comments{
   margin:5px;
 
-
+}
+#comment-span{
+  font-size: 14px;
+  color: #b2afaf;
+  float:right;
 }
 .comment{
   margin:5px;

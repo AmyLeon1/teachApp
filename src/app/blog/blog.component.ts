@@ -58,6 +58,8 @@ export class BlogComponent implements OnInit {
         )
     }
     else {
+      let input:any=document.getElementById("blog-description");
+      this.blog.description =  input.value;
       //call blogsevice
       this.blogService.updateBlog(this.email, this.id, this.blog)
         //subscribe to make the call

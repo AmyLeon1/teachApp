@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppointmentDataService} from "../service/data/appointment-data.service";
 import {Appointment} from "../appointment";
 import {Todo} from "../todo-list/todo-list.component";
 import {HttpClient} from "@angular/common/http";
 import {RegistrationService} from "../service/registration.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-booking-manager',
@@ -13,62 +13,66 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class BookingManagerComponent implements OnInit {
 
-  appointments:Appointment[]
+  appointments: Appointment[]
   email = this.regService.getAuthenticatedUser();
-  studentEmail= this.regService.getAuthenticatedUser();
+  studentEmail = this.regService.getAuthenticatedUser();
+  message: any
 
-  constructor(private appService: AppointmentDataService, private http:HttpClient, public regService: RegistrationService,
-              private route:ActivatedRoute) { }
+  constructor(private appService: AppointmentDataService, private http: HttpClient, public regService: RegistrationService,
+              private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit(): void {
-    // this.route.params.subscribe(params => this.refreshAppointments(params["email"]))
-    if(this.regService.isUserTeacher()){
+    //methods that need to executed upon loading of page
+    if (this.regService.isUserTeacher()) {
       this.refreshAppointments()
     }
-    if(!this.regService.isUserTeacher()){
+    if (!this.regService.isUserTeacher()) {
       this.refreshStudentAppointments()
     }
-
-
-    // this.refreshStudentAppointments();
-    // this.refreshAppointments();
+    this.thereAreNoAppointments();
   }
 
+  /**** Method to get redirected to the list of teachers/search function ****/
+  goToTeachers() {
+    this.router.navigate(['publicProfileList'])
+  }
 
-  cancelAppointment(id:any){
+  /**** Method to check if there are no appointments ****/
+  thereAreNoAppointments() {
+    //if the length of array is 0 return
+    return this.appointments.length == 0;
+  }
+
+  /**** Method to cancel appointment ****/
+  cancelAppointment(id: any) {
     this.appService.cancelAppointment(id).subscribe(
-      response=>{
-        // this.message =`Delete of Todo ${id}  Successful!`
-        //calling this method allows the list to update a
-        //so we don't have to refresh page to see updates
-        console.log("APP HAS BEEN DELETED!");
-        location.reload();
+      response => {
+        //upon receipt of response refresh appointments and set message
         this.refreshAppointments();
         this.refreshStudentAppointments()
+        this.message = `Appointment has successfully been cancelled`
       }
     )
   }
 
 
-  //get appointments for students
-  refreshStudentAppointments(){
+  /**** Get appointments for students ****/
+  refreshStudentAppointments() {
     this.appService.retrieveAllStudentAppointments(this.studentEmail).subscribe(
-      response=>{
-        console.log("In student apps")
-        console.log(response)
-        //when response is received assign it to todos
-        this.appointments=response;
+      response => {
+        //when response is received assign it to appointments
+        this.appointments = response;
       }
     )
   }
 
-
-  refreshAppointments(){
+  /**** Get appointments for teachers ****/
+  refreshAppointments() {
     this.appService.retrieveAllAppointments(this.email).subscribe(
-      response=>{
-        console.log("In teacher apps")
-        //when response is received assign it to todos
-        this.appointments=response;
+      response => {
+        //when response is received assign it to appointments
+        this.appointments = response;
       }
     )
   }

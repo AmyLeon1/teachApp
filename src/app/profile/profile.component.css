@@ -1,5 +1,4 @@
-
-*{
+* {
   list-style: none;
   text-decoration: none;
   margin: 0;
@@ -7,178 +6,212 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
-html{
-  min-height:100vh;
+
+html {
+  min-height: 100vh;
   min-width: 100vw;
   background: #f2f2f2;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   overflow-y: scroll;
 
 }
- body{
-   position:relative;
-  height:100vh;
-   width:100%;
-  padding:0;
-   /*background: #fafafa;*/
-   background: #f2f2f2;
-   overflow-y: scroll;
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  background: #f2f2f2;
+  overflow-y: scroll;
 
 }
 
-header{
-  position:fixed;
-  width:100%;
-  top:0;
-  padding:0;
-  margin:0;
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 0;
+  margin: 0;
   background: white;
 }
 
-nav{
-  /*background: #f2f2f2;*/
+nav {
   background: white;
-  position:sticky;
-  top:0;
+  position: sticky;
+  top: 0;
   z-index: 500;
 }
-.content{
-  position:absolute;
-  top:65%;
-  left:50%;
+
+.content {
+  position: absolute;
+  top: 65%;
+  left: 50%;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-  height:100%;
-  width:70%;
-  /*padding:50px;*/
-  /*flex: 1;*/
-  /*display: flex;*/
-  /*align-items: center;*/
+  height: 100%;
+  width: 70%;
   background: #f2f2f2;
 }
-.first-row{
+
+.welcome {
+  text-align: center;
+}
+
+.first-row {
   margin-top: 50px;
   display: flex;
 }
-.user-details{
+
+.user-details {
   background: white;
-  width:40%;
-  height:150px;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
+  width: 40%;
+  height: 150px;
   border-radius: 5px;
-  padding:20px;
-  margin:4px;
-}
-.upcoming-lessons{
-  background: white;
-  border-radius: 5px;
-  width:20%;
-  padding:20px;
-  margin:4px;
-  border-radius: 5px;
-}
-.reminder{
-  background: white;
-  border-radius: 5px;
-  width:40%;
-  padding:20px 0 20px 20px;
-  margin:4px;
-  border-radius: 5px;
-}
-.second-row{
-  background: white;
-  border-radius: 5px;
-  /*width:100%;*/
-  margin: 20px 2px 20px 4px;
-  padding:20px;
+  padding: 20px;
+  margin: 4px;
+  text-align: center;
 }
 
-.second-row h5{
+.user-details #person {
+  color: #EBCF38;
+  font-size: 30px
+}
+
+.user-details #user-name {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.user-details #user-email {
+  font-size: 14px;
+  color: #adadad;
+}
+
+.upcoming-lessons {
+  background: white;
+  border-radius: 5px;
+  width: 20%;
+  padding: 20px;
+  margin: 4px;
+  border-radius: 5px;
+}
+
+.reminder {
+  background: white;
+  border-radius: 5px;
+  width: 40%;
+  padding: 20px 0 20px 20px;
+  margin: 4px;
+  border-radius: 5px;
+}
+
+#school-icon {
+  color: #EBCF38;
+  font-size: 30px;
+}
+
+#no-school-icon {
+  color: #EBCF38;
+  font-size: 30px;
+}
+
+.class-today {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.no-class-today {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.class-today-p {
+  font-size: 16px;
+}
+
+.class-today-p-info a {
+  font-size: 14px;
+  color: #adadad;
+  text-decoration: underline;
+}
+
+.class-today-p-info a:hover {
+  color: #838282;
+}
+
+.class-today-p span {
+}
+
+.second-row {
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
+  border-radius: 5px;
+  margin: 20px 2px 20px 4px;
+  padding: 20px;
+}
+
+.second-row h5 {
   text-align: center;
   margin-bottom: 10px;
 }
-.second-row p{
+
+.second-row p {
   text-align: center;
 }
 
-.tools-heading{
-  margin-top:60px;
+.tools-heading {
+  margin-top: 60px;
 }
 
-.third-row{
-  display:flex;
-  /*width:100%;*/
+.third-row {
+  display: flex;
   margin: 20px 2px 20px 4px;
 }
+
 section {
   display: flex;
-  /*margin-left: 300px;*/
-  /*margin:30px 0 30px 50px;*/
   margin: 30px 2px 20px 3px;
   align-items: center;
   flex-direction: column;
   background-color: white;
-  width:557px;
-  height:400px;
-  padding:0;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
+  width: 557px;
+  height: 400px;
+  padding: 0;
   justify-content: center;
   border-radius: 5px;
 }
 
-.third-row .word-of-day{
+.third-row .word-of-day {
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-right:4px;
-  padding-top:40px;
-
-  /*float:right;*/
-  /*border-radius: 20px;*/
-  background-color:white;
+  margin-right: 4px;
+  padding-top: 40px;
+  background-color: white;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
   height: 200px;
-  width:450px;
-  color:black;
+  width: 450px;
+  color: black;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.word-of-day h3{
-  padding-top:10px;
+.word-of-day h3 {
+  padding-top: 10px;
 }
-#wod{
+
+#wod {
   font-style: italic;
   padding-top: 10px;
   font-size: 20px;
 }
-.welcome h1{
-  color:black;
 
-  text-align: center;
-  width:100%;
-}
-.top-bar{
-  background: rgb(5, 68, 104);
-  width: 90%;
-  height: 69px;
-  line-height: 80%;
-  width:108%;
-  overflow: hidden;
-  position: fixed;
-  top:0;
-  left:0;
-}
-
-.wrapper .sidebar{
-  background: rgb(5, 68, 104);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 225px;
-  height: 100%;
-  padding: 20px 0;
-  transition: all 0.5s ease;
-}
-.logo{
+.logo {
   display: block;
   padding: 10px 30px;
 
@@ -188,55 +221,16 @@ section {
   position: relative;
 }
 
-/*.wrapper .sidebar ul li a .icon{*/
-/*  color: #dee4ec;*/
-/*  width: 30px;*/
-/*  display: inline-block;*/
-/*}*/
-.wrapper .sidebar ul li a{
-  display: block;
-  padding: 13px 30px;
-  border-bottom: 1px solid #10558d;
-  color: rgb(241, 237, 237);
-  font-size: 16px;
-  position: relative;
-}
-.wrapper .sidebar ul li a:hover,
-.wrapper .sidebar ul li a.active{
-  color: #0c7db1;
-
-  background:white;
-  border-right: 2px solid rgb(5, 68, 104);
-}
-
-.wrapper .sidebar ul li a:hover .icon,
-.wrapper .sidebar ul li a.active .icon{
-  color: #0c7db1;
-}
-
-.wrapper .sidebar ul li a:hover:before,
-.wrapper .sidebar ul li a.active:before{
-  display: block;
-}
-
 
 /*    API - WORDNIK              */
 :root {
   --box-shadow-color: #9c9c9c;
 }
 
-/*body {*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  font-family: 'Segoe UI';*/
-/*}*/
-.right{
-  float:right;
+.right {
+  float: right;
   margin-top: 15px;
-
 }
-
-
 
 section .searchForm h1 {
   display: flex;
@@ -245,6 +239,11 @@ section .searchForm h1 {
   padding: 0px 0px;
   margin: 150px 0px 30px 0px;
   font-weight: 350;
+}
+
+#searchBox {
+  height: 40px;
+  font-size: 18px;
 }
 
 section .searchForm input[type=search] {
@@ -273,7 +272,7 @@ section .searchForm input[type=search]:focus {
 section .searchForm input[type=button] {
   margin: 0px 20px;
   padding: 15px 40px;
-  background-color:  rgb(5, 68, 104);
+  background-color: rgb(5, 68, 104);
   color: #fff;
   border: none;
   font-size: 20px;
@@ -282,19 +281,22 @@ section .searchForm input[type=button] {
   transition: box-shadow 0.5s;
   outline: none;
 }
-.buttons{
-  dsisplay: flex;
+
+.buttons {
+  display: flex;
   align-items: center;
   flex-direction: row;
-  margin-left: 2px;
+  margin-left: 40px;
+  margin-right: auto;
 }
-#btn{
+
+#btn {
   margin: 0px 20px;
-  padding: 15px 40px;
+  padding: 10px 40px;
   background-color: #8e44ad;
   color: #fff;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   border-radius: 50px;
   box-shadow: 7px 7px 7px #dad8d8;
   transition: box-shadow 0.5s;
@@ -303,18 +305,17 @@ section .searchForm input[type=button] {
 
 #btn:hover {
   box-shadow: 5px 5px 15px #aaa;
-  background-color: rgb(1, 41, 65);
+  background-color: #5d2275;
   /*background-color: #f1a566;*/
 }
 
-
-#refresh-btn{
+#refresh-btn {
   margin: 0px 0px;
-  padding: 15px 40px;
-  background-color:  #8e44ad;
+  padding: 10px 40px;
+  background-color: #8e44ad;
   color: #fff;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   border-radius: 50px;
   box-shadow: 10px 10px 15px #a8a8a8;
   transition: box-shadow 0.5s;
@@ -323,8 +324,8 @@ section .searchForm input[type=button] {
 
 #refresh-btn:hover {
   box-shadow: 5px 5px 15px #aaa;
-  background-color: rgb(1, 41, 65);
-    /*rgb(4, 58, 88);*/
+  background-color: #5d2275;
+  /*rgb(4, 58, 88);*/
   /*background-color: #f1a566;*/
 }
 
@@ -344,36 +345,27 @@ section .searchResult div p {
   font-size: 28px;
 }
 
-/*.word-of-day{*/
-/*  margin-top: 30px;*/
-/*  margin-bottom: 30px;*/
-/*  float:right;*/
-/*  !*border-radius: 20px;*!*/
-/*  background-color:white;*/
-/*  box-shadow: 7px 7px 7px 7px #dad8d8;*/
-/*  height: 100px;*/
-/*  width:350px;*/
-/*  color:black;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  flex-direction: column;*/
-/*  !*width:100vw;*!*/
-/*}*/
-.word-of-day h3{
-  padding-top:10px;
+.word-of-day h3 {
+  padding-top: 10px;
 }
-#wod{
+
+#wod {
   font-style: italic;
 
   padding-top: 10px;
   font-size: 20px;
 }
 
+#book-icon {
+  font-size: 30px;
+}
+
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
