@@ -6,33 +6,30 @@
 <nav>
   <app-menu></app-menu>
 </nav>
-
-
 <div class="banner">
   <div class="banner-text"><p id="title">Find the right teacher for you</p>
     <p id="p-details">Looking to connect with a new or existing tutor? Browse our
       tutors to find the perfect teacher for you</p>
+    <!-- binding event of search to onSearchTextEntered(). Emitted event data is passed in as parameter(searchValue parameter)   -->
     <app-search (searchTextChanged)="onSearchTextEntered($event)" class="search"></app-search>
   </div>
   <img src="assets/teacher-search.jpg" alt="teaching-image" style="height:200px; width:300px">
 </div>
-
 <div class="content">
   <ng-container *ngFor="let user of users">
+    <!-- only show users that are teachers-->
     <div class="show-teachers" *ngIf="user.role == 'teacher'">
+      <!-- if searchText is empty show all users. If not empty show users whose username contains what is entered in searchText -->
       <div class="profile-container" *ngIf="searchText === '' || user.username.toLowerCase().includes(searchText)">
         <div class="profile-card">
           <div class="first-row">
             <div class="profile-image">
               <img src="/assets/user-icon.png" alt="user icon" id="image" style="width:52px; height:52px;">
             </div>
-
             <div class="user-details">
               <p>{{user.username}}</p>
               <p>{{user.email}}</p>
             </div>
-            <!--          <div class="profile-name"><p>{{user.username}}</p></div>-->
-            <!--          <div class="profile-email"><p>{{user.email}}</p></div>-->
           </div>
           <div class="profile-buttons">
             <button (click)="goToPage(this.user.email)" id="go-to-page-btn"> View Page</button>
@@ -42,162 +39,6 @@
     </div>
   </ng-container>
 </div>
-
 </body>
-<!--</html>-->
-
-
-<!--<div class="top-bar">-->
-<!--  <div class="logo-span"><a href="" class="logo">TeachIT</a>-->
-<!--  </div>-->
-<!--  <div class="search">-->
-<!--    <app-search (searchTextChanged)="onSearchTextEntered($event)" ></app-search>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--<div class="container">&ndash;&gt;-->
-<!--&lt;!&ndash;<div class="search">&ndash;&gt;-->
-<!--&lt;!&ndash;  <app-search (searchTextChanged)="onSearchTextEntered($event)" ></app-search>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-<!--  <ng-container *ngFor="let user of users">-->
-<!--  &lt;!&ndash;  only display users that are registered as teachers&ndash;&gt;-->
-<!--    <div *ngIf="user.role == 'teacher'">-->
-<!--  <div class="profile-container" *ngIf="searchText === '' || user.username.toLowerCase().includes(searchText)">-->
-<!--    <div class="profile-card">-->
-<!--      <div>-->
-<!--  &lt;!&ndash;      <img src="user-icon.png" alt="user icon" width="200" height="200">&ndash;&gt;-->
-<!--        <img src ="/assets/user-icon.png" alt="user icon" id="image" style="width:220px; height:140px;">-->
-<!--      </div>-->
-<!--      <div class ="profile-name"><h4>{{user.username}}</h4></div>-->
-<!--      <div class ="profile-email"><h4>{{user.email}}</h4></div>-->
-
-<!--    <div class="profile-buttons">-->
-<!--      <a [routerLink]="['userProfile', user.email]">View Page</a>-->
-
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--  </div>-->
-<!--  </ng-container>-->
-<!--</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="profie-container" *ngFor="let user of users">-->
-<!--  <div class="profile-card">-->
-<!--    <div>-->
-<!--&lt;!&ndash;      should put teacher image here&ndash;&gt;-->
-<!--    </div>-->
-<!--    <div class ="profile-name"><h4>{{user.username}}</h4></div>-->
-<!--    <div class ="profile-email"><h4>{{user.email}}</h4></div>-->
-
-<!--    <div class="profile-buttons">-->
-<!--      <button class="btn btn-show">View Page</button>-->
-
-<!--    </div>-->
-<!--  </div>-->
-
-
-<!--</div>-->
-
-
-<!--<div class="container">-->
-<!--  <table class="table">-->
-
-<!--    &lt;!&ndash; specify caption style to stop it going below table-->
-<!--    <caption style="caption-side: top">TODO: </caption>-->
-<!--    &ndash;&gt;-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th>Id</th>-->
-<!--      <th> Username</th>-->
-<!--      <th>Email</th>-->
-<!--      <th>Password</th>-->
-
-
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    &lt;!&ndash; *ngFor : as if there is a for loop around the entire <tr> section &ndash;&gt;-->
-<!--    <tr *ngFor="let user of users">-->
-
-<!--      <td>{{user.id}}</td>-->
-<!--      &lt;!&ndash; |date = a pipe, gives it more normal date format-->
-<!--      turn one value into another format&ndash;&gt;-->
-<!--      <td>{{user.username}}</td>-->
-<!--      <td>{{user.email}}</td>-->
-<!--&lt;!&ndash;      <td><button (click) = "updateBlog(blog.id)" class="btn btn-success">Update</button></td>&ndash;&gt;-->
-<!--&lt;!&ndash;      <td><button (click) = "deleteBlog(blog.id)" class="btn btn-warning">Delete</button></td>&ndash;&gt;-->
-
-<!--      &lt;!&ndash;      <td><button (click) = "updateTodo(todo.id)" class="btn btn-success">Update</button></td>&ndash;&gt;-->
-<!--      &lt;!&ndash;      <td><button (click) = "deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>&ndash;&gt;-->
-<!--    </tr>-->
-
-<!--    </tbody>-->
-
-<!--  </table>-->
-
-<!--&lt;!&ndash;  <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;    <button (click) = "addBlog()" class="btn btn-success">Add</button>&ndash;&gt;-->
-<!--&lt;!&ndash;  </div>&ndash;&gt;-->
-<!--</div>-->
-
-
-<!--&lt;!&ndash;&lt;!&ndash;Show Details&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;load by username &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;Show blog posts &ndash;&gt;&ndash;&gt;-->
-
-<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
-
-<!--&lt;!&ndash;&lt;!&ndash;  *ngFor="let user of users"&ndash;&gt;&ndash;&gt;-->
-
-<!--&lt;!&ndash;  Welcome to my profile&ndash;&gt;-->
-
-<!--&lt;!&ndash;  Who would you like to search for?&ndash;&gt;-->
-
-<!--&lt;!&ndash;  <input class ="text" [(ngModel)]="user.email" placeholder="Please enter email" #email="ngModel">&ndash;&gt;-->
-<!--&lt;!&ndash;  <button (click)=getUser() class="btn btn-submit"> submit</button>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;  {{user.id}}&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;  <div class="container">&ndash;&gt;-->
-<!--&lt;!&ndash;    <table class="table">&ndash;&gt;-->
-
-<!--&lt;!&ndash;      &lt;!&ndash; specify caption style to stop it going below table&ndash;&gt;-->
-<!--&lt;!&ndash;      <caption style="caption-side: top">TODO: </caption>&ndash;&gt;-->
-<!--&lt;!&ndash;      &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;      <thead>&ndash;&gt;-->
-<!--&lt;!&ndash;      <tr>&ndash;&gt;-->
-<!--&lt;!&ndash;        <th>Description</th>&ndash;&gt;-->
-<!--&lt;!&ndash;        <th> Target Date</th>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;      </tr>&ndash;&gt;-->
-<!--&lt;!&ndash;      </thead>&ndash;&gt;-->
-<!--&lt;!&ndash;      <tbody>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;        <td>{{user.username}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;        &lt;!&ndash; |date = a pipe, gives it more normal date format&ndash;&gt;-->
-<!--&lt;!&ndash;        turn one value into another format&ndash;&gt;&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;      </tbody>&ndash;&gt;-->
-<!--&lt;!&ndash;    </table>&ndash;&gt;-->
-<!--&lt;!&ndash;  </div>&ndash;&gt;-->
-
+</html>
 

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" name="viewport"
-        content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <header></header>
@@ -10,31 +9,20 @@
   <app-menu></app-menu>
 </nav>
 <div class="content">
-
   <form (ngSubmit)="!blogForm.invalid && saveBlog()" #blogForm="ngForm" class="blog-form">
-
     <fieldset class="form-group">
       <label for="title"><span>Title</span></label>
-
-      <!--use banana box so we can load the description -->
-      <!--#description = ngModel = template reference -->
       <input type="text" [(ngModel)]="blog.title" #title="ngModel" class="form-control" name="title" required="required"
              minlength="5">
     </fieldset>
-
     <fieldset class="form-group">
       <div class="text-area-div">
       <label><span>Description</span></label>
-      <!--use banana box so we can load the description -->
-      <!--#description = ngModel = template reference -->
-<!--      <input type="text" [(ngModel)]="blog.description" #description="ngModel" class="form-control" name="description"-->
-<!--             required="required" minlength="5">-->
       <p>
       <textarea class="text-area" id="blog-description" [(ngModel)]="blog.description"  name="blog-description" placeholder="type here..."></textarea>
       </p>
       </div>
     </fieldset>
-
     <button type="submit" class="btn btn-success">Save</button>
   </form>
 </div>

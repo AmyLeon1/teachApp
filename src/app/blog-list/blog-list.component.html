@@ -10,6 +10,7 @@
   <app-menu></app-menu>
 </nav>
 <div class="content">
+  <button (click)="addBlog()"></button>
   <ng-container *ngFor="let blog of blogs">
         <div class="blog-card">
           <p id="title">{{blog.title}}</p>

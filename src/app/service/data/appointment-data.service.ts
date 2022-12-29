@@ -45,7 +45,7 @@ export class AppointmentDataService {
   //createAppointment(user:User, appointment: Appointment)
   createAppointment(email: any, appointment: Appointment) {
     //pass todo into the body of the request
-    return this.http.post(`${API_URL}/users/${email}/appointments4`, appointment);
+    return this.http.post(`${API_URL}/users/${email}/appointments`, appointment);
 
   }
 
@@ -77,19 +77,12 @@ export class AppointmentDataService {
   }
 
 
-
-
   // method for teachers to add a date //
   addDate(email:any, availableDate:availableDate){
     return this.http.post(`${API_URL}/users/${email}/availableDates1`, availableDate)
   }
 
 
-  // //method to retrieve user by email
-  // retrieveDate(email: any, date:any) {
-  //   return this.http.get<User>(`${API_URL}/users/${email}`
-  //   )
-  // }
 
   // Method to retrieve times //
   retrieveAllTimes(email: any, date:any) {
@@ -104,7 +97,6 @@ export class AppointmentDataService {
     //ticks did not work ,commas used
     return this.http.get<AppDate[]>(`http://localhost:8080/appointmentDates/${email}/dates`)
   }
-
 
 
 

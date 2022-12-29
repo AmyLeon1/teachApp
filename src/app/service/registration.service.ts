@@ -20,15 +20,12 @@ export class RegistrationService {
   constructor(private http: HttpClient) {
   }
 
-  //method
-  //retruns observable
+  /**** Method to login user ****/
   public loginUserFromRemote(user: User): Observable<any> {
-
-    //can call rest endpoints via http
+    //set user email into session storage
     sessionStorage.setItem('token', user.email);
+    //send user object via post request to be authenticated
     return this.http.post<any>("http://localhost:8080/login", user);
-
-
   }
 
   // ** METHOD TO CHECK USER ROLE**

@@ -14,7 +14,7 @@ export class PublicProfileListComponent implements OnInit {
   user=new User()
   users:User[]
   email:string
-
+  searchText:string='' //holds value user enters in search box
   chosenEmail:string
 
   constructor(  private todoService:TodoDataService,
@@ -41,19 +41,17 @@ export class PublicProfileListComponent implements OnInit {
   refreshUsers(){
     this.service.retrieveAllUsers().subscribe(
       response=>{
-        //when response is received assign it to todos
         this.users=response;
       }
     )
   }
 
-  searchText:string=''
 
+  /* Method called when custom event is raised - search */
+  // parameter is received from what custom event emits
   onSearchTextEntered(searchValue: string){
+    //set search text to the value that the custom event has emitted
     this.searchText = searchValue;
-    //console.log(this.searchText);
   }
-
-
 
 }

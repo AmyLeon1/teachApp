@@ -68,6 +68,8 @@ nav{
   left:35%;
   margin-bottom:10px;
   display: flex;
+  width:100%;
+
 }
 #edit-btn{
   background: #8e44ad;
