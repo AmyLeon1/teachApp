@@ -1,4 +1,3 @@
-
 <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-white" id="nav">
   <div><a href="" class="navbar-brand">TeachIT</a></div>
   <ul class="navbar-nav">
@@ -17,25 +16,22 @@
            class="nav-link">Manage Schedule</a></li>
   </ul>
 
-
   <!-- bootstrap feature to allow it appear in right hand corner-->
   <ul class="navbar-nav navbar-collapse justify-content-end">
     <li><a routerLink="/publicProfileList" class="nav-link">View our teachers</a></li>
     <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="openRegistrationModal()"
            class="nav-link">Register</a>
     </li>
-    <!--      <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/login" class="nav-link">Login</a>-->
-    <!--      </li>-->
     <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="openModal()"
            class="nav-link">Login</a>
     </li>
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();"  role="button" (click)="logout()" class="nav-link">Logout</a>
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="logout()" class="nav-link">Logout</a>
     </li>
   </ul>
 
 </nav>
 
-!-- Login Modal -->
+<!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -78,7 +74,7 @@
               </div>
             </div>
             <div class="button">
-            <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info">Login</button>
+              <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info">Login</button>
             </div>
           </form>
 
@@ -95,7 +91,7 @@
 </div>
 
 
-!-- Registration Modal -->
+<!-- Registration Modal -->
 <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -141,6 +137,11 @@
                 </div>
               </div>
             </div>
+            <div class="form-group">
+              <div class="text-field">
+                <select id="countries"></select>
+              </div>
+            </div>
 
             <div class="form-group">
               <div class="text-field">
@@ -165,7 +166,6 @@
             </div>
 
             <div class="form-group">
-              <!--      <div class="text-field">-->
               <div class="radio-text">
                 <label class="radio-label">
                   Are you a student or a teacher?<br> Please choose one:
@@ -184,26 +184,25 @@
             <div class="form-group">
               <div class="about-me-section">
                 <p id="about-me">Tell us about yourself. This will be displayed on your public profile</p>
-                <textarea class="text-area" id="about-me-text"   name="about-me" placeholder="type here..."></textarea>
+                <textarea class="text-area" id="about-me-text" name="about-me" placeholder="type here..."></textarea>
 
               </div>
             </div>
             <div class="button">
-            <button type="submit" class="btn btn-info"> Register</button>
+              <button type="submit" class="btn btn-info"> Register</button>
             </div>
           </form>
         </div>
       </div>
       <div class="modal-footer">
         <div class="login-link">
-        <small class="link-small" role ="button" (click)= "closeRegModalOpenLoginModal()">Already have an account? Login here </small>
-      </div>
+          <small class="link-small" role="button" (click)="closeRegModalOpenLoginModal()">Already have an account? Login
+            here </small>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 
 <!--[disabled]="registrationform.form.invalid"-->

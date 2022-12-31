@@ -10,6 +10,7 @@ export class User {
   role:string;
   picture:FileHandler;
   aboutMe:string
+  nationality:string
 
   constructor() {
   }

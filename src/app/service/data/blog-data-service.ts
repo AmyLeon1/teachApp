@@ -34,7 +34,6 @@ export class BlogDataService{
 
   }
 
-
   /* Method to retrieve all blogs for a particular user*/
   retrieveAllBlogs(email: string){
     //use ticks and not commas for url
@@ -42,7 +41,6 @@ export class BlogDataService{
     return this.http.get<Blog[]>(`http://localhost:8080/users/${email}/blogs`)
 
   }
-
 
   retrieveBlog(email:any, id:any){
     return this.http.get<Blog>(`${API_URL}/users/${email}/blogs/${id}`
@@ -53,7 +51,6 @@ export class BlogDataService{
     return this.http.get<Blog>(`${API_URL}/blogs/${id}`
     )
   }
-
 
   /* Method to delete a blog */
   deleteBlog(email:any, id:any){

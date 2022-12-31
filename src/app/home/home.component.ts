@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
 
@@ -9,6 +10,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
+  }
+  constructor( private router: Router) {
+  }
+
+  /* Method to navigate to page with list of teachers */
+  goToTeachers(){
+    this.router.navigate(['publicProfileList']);
   }
 
 }
