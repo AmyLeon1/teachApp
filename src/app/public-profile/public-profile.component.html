@@ -20,13 +20,15 @@
         <img src="/assets/user-icon.png" alt="user icon" id="image" style="width:52px; height:52px;">
       </div>
       <div class="profile-info">
-        <p>{{user.username}}</p>
+        {{user.username}}
         <p id="user-role"> {{user.role}} </p>
       </div>
+
       <div class="about-me">
+        <div class="nationality"><p><span>FROM: </span>{{user.nationality}}</p></div>
         <h5> About Me </h5>
         <hr>
-        <p id="about-me-text"[innerHTML]="user.aboutMe"></p>
+        <p id="about-me-text" [innerHTML]="user.aboutMe"></p>
       </div>
     </div>
   </div>
@@ -34,7 +36,7 @@
   <div class="second-section">
     <div class="lesson-type">
       <div class="lesson-name">
-        <p>Conversation Practice</p>
+        <p>General English </p>
       </div>
       <div class="booking-link">
         <a [routerLink]="['bookAppointment']">Book a Class</a>
@@ -43,15 +45,17 @@
     </div>
   </div>
   <h3 class="section-heading"> Posts </h3>
-  <ng-container *ngFor="let blog of blogs" class="blog-container">
-    <div class="third-section">
+  <div class="third-section">
+    <div *ngFor="let blog of blogs" class="blog-container">
       <p id="blog-title">{{blog.title}}</p>
       <p id="blog-description">{{blog.description}}</p>
       <div class="blog-button">
         <a [routerLink]="['comment', blog.id]">See more</a>
       </div>
+
     </div>
-  </ng-container>
+  </div>
 </div>
+
 </body>
 </html>

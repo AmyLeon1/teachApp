@@ -24,6 +24,7 @@
          <p  *ngIf="!regService.isUserTeacher()"> <button class="btn btn-success" id="go-btn" (click)="goToTeachers()"> Go </button>
         </p>
         </div>
+      <h3>Classes: </h3>
       <table>
         <tr *ngFor="let appointment of appointments">
           <td>{{appointment.date | date}}</td>

@@ -27,7 +27,7 @@ export class TodoComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params["id"];
-    this.todo = new Todo(this.id, this.email, '', false, new Date());
+    this.todo = new Todo(this.id, this.email, '', new Date());
 
     //when it's a new to do, do not need to call retrieve to do service
     if(this.id!=-1) {

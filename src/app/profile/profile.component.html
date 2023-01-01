@@ -29,8 +29,8 @@
       <p id="user-name">{{user.username}}</p>
       <p id="user-email">Email: {{user.email}}</p>
     </div>
-    <div class="upcoming-lessons">
-      <p> 0 </p>
+    <div class="date-display">
+      <div id="current-date"> </div>
     </div>
     <div class="reminder">
       <div class="class-today" *ngIf="doesUserHaveClassToday()">
@@ -49,23 +49,26 @@
   </div>
 
   <div class="second-row">
-    <h5> Check your todo-list</h5>
-    <p> Keep organised and stay on top of things by checking
-      your to-do list daily</p>
+    <h5>
+      <span class="material-icons">priority_high</span>
+      Check your todo-list
+      <span class="material-icons">priority_high</span>
+    </h5>
+    <p> Keep organised and check out your upcoming tasks <a routerLink="/todoList"> here</a>.</p>
   </div>
 
   <h4 class="tools-heading"> Tools & Learning</h4>
   <div class="third-row">
     <div class="word-of-day">
-      <h3>Word of the day</h3>
+      <h3>Word of the Day</h3>
       <p id="wod"></p>
     </div>
 
 
-    <section>
+    <div class="section">
       <div class="searchForm-div">
       <form class="searchForm" (ngSubmit)=" wordSearch()" #date1Form="ngForm">
-        <h1>Dictionary</h1>
+        <h3>Dictionary</h3>
         <span class="material-icons" id="book-icon">menu_book</span>
         <input type="search" name="searchBox" id="searchBox" placeholder="Type your word here ...">
         <div class="buttons">
@@ -74,7 +77,7 @@
         </div>
       </form>
       </div>
-    </section>
+    </div>
 
   </div>
     <div class="fourth-row">
@@ -83,19 +86,19 @@
       </div>
       <div class="searchResult" id="searchResult">
         <div>
-          <h1>Word</h1>
+          <h3>Word</h3>
           <p id="word"></p>
         </div>
         <div>
-          <h1>Definition</h1>
+          <h3>Definition</h3>
           <p id="definition"></p>
         </div>
         <div>
-          <h1>Example</h1>
+          <h3>Example</h3>
           <p id="example"></p>
         </div>
         <div>
-          <h1>Pronunciation</h1>
+          <h3>Pronunciation</h3>
           <p id="pronunciation"></p>
         </div>
       </div>

@@ -51,6 +51,9 @@ nav{
   background: #f2f2f2;
 
 }
+h3{
+  text-align: center;
+}
 .first-row{
   margin-top: 50px;
   position:absolute;
@@ -60,6 +63,7 @@ nav{
   /*display: flex;*/
   margin-left: auto;
   margin-right:auto;
+  height:fit-content;
 }
 .no-appointments{
   text-align: center;

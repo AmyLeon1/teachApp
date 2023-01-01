@@ -5,6 +5,7 @@ import {Blog} from "../blog-list/blog-list.component";
 import {Comment} from "../blog-list/blog-list.component";
 import {User} from "../user";
 import {RegistrationService} from "../service/registration.service";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-add-comment',
@@ -14,7 +15,7 @@ import {RegistrationService} from "../service/registration.service";
 export class AddCommentComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private blogService: BlogDataService, private router: Router,
-              public service: RegistrationService
+              public service: RegistrationService, private datepipe:DatePipe
   ) {
   }
 
@@ -26,6 +27,7 @@ export class AddCommentComponent implements OnInit {
   body: string
   id: number
   owner = this.service.getAuthenticatedUser();
+  date:string
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.getBlog(params["id"]))
@@ -33,7 +35,7 @@ export class AddCommentComponent implements OnInit {
     this.route.params.subscribe(params => this.refreshComments(params["id"]))
 
 
-    this.comment = new Comment(this.commentId, '', this.owner);
+    this.comment = new Comment(this.commentId, '', this.owner, this.date);
     this.refreshComments(this.id);
 
   }
@@ -49,10 +51,13 @@ export class AddCommentComponent implements OnInit {
 
   saveComment(id: any) {
     this.commentId = -1;
-    if (this.commentId === -1) {
-      //create new t do
+    let date = Date.now().toString();
+    let cDate = this.datepipe.transform(date, 'dd-MM-yyyy')
+    console.log(cDate);
+    this.comment.date = cDate!;
 
-      //passing in email, blogID, and the comment
+    if (this.commentId === -1) {
+      //passing in email, blogID, and the comment object
       this.blogService.createComment(id, this.comment)
         .subscribe(
           data => {

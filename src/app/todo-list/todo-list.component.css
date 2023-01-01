@@ -1,5 +1,4 @@
-
-*{
+* {
   list-style: none;
   text-decoration: none;
   margin: 0;
@@ -7,88 +6,57 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
-html{
-  min-height:100vh;
+
+html {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+
 }
-.container h1{
-  /*text-shadow: 2px 2px #adadad;*/
-  color: black;
-  font-family: "Copperplate Gothic Light";
+body {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  background: #f2f2f2;
+  overflow-y: scroll;
+
 }
-body{
-  /*background: #f5f6fa;*/
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 0;
+  margin: 0;
   background: white;
-  height:100vh;
-  margin:100px;
-  padding:0;
 }
-nav{
+
+nav {
+  background: white;
+  position: sticky;
+  top: 0;
   z-index: 500;
 }
-.top-bar{
-  background: rgb(5, 68, 104);
-  width: 90%;
-  height: 69px;
-  line-height: 80%;
-  width:108%;
-  overflow: hidden;
-  position: fixed;
-  top:0;
-  left:0;
-}
 
-.wrapper .sidebar{
-  background: rgb(5, 68, 104);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 225px;
+.content {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
   height: 100%;
-  padding: 20px 0;
-  transition: all 0.5s ease;
-}
-.logo{
-  display: block;
-  padding: 10px 30px;
-  color: rgb(241, 237, 237);
-  font-size: 20px;
-  font-weight: bold;
-  position: relative;
+  width: 70%;
+  background: #f2f2f2;
 }
 
-/*.wrapper .sidebar ul li a .icon{*/
-/*  color: #dee4ec;*/
-/*  width: 30px;*/
-/*  display: inline-block;*/
-/*}*/
-.wrapper .sidebar ul li a{
-  display: block;
-  padding: 13px 30px;
-  border-bottom: 1px solid #10558d;
-  color: rgb(241, 237, 237);
-  font-size: 16px;
-  position: relative;
-}
-.wrapper .sidebar ul li a:hover,
-.wrapper .sidebar ul li a.active{
-  color: #0c7db1;
-
-  background:white;
-  border-right: 2px solid rgb(5, 68, 104);
-}
-
-.wrapper .sidebar ul li a:hover .icon,
-.wrapper .sidebar ul li a.active .icon{
-  color: #0c7db1;
-}
-
-.wrapper .sidebar ul li a:hover:before,
-.wrapper .sidebar ul li a.active:before{
-  display: block;
-}
 .container{
   text-align: center;
   margin-left: 300px;
+  margin-top:40px;
   background: white;
   width:50%;
 }
@@ -100,28 +68,22 @@ nav{
   background: white;
 }
 button{
-  background: rgb(5, 68, 104);
+  background: #8e44ad;
+  border-style: none;
+  color:white;
 }
 button:hover{
-  background: white;
-  border-color: rgb(5, 68, 104) ;
-  color: rgb(5, 68, 104);
+  background: #8e44ad;
+  opacity:0.7;
   transition:.5s;
 }
-.bg-modal{
-  width:100%;
-  height:100%;
-  background-color: rgba(0,0,0,0.7);
+.alert-success{
+  width:50%;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 60px;
   position:absolute;
-  top:0;
-  display:flex;
-  /* align child contents to be aligned center*/
-  justify-content: center;
-  align-items: center;
-}
-.modal-content{
-  width:500px;
-  height:300px;
-  background-color: white;
-  border-radius: 4px;
+  top: 0;
+  left: 55%;
+  transform: translate(-50%, -50%);
 }

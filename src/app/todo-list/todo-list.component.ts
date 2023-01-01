@@ -1,23 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TodoDataService} from "../service/data/todo-data.service";
 import {Router} from "@angular/router";
 import {RegistrationService} from "../service/registration.service";
-import{MatDialog} from '@angular/material/dialog';
-import {TodoComponent} from "../todo/todo.component";
-// import '~bootstrap/dist/css/bootstrap.min.css';
 
-//class for to dos
-export class Todo{
+
+//class for to-dos
+export class Todo {
   constructor(
     public id: number,
-    public email:string,
+    public email: string,
     public description: string,
-    public done: boolean,
     public targetDate: Date
-  ){
-
+  ) {
   }
-
 }
 
 @Component({
@@ -27,76 +22,53 @@ export class Todo{
 })
 export class TodoListComponent implements OnInit {
 
-
   message: string
   email = this.service.getAuthenticatedUser();
-
   todos: Todo[]
-    //create list of objects
-    // todos = [
-    //
-    //   new Todo(1, "Learn to Dance", false, new Date()),
-    //   new Todo(2, "Walk dog", false, new Date()),
-    //   new Todo(3, "Do laundry", false, new Date()),
-    //
-    // ]
-
-  //create list of objects
-  // todos = [
-  //
-  //   new Todo(1, "Learn to Dance", false, new Date()),
-  //   new Todo(2, "Walk dog", false, new Date()),
-  //   new Todo(3, "Do laundry", false, new Date()),
-  //
-  // ]
 
   //dependency injection
   constructor(
-    private todoService:TodoDataService,
-    private router: Router, public service: RegistrationService, private dialogRef:MatDialog) { }
+    private todoService: TodoDataService,
+    private router: Router, public service: RegistrationService) {
+  }
 
-  //initialise todos
+  /* retrieve todos upon loading webpage */
   ngOnInit(): void {
-   this.refreshTodos();
+    this.refreshTodos();
   }
 
-  openDialog(){
-    this.dialogRef.open(TodoComponent);
-  }
-
-
-  refreshTodos(){
+  /* Method to retrive list of todos*/
+  refreshTodos() {
     this.todoService.retrieveAllTodos(this.email).subscribe(
-      response=>{
+      response => {
         //when response is received assign it to todos
-        this.todos=response;
+        this.todos = response;
       }
     )
   }
 
-
-
-  deleteTodo(id:any){
+  /* Method to delete a todo*/
+  deleteTodo(id: any) {
     this.todoService.deleteTodo(this.email, id).subscribe(
-      response=>{
-        this.message =`Delete of Todo ${id}  Successful!`
+      response => {
+        this.message = `Your todo was successfully deleted `
         //calling this method allows the list to update a
         //so we don't have to refresh page to see updates
         this.refreshTodos();
-
       }
     )
-
   }
 
-  updateTodo(id:any){
-    console.log(id);
+  /* Method to update an existing todo*/
+  updateTodo(id: any) {
+    //navigate to add-todo page with selected todos id to allow for it to be updated
     this.router.navigate(["todo", id])
   }
 
-  addTodo(){
-    //when id is -1 let's assume user is trying to add
-    this.router.navigate(['todo',-1])
+  /* Method to create a new todo */
+  addTodo() {
+    //when id is -1 let's assume user is trying to add a brand new todo
+    this.router.navigate(['todo', -1])
   }
 
 }

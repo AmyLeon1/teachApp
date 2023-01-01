@@ -45,12 +45,26 @@ export class ProfileComponent implements OnInit {
     if (!this.regService.isUserTeacher()) {
       this.refreshStudentAppointments()
     }
-
+    this.displayDate();
     this.getUser();
     this.doesUserHaveClassToday();
 
+
   }
 
+
+
+  /* Method to display todays' date */
+  displayDate(){
+    //get todays' date
+    let now = Date.now();
+    //change the format
+    let todaysDate = this.datepipe.transform(now, 'dd-MM-yyyy')
+    //get html element
+    let today= document.getElementById("current-date");
+    //set html element with todaysDate value
+    today!.innerHTML= todaysDate!;
+  }
 
   reloadPage() {
     location.reload();
@@ -65,7 +79,6 @@ export class ProfileComponent implements OnInit {
       }
     )
   }
-
 
   // **** Method to find out if user has a class today **** //
   doesUserHaveClassToday() {

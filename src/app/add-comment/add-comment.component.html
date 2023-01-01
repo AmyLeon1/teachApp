@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
 </head>
 <body>
 <header>
@@ -18,9 +21,13 @@
   <div class="second-section-comments">
     <div class="display-comments" *ngFor="let comment of comments">
       <div class="comment">
-        <span>{{comment.body}}</span>
-        <span id="comment-span">~{{comment.owner}}</span>
-
+        <div>
+        <p id="comment-span">{{comment.owner}} <span class="material-icons" id="icon">
+          circle </span> {{comment.date| date}}</p>
+        </div>
+        <div>
+        {{comment.body}}
+        </div>
       </div>
     </div>
 
