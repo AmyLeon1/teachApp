@@ -1,4 +1,4 @@
-*{
+* {
   list-style: none;
   text-decoration: none;
   margin: 0;
@@ -6,86 +6,112 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
-html{
-  min-height:100vh;
+
+html {
+  min-height: 100vh;
   min-width: 100vw;
   background: #f2f2f2;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   overflow-y: scroll;
 }
-body{
-  position:relative;
-  height:100vh;
-  width:100%;
-  padding:0;
-  /*background: #fafafa;*/
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
   background: #f2f2f2;
   overflow-y: scroll;
 }
-header{
-  position:fixed;
-  width:100%;
-  top:0;
-  padding:0;
-  margin:0;
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 0;
+  margin: 0;
   background: white;
 }
 
-nav{
+nav {
   z-index: 500;
   background: white;
 }
-.content{
-  position:absolute;
-  top:55%;
-  left:50%;
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  margin:0 auto;
+  margin: 0 auto;
   height: fit-content;
   min-height: 400px;
-  width:40%;
+  width: 40%;
   background: white;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
+  border-radius: 5px;
 }
-.blog-form{
+
+.alert-warning {
+  margin-bottom: 20px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blog-form {
   text-align: center;
-  width:100%;
-  margin:20px;
+  width: 100%;
+  margin: 20px;
 }
-form-group{
- width: 80%;
-  padding:20px;
+
+form-group {
+  width: 80%;
+  padding: 20px;
 }
-span{
+
+span {
   font-size: 20px;
   font-weight: 700;
-  color:black;
-}
-.text-area-div{
-width:80%;
-  margin-left:auto;
-  margin-right:60px;
-
-}
-.text-area{
-  min-height:150px;
-  max-height:250px;
-  min-width:100px;
-  width:250px;
-  margin:20px;
+  color: black;
 }
 
-.blog-form input{
-  border-style:none;
-  margin: 30px 20px 30px 20px;
-  width:80%;
+.text-area-div {
+  width: 80%;
+  margin-left: auto;
+  margin-right: 60px;
+
 }
-button{
-  background: #8e44ad;
-  color:white;
-  border-style: none;
+
+.text-area {
+  min-height: 150px;
+  max-height: 250px;
+  min-width: 100px;
+  width: 70%;
+  margin: 20px;
+  border-style: solid;
+  border-color: #adadad;
 }
-button:hover{
+
+.blog-form input {
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4%;
+  width: 70%;
+}
+
+button {
+  background: #8e44ad;
+  color: white;
+  border-style: none;
+  padding: 1%;
+}
+
+button:hover {
   background: #8e44ad;
   border-style: none;
+  opacity: 0.7;
 }

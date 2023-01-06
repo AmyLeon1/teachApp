@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {RegistrationService} from "../service/registration.service";
 
 
-//class for to-dos
+//T0-DO class
 export class Todo {
   constructor(
     public id: number,
@@ -22,6 +22,7 @@ export class Todo {
 })
 export class TodoListComponent implements OnInit {
 
+  // object/variable declaration
   message: string
   email = this.service.getAuthenticatedUser();
   todos: Todo[]
@@ -37,7 +38,7 @@ export class TodoListComponent implements OnInit {
     this.refreshTodos();
   }
 
-  /* Method to retrive list of todos*/
+  /* Method to retrieve list of todos*/
   refreshTodos() {
     this.todoService.retrieveAllTodos(this.email).subscribe(
       response => {
@@ -47,7 +48,7 @@ export class TodoListComponent implements OnInit {
     )
   }
 
-  /* Method to delete a todo*/
+  /* Method to delete a to-do*/
   deleteTodo(id: any) {
     this.todoService.deleteTodo(this.email, id).subscribe(
       response => {
@@ -59,15 +60,15 @@ export class TodoListComponent implements OnInit {
     )
   }
 
-  /* Method to update an existing todo*/
+  /* Method to update an existing to-do*/
   updateTodo(id: any) {
-    //navigate to add-todo page with selected todos id to allow for it to be updated
+    //navigate to add-to-do page with selected to-do's id to allow for it to be updated
     this.router.navigate(["todo", id])
   }
 
   /* Method to create a new todo */
   addTodo() {
-    //when id is -1 let's assume user is trying to add a brand new todo
+    //when id is -1 let's assume user is trying to add a brand new to-do
     this.router.navigate(['todo', -1])
   }
 

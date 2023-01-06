@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppointmentDataService} from "../service/data/appointment-data.service";
 import {Appointment} from "../appointment";
 import {RegistrationService} from "../service/registration.service";
@@ -17,415 +17,114 @@ import {AppDate} from "../AppDate";
 })
 export class AppointmentBookingComponent implements OnInit {
 
-
-  user:User
+  // variable/object declaration
+  user: User
   appointment: Appointment
-  availableDateObj:availableDate
+  availableDateObj: availableDate
   appDate: AppDate
-  foundDate:AppDate | undefined
-  foundId:any
-  time:any =""
-
-
-
-
+  foundDate: AppDate | undefined
+  foundId: any
+  time: any = ""
+  message: any;
+  id: number
+  appId: number
   availableTimes: availableTime[]
-  createdAppointment:Appointment
-  appId:number
-  public msg: string;
-  public successMsg: string;
-  public errorMsg: string;
-  date:string
+  date: string
   name: string;
-  email:any
-  //email:string
+  email = ""
   studentEmail = ""
 
-  // date:Date
-  id:number
-  dateTest:any
-  auth_user_id:any
-  min:any ="2022-11-26"
-  minDate = new Date(2022, 11)
-  date1=new Date();
 
-  currentYear=this.date1.getUTCFullYear();
-  currentMonth=this.date1.getUTCMonth();
-  currentDay=this.date1.getUTCDate();
-  FinalMonth:any
-  FinalDay:any
-
-  TodaysDate:any
-
-  constructor(private appService: AppointmentDataService, private service: RegistrationService, private route: ActivatedRoute, private router: Router) {
-  this.appointment=new Appointment()
-
+  constructor(private appService: AppointmentDataService, private service: RegistrationService,
+              private route: ActivatedRoute, private router: Router) {
+    this.appointment = new Appointment()
   }
 
-
-  //take the teacher's details from the parameters
   ngOnInit(): void {
-   // this.route.params.subscribe(params => this.saveAppointment(params["email"]))
-    this.route.params.subscribe(params => this.getUser(params["email"]))
-    this.route.params.subscribe(params => this.saveAppointment(params["email"]))
-    this.route.params.subscribe(params => this.getDate(params["email"]))
-    this.route.params.subscribe(params => this.getDate1(params["email"]))
-    this.getAllTimesForDate()
-    this.appointment=new Appointment()
-    this.appointment.studentEmail=this.service.getAuthenticatedUser();
-    this.appointment.date=this.date;
-
-
-
-   // this.appointment = new Appointment(this.id, this.date, this.time, this.studentEmail)
-   // this.appointment = new Appointment(this.appId, this.date,this.studentEmail,this.time, this.email)
-
-
-
-    if(this.currentMonth<10){
-      this.FinalMonth= "0"+this.currentMonth;
-    }else{
-      this.FinalMonth=this.currentMonth;
-    }
-
-    if(this.currentDay<10){
-      this.FinalDay= "0"+this.currentDay;
-    }else{
-      this.FinalDay=this.currentDay;
-    }
-
-    this.TodaysDate = this.currentYear + "-" + this.FinalMonth + "-" + this.FinalDay;
-
-
+    //extract teachers email from parameter
+    this.route.params.subscribe(params => this.getUser(params["email"]));
+    this.getAllTimesForDate();
+    this.appointment = new Appointment();
+    this.appointment.studentEmail = this.service.getAuthenticatedUser();
+    this.appointment.date = this.date;
   }
 
-
-
-  displayTimes(){
-    document.getElementById("get-times-list")!.style.display="block";
-    document.getElementById("time-form")!.style.display="block";
+  /* Method to display available times */
+  displayTimes() {
+    //when this method is executed these elements will be displayed
+    document.getElementById("get-times-list")!.style.display = "block";
+    document.getElementById("time-form")!.style.display = "block";
   }
 
-
-  workedDays =["1", "2"]
-
-
-  myFilter =(d:Date): boolean => {
-    const day = d.getDay();
-    //makes Saturday & Sundays not available to book
-    return day !== 0 && day !== 6
-  }
-
-  showDateTest(){
-    console.log("inDateTest function")
-    console.log(this.availableDateObj.date)
-  }
-
-
-  //teacherEmail: string
-
-//   //sending comment
-//   saveAppointment(teacherEmail:any) {
-//     this.appService.createAppointment(teacherEmail, this.date)
-//       .subscribe({
-//           next: data => {
-//             //this.router.navigate(['login']),
-//             this.msg = "Registration successful"
-//           },
-//
-//           error: err => {
-//             console.log("error occured"),
-//               this.msg = err.error
-//           }
-//         }
-//       );
-//   }
-//
-// }
-
-  // createAppointment() {
-  //   this.successMsg = '';
-  //   this.errorMsg = '';
-  //   this.appService.createAppointment(this.date, this.name, this.studentEmail)
-  //     .subscribe({(this.createdAppointment) => {
-  //         this.date = '';
-  //         this.name = '';
-  //         this.studentEmail = '';
-  //         const appointmentDate = new Date(createdAppointment.appointmentDate).toDateString();
-  //         this.successMsg = `Appointment Booked Successfully for ${appointmentDate}`;
-  //       },
-  //       (error: ErrorEvent) => {
-  //         this.errorMsg = error.error.message;
-  //       });}
-  // }
-
-  // *** REGISTER USER ***
-  // saveAppointment1(email:any){
-  //
-  //
-  //   this.appService.createAppointment(email, this.appointment )
-  //     .subscribe({
-  //         next: data => {
-  //           //this.router.navigate(['login']),
-  //             this.msg="Registration successful"},
-  //
-  //         error:err => {console.log("error occured"),
-  //          this.msg=err.error}
-  //       }
-  //     );
-  // }
-
-  saveAppointment(email:any){
-    this.appId=-1;
-    if(this.appId === -1){
-      this.appointment.studentEmail = this.service.getAuthenticatedUser();
-      this.appointment.date = this.date
-      this.appointment.time = this.time
-      this.appointment.email = email;
-      this.appService.createAppointment( email, this.appointment)
-        .subscribe({
-          next:data=>{
-            console.log("In data section of save method")
-            this.successMsg = `Appointment successfully for booked for ${this.appointment.date}`;
-          },
-          error:err => {
-            console.log("error occured")
-          }
-
-        }
-        )
-    }
-  }
-
-
-  // //FUNCTIONING METHOD!!!!!!!!!!!!!!!!!!!!!!!!!!
-  saveAppointment1(email:any) {
-    this.appId=-1;
+  /* Method to create new appointment */
+  saveAppointment() {
+    this.appId = -1;
     if (this.appId === -1) {
       this.appointment.studentEmail = this.service.getAuthenticatedUser();
       this.appointment.date = this.date
       this.appointment.time = this.time
-      this.appointment.email = email;
-      console.log("Printing student email;" , this.appointment.studentEmail)
-      //setting student email with the current logged-in users email
-      //this.appointment.studentEmail = this.service.getAuthenticatedUser();
-      //this.appointment.date= new Date(this.appointment.date).toDateString();
-
-      //passing in email, blogID, and the comment
-      this.appService.createAppointment( email, this.appointment)
-        .subscribe(
-          data => {
-            console.log("in create appointment data section")
-            console.log(data)
-            this.successMsg = `Appointment successfully for booked for ${this.appointment.date}`;
-          },
-
-        )
-    }
-    else {
-      this.appService.updateAppointment( email, this.appId, this.appointment)
-        //subscribe to make the call
-        //returns content of updated blog
-        .subscribe(
-          data => {
-            console.log(data);
-            //allows for page to be reloaded after submission of comment
-            window.location.reload();
-
+      this.appointment.email = this.email;
+      this.appService.createAppointment(this.email, this.appointment)
+        .subscribe({
+            next: data => {
+              //upon successful addition of appointment the user will be
+              //navigated to the page that displays their bookings
+              this.router.navigate(['manageBooking'])
+            },
+            error: err => {
+              //display error message if there are any problems
+              this.message = "The time you selected (" + this.time + ") is unavailable."
+            }
           }
         )
     }
   }
 
-
-
-
-  // // *** REGISTER USER ***
-  // saveAppointment(email:any){
-  //   this.appId=-1;
-  //   console.log("this is the time", this.time)
-  //   console.log("this is the date", this.date)
-  //   console.log("this is the student email", this.studentEmail)
-  //   console.log("this is the appointment", this.appointment)
-  //   //this.appointment.time = this.time;
-  //   //this.appointment.studentEmail = this.service.getAuthenticatedUser();
-  //   if (this.appId === -1) {
-  //     console.log("IN SAVE APPOINTMENT");
-  //     //console.log("IN SAVE APPOINTMENT here is time", this.time);
-  //     //console.log("IN SAVE APPOINTMENT here is student email", this.service.getAuthenticatedUser())
-  //     //this.appointment.studentEmail = this.service.getAuthenticatedUser();
-  //     //console.log("IN SAVE APPOINTMENT here is student email set", this.appointment.studentEmail)
-  //     //this.appointment.time = this.time;
-  //     //this.appointment.date =this.date;
-  //     this.appService.createAppointment(email, this.appointment)
-  //       .subscribe({
-  //           next: data => {
-  //
-  //             console.log("in create appointment data section")
-  //             console.log(data)
-  //             this.successMsg = `Appointment successfully for booked for ${this.appointment.date}`;
-  //
-  //
-  //           },
-  //
-  //           error: err => {
-  //             console.log("error occured"),
-  //               this.errorMsg = "There are no classes available, please select another date/time"
-  //           }
-  //         }
-  //       );
-  //   }
-  //   else {
-  //     //call blogseviced
-  //     this.appService.updateAppointment( email, this.appId, this.appointment)
-  //       //subscribe to make the call
-  //       //returns content of updated blog
-  //       .subscribe(
-  //         data => {
-  //           console.log(data);
-  //           //allows for page to be reloaded after submission of comment
-  //           window.location.reload();
-  //
-  //         }
-  //       )
-  //   }
-  // }
-
-
-  // getUserId(email:any){
-  //   this.appService.retrieveUser(email).subscribe(
-  //     response=>{
-  //       //when response is received assign it to todos
-  //       console.log(response);
-  //       this.user=response;
-  //       this.auth_user_id= response.auth_user_id;
-  //       console.log("Printing user id")
-  //       console.log(this.auth_user_id);
-  //     }
-  //   )
-  //
-  // }
-
-  showChosenDate(){
-    console.log("this is the chosen date: ")
-    console.log(this.date)
-  }
-
-  getDate(email:any){
-    this.appService.retrieveDate(email, this.date).subscribe(
-      response=>{
-        //when response is received assign it to todos
-        console.log("Printing getDate method");
-        console.log(response);
-        this.availableDateObj=response;
-        console.log(this.availableDateObj.date);
-      }
-    )
-  }
-
-  // getDate1(email:any){
-  //   this.appService.getDate(email, this.date).subscribe(
-  //     response=>{
-  //       //when response is received assign it to todos
-  //       console.log("Printing getDate method");
-  //       console.log(response);
-  //       this.appDate=response;
-  //       console.log(this.appDate.date);
-  //     }
-  //   )
-  // }
-
-
-
-  getDate1(email:any){
+  getDate(email: any) {
     console.log("printing date", this.date)
     this.appService.getDate(email, this.date)
-
       .subscribe({
           next: response => {
-            console.log("Printing getDate method");
+            //assigning data of response to various objects / attributes
             console.log(response);
-            this.appDate=response;
-            this.foundDate=response;
-            this.foundId=response.id;
-            console.log("this is foundid", this.foundId)
-            console.log(this.appDate.date);},
-
-          error:err => {console.log("error occured")
-            }
+            this.appDate = response;
+            this.foundDate = response;
+            this.foundId = response.id;
+          },
+          error: err => {
+            this.message = "Date Unavailable"
+            console.log("error occured")
+          }
         }
       );
   }
 
-  executeTimes(){
-    if(this.isDateFound()){
-      this.getAllTimesForDate()
-    }
+  /* Method to check if date is found */
+  isDateFound() {
+    //return if date is found
+    return this.foundDate != null;
   }
 
-  isDateFound(){
-
-    return this.foundDate!=null;
-
+  // Method to get all times for a particular date //
+  getAllTimesForDate() {
+    this.id = this.appDate.id;
+    this.appService.getAllTimesForDate(this.id)
+      .subscribe(
+        response =>
+          //assign available times with the response
+          this.availableTimes = response
+      )
   }
-
-  // METHOD TO GET ALL TIMES AVAILABLE FOR PARTICULAR DATE //
-  getAllTimesForDate(){
- // if(this.isDateFound()) {
-  console.log("IN GET TIMES FOR DATE")
-      console.log("HERE IS FOUND ID", this.appDate.id)
-      this.id = this.appDate.id;
-      this.appService.getAllTimesForDate(this.id)
-        .subscribe(
-          response=>
-            this.availableTimes = response
-
-        )
-    }
-  //}
-
-
-
-  goToTimeBooking(date:any){
-    console.log("in go to booking method ")
-    console.log(date)
-    this.router.navigate(['book-time', date])
-  }
-
-  // getTimes(email:any, date:any){
-  //   console.log("You are at point 1")
-  //   console.log(date)
-  //
-  //   this.appService.retrieveAllTimes(email, date).subscribe(
-  //     response=>{
-  //       //when response is received assign it to todos
-  //       this.availableTimes=response;
-  //     }
-  //   )
-  // }
-
-  //Get date
-
-  // getDate(email:any, date:any){
-  //   this.appService.retrieveDate(email, date).subscribe(
-  //     response=>{
-  //       //when response is received assign it to todos
-  //       console.log("Printing getDate method");
-  //       console.log(response.date);
-  //       this.availableDate=response;
-  //     }
-  //   )
-  // }
 
 
   //method to get user from parameters
-  getUser(email:any){
+  getUser(email: any) {
     this.appService.retrieveUser(email).subscribe(
-      response=>{
-        //when response is received assign it to todos
-        console.log("Printing getUser method");
+      response => {
+        //assign response to variables/object
         console.log(response);
-        this.user=response;
+        this.user = response;
+        this.email = response.email;
       }
     )
   }

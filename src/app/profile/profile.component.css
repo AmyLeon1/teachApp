@@ -49,7 +49,7 @@ nav {
   transform: translate(-50%, -50%);
   margin: 0 auto;
   height: 100%;
-  width: 70%;
+  width: 50%;
   background: #f2f2f2;
 }
 
@@ -95,21 +95,20 @@ nav {
   padding: 20px;
   margin: 4px;
   border-radius: 5px;
-  position:relative;
+  position: relative;
   align-items: center;
 }
 
-#current-date{
+#current-date {
   font-size: 20px;
-  margin-left:auto;
-  margin-right:auto;
-  position:absolute;
-  top:50%;
-  left:50%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width:100%
-
+  width: 100%
 
 
 }
@@ -169,13 +168,16 @@ nav {
   margin: 20px 2px 20px 4px;
   padding: 20px;
 }
-.second-row a{
+
+.second-row a {
   color: #71298f;
   font-weight: bold;
 }
-.second-row a:hover{
+
+.second-row a:hover {
   text-decoration: underline;
 }
+
 .second-row h5 {
   text-align: center;
   margin-bottom: 10px;
@@ -236,6 +238,7 @@ nav {
 :root {
   --box-shadow-color: #9c9c9c;
 }
+
 .section {
   display: flex;
   margin: 30px 2px 0px 3px;
@@ -254,16 +257,19 @@ nav {
   float: right;
   margin-top: 15px;
 }
-.searchForm-div{
 
-  top:0;
-  height:100%;
+.searchForm-div {
+
+  top: 0;
+  height: 100%;
   margin-top: 0px;
 
 }
-.section.searchForm{
-  position:relative;
+
+.section.searchForm {
+  position: relative;
 }
+
 .section .searchForm h3 {
   display: flex;
   justify-content: center;
@@ -356,23 +362,18 @@ nav {
 #refresh-btn:hover {
   box-shadow: 5px 5px 15px #aaa;
   background-color: #5d2275;
-  /*rgb(4, 58, 88);*/
-  /*background-color: #f1a566;*/
 }
 
-.fourth-row{
+.fourth-row {
   visibility: hidden;
   background: white;
-  margin-bottom:200px;
-  display:flex;
+  margin-bottom: 200px;
+  display: flex;
   padding-bottom: 50px;
-  text-align:center;
+  text-align: center;
 }
 
 .fourth-row .blank-section {
-
-  /*margin-bottom: 30px;*/
-  /*margin-right: 4px;*/
   padding-top: 40px;
   background-color: white;
   height: 200px;
@@ -385,6 +386,7 @@ nav {
   justify-content: center;
   border-radius: 5px;
 }
+
 .searchResult {
   visibility: hidden;
   margin: 0px 2px 0px 3px;
@@ -393,7 +395,7 @@ nav {
   flex-direction: column;
   /*margin: 10px 400px;*/
   max-height: fit-content;
-  background:white;
+  background: white;
   width: 557px;
   height: fit-content;
   box-shadow: 0 2px 12px rgba(0, 40, 117, .06);

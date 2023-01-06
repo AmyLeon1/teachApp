@@ -1,8 +1,16 @@
-<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-white" id="nav">
-  <div><a href="" class="navbar-brand">TeachIT</a></div>
-  <ul class="navbar-nav">
+<html>
+<head>
+  <title>TeachIT</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/todoList"
+<header>
+  <div><a href="" class="logo">TeachIT</a></div>
+  <nav class="navbar">
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/todoList"
            class="nav-link">Todos</a>
     </li>
     <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/profile" class="nav-link">My
@@ -14,11 +22,11 @@
       Blog Posts</a></li>
     <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/schedule"
            class="nav-link">Manage Schedule</a></li>
-  </ul>
+  </nav>
 
-  <!-- bootstrap feature to allow it appear in right hand corner-->
-  <ul class="navbar-nav navbar-collapse justify-content-end">
-    <li><a routerLink="/publicProfileList" class="nav-link">View our teachers</a></li>
+  <div class="main">
+    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserStudent()"
+           routerLink="/publicProfileList" class="nav-link" id="teacher-link">View our Teachers</a></li>
     <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="openRegistrationModal()"
            class="nav-link">Register</a>
     </li>
@@ -27,9 +35,12 @@
     </li>
     <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="logout()" class="nav-link">Logout</a>
     </li>
-  </ul>
-
-</nav>
+    <li>
+      <div class="bx bx-menu" id="menu-icon"><span *ngIf="hardcodedAuthenticationService.isUserLoggedIn();"
+                                                   class="material-icons">menu</span></div>
+    </li>
+  </div>
+</header>
 
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -64,7 +75,6 @@
             <!-- PASSWORD-->
             <div class="form-group">
               <div class="text-field">
-
                 <input type="password" name="password" [(ngModel)]="user.password"
                        required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
                 <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is a required
@@ -83,7 +93,8 @@
       <div class="modal-footer">
         <div class="registration-link">
           <!-- LINK TO REGISTRATION PAGE -->
-          <small class="link-small" role="button" (click)="closeLoginOpenRegModal()">New user? Register here</small>
+          <small class="link-small" role="button" (click)="closeLoginOpenRegModal()">New user?
+            <span> Register here</span></small>
         </div>
       </div>
     </div>
@@ -101,9 +112,10 @@
       </div>
       <div class="modal-body">
         <div class="container">
+          <!--          <div class="alert alert-danger" *ngIf="msg">{{msg}}</div>-->
           <form class="form" #registrationform="ngForm" (ngSubmit)="registerUser()">
 
-            <small class="text-danger" *ngIf="invalidLogin">{{errorMessage}}</small>
+            <small class="text-danger" *ngIf="msg">{{msg}}</small>
 
             <div class="form-group">
               <div class="text-field">
@@ -114,8 +126,6 @@
                        [class.is-invalid]="email.invalid && email.touched">
                 <span></span>
                 <label> Email</label>
-                <!--Email: <input type="text" name="email" [(ngModel)]="user.email" >-->
-                <!--  <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is a required field</small>-->
                 <div *ngIf="email.errors && email.invalid && email.touched">
                   <small class="text-danger" *ngIf="email.errors.required">Email is a required field</small>
                   <small class="text-danger" *ngIf="email.errors.pattern">Enter valid email address</small>
@@ -137,21 +147,6 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <div class="text-field">
-                <select id="countries"></select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="text-field">
-                <input type="file" name="profilePic" [(ngModel)]="user.picture"
-                       #selectFile="ngModel" (change)="onFileSelection($event)">
-                <span></span>
-                <label> Upload your picture here</label>
-
-              </div>
-            </div>
 
             <!--         PASSWORD         -->
             <div class="form-group">
@@ -165,7 +160,7 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" id="role-selection">
               <div class="radio-text">
                 <label class="radio-label">
                   Are you a student or a teacher?<br> Please choose one:
@@ -180,10 +175,15 @@
                        required/> Teacher <br/>
               </div>
             </div>
+            <p id="nationality-p">Nationality: </p>
+            <div class="form-group">
+              <select id="countries"></select>
+            </div>
 
             <div class="form-group">
               <div class="about-me-section">
-                <p id="about-me">Tell us about yourself. This will be displayed on your public profile</p>
+                <p id="about-me"><span>Tell us about yourself.</span> <br>
+                  This will be displayed on your public profile.</p>
                 <textarea class="text-area" id="about-me-text" name="about-me" placeholder="type here..."></textarea>
 
               </div>
@@ -196,19 +196,14 @@
       </div>
       <div class="modal-footer">
         <div class="login-link">
-          <small class="link-small" role="button" (click)="closeRegModalOpenLoginModal()">Already have an account? Login
-            here </small>
+          <small class="link-small" role="button" (click)="closeRegModalOpenLoginModal()">Already have an account?
+            <span>Login
+            here </span> </small>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-<!--[disabled]="registrationform.form.invalid"-->
-
-
-
-
-
-
+</body>
+</html>

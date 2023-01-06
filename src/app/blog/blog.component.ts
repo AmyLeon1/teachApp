@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Todo} from "../todo-list/todo-list.component";
 import {Blog} from "../blog-list/blog-list.component";
 import {TodoDataService} from "../service/data/todo-data.service";
@@ -14,29 +14,28 @@ import {BlogDataService} from "../service/data/blog-data-service";
 })
 export class BlogComponent implements OnInit {
 
-
-  id:number
-  title:string
-  description:string
-  blog:Blog
+  // varibale/object declaration
+  id: number
+  title: string
+  description: string
+  blog: Blog
   email = this.service.getAuthenticatedUser()
 
   constructor(
-
     private blogService: BlogDataService,
     private route: ActivatedRoute,
     private router: Router,
     private authService: HardCodedAuthenticationService,
     private service: RegistrationService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params["id"];
     this.blog = new Blog(this.id, this.email, '', '');
 
-    //when it's a new to do, do not need to call retrieve to do service
-    if(this.id!=-1) {
-      //let email= this.service.getAuthenticatedUser()
+    //when it's a new blog, do not need to call retrieval service
+    if (this.id != -1) {
       this.blogService.retrieveBlog(this.email, this.id)
         .subscribe(
           data => this.blog = data
@@ -45,35 +44,33 @@ export class BlogComponent implements OnInit {
   }
 
 
+  /* Method to create / update blog post*/
   saveBlog() {
+    //if the id is -1 we are creating a brand-new blog post
     if (this.id === -1) {
-      //create new t do
-
-      // let email= this.service.getAuthenticatedUser();
       this.blogService.createBlog(this.email, this.blog)
         .subscribe(
           data => {
+            //upon successful addition of post navigate to the blogList page
             this.router.navigate(["blogList"]);
           }
         )
     }
+    //otherwise we are trying to update an existing blog
     else {
-      let input:any=document.getElementById("blog-description");
-      this.blog.description =  input.value;
+      let input: any = document.getElementById("blog-description");
+      this.blog.description = input.value;
       //call blogsevice
       this.blogService.updateBlog(this.email, this.id, this.blog)
         //subscribe to make the call
-        //returns content of updated blog
         .subscribe(
           data => {
+            //navigate to blogList
             this.router.navigate(["blogList"]);
           }
         )
     }
   }
-
-
-
 
 
 }

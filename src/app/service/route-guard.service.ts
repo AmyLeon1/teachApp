@@ -1,23 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from "@angular/router";
 import {HardCodedAuthenticationService} from "./hard-coded-authentication.service";
+import {RegistrationService} from "./registration.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouteGuardService implements CanActivate {
 
-  constructor(private hardcodedAuthenticationService:HardCodedAuthenticationService, private router: Router) { }
+  constructor(private regService: RegistrationService, private router: Router) {
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-   if(this.hardcodedAuthenticationService.isUserLoggedIn())
-    return true;
+    if (this.regService.isUserLoggedIn())
+      return true;
 
-   //if user tries to access page that is required for them to be logged in they
-    //can be directed to the login page
-
-    this.router.navigate(['login']);
-
-   return false;
+    //if user tries to access page that is required for them to be logged in they'll be directed to the homepage
+    this.router.navigate(['']);
+    return false;
   }
 }

@@ -1,139 +1,38 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
+  <title>TeachIT</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header></header>
 <nav>
   <app-menu></app-menu>
 </nav>
+<div class="add-blog">
+  <div class="add-content">
+    <p>Add a new post here</p>
+    <button id="add-button" (click)="addBlog()">Add Post</button>
+  </div>
+</div>
+
 <div class="content">
-  <button (click)="addBlog()"></button>
-  <ng-container *ngFor="let blog of blogs">
-        <div class="blog-card">
-          <p id="title">{{blog.title}}</p>
-          <p id="description">{{blog.description}}</p>
-          <div class="buttons">
-          <button (click) = "updateBlog(blog.id)" class="btn btn-success" id="edit-btn">Edit</button>
-          <button (click) = "deleteBlog(blog.id)" class="btn btn-warning" id="delete-btn">Delete</button>
-            <button (click)="goToBlog(blog.id)" class="btn btn-warning" id="comment-btn">Comments</button>
-        </div>
-                  </div>
-            </ng-container>
 
-          </div>
-          </body>
-          </html>
+  <ng-container *ngFor="let blog of blogs" id="blog-card-container">
+    <div class="blog-card">
+      <p id="title">{{blog.title}}</p>
+      <p id="description">{{blog.description}}</p>
+      <div class="buttons">
+        <button (click)="updateBlog(blog.id)" class="btn btn-success" id="edit-btn">Edit</button>
+        <button (click)="deleteBlog(blog.id)" class="btn btn-warning" id="delete-btn">Delete</button>
+        <button (click)="goToBlog(blog.id)" class="btn btn-warning" id="comment-btn">Comments</button>
+      </div>
+    </div>
+  </ng-container>
 
-          <!--<div class="top-bar">-->
-<!--</div>-->
-
-<!--<div class="wrapper">-->
-<!--  &lt;!&ndash;  put top menu here&ndash;&gt;-->
-<!--  <div class="sidebar">-->
-<!--    <span class="logo-span"><a href="" class="logo">TeachIT</a></span>-->
-<!--    <ul>-->
-<!--      <li>-->
-<!--        <a routerLink="/profile">-->
-<!--          &lt;!&ndash;          <span class="icon"><i class="fas fa-user-shield"></i></span>&ndash;&gt;-->
-<!--          <span class="item">MyAccount</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a *ngIf="regService.isUserTeacher();" routerLink="/todoList" class="todos">-->
-<!--          <span>Todos</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a routerLink="/manageBooking"  class="bookings">-->
-<!--          <span> My Bookings</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a *ngIf="regService.isUserTeacher();" routerLink="/blogList" class="active">-->
-<!--          <span> My Blog Posts</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a *ngIf="regService.isUserTeacher();" routerLink="/schedule" class="schedule">-->
-<!--          <span> Manage Schedule</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a  routerLink="/logout" class="logout">-->
-<!--          <span>Logout</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--<div class=""alert alert-success *ngIf="message">{{message}}</div>-->
-
-
-<!--<div class="container">-->
-<!-- <ng-container *ngFor="let blog of blogs">-->
-
-<!--  &lt;!&ndash;      <div class="blogs">&ndash;&gt;-->
-<!--  <div class="blog-card">-->
-
-<!--    &lt;!&ndash;      <div class="blog-title">&ndash;&gt;-->
-<!--    <h5 class="blog-title">{{blog.title}}</h5>-->
-<!--    &lt;!&ndash;      </div>&ndash;&gt;-->
-<!--    <hr>-->
-<!--    &lt;!&ndash;      <div class="blog-description">&ndash;&gt;-->
-<!--    <p [innerHTML]="blog.description">-->
-<!--    </p>-->
-
-<!--    <div class="profile-buttons">-->
-<!--      <a [routerLink]="['comment', blog.id]">View Comments</a>-->
-<!--    </div>-->
-
-<!--  </div>-->
-<!--  </ng-container>-->
-<!--</div>-->
-
-<!--<div class="container">-->
-<!--  <table class="table">-->
-
-<!--    &lt;!&ndash; specify caption style to stop it going below table-->
-<!--    <caption style="caption-side: top">TODO: </caption>-->
-<!--    &ndash;&gt;-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th>Title</th>-->
-<!--      <th> Content</th>-->
-<!--      <th>Edit</th>-->
-<!--      <th>Delete</th>-->
-
-
-
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    &lt;!&ndash; *ngFor : as if there is a for loop around the entire <tr> section &ndash;&gt;-->
-<!--    <tr *ngFor="let blog of blogs">-->
-
-<!--      <td>{{blog.title}}</td>-->
-<!--      &lt;!&ndash; |date = a pipe, gives it more normal date format-->
-<!--      turn one value into another format&ndash;&gt;-->
-<!--      <td>{{blog.description}}</td>-->
-<!--      <td><button (click) = "updateBlog(blog.id)" class="btn btn-success">Edit</button></td>-->
-<!--      <td><button (click) = "deleteBlog(blog.id)" class="btn btn-warning">Delete</button></td>-->
-
-<!--&lt;!&ndash;      <td><button (click) = "updateTodo(todo.id)" class="btn btn-success">Update</button></td>&ndash;&gt;-->
-<!--&lt;!&ndash;      <td><button (click) = "deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>&ndash;&gt;-->
-<!--    </tr>-->
-
-<!--    </tbody>-->
-
-<!--  </table>-->
-
-<!--  <div class="row">-->
-<!--    <button (click) = "addBlog()" class="btn btn-success">Add</button>-->
-<!--  </div>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
+<!--  <div class="footer">-->
+  <!--    <app-footer></app-footer>-->
+  <!--    &lt;!&ndash;    here is the footer&ndash;&gt;-->
+  <!--  </div>-->
+</div>
+</body>
+</html>

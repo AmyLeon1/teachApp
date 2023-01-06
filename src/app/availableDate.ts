@@ -7,8 +7,6 @@ export class availableDate {
   user:User
   times:availableTime[]
 
-
   constructor(date:string){}
-
 
 }

@@ -1,17 +1,19 @@
 <html lang="en">
 <head>
+  <title>TeachIT</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header></header>
-  <nav>
-    <app-menu></app-menu>
-  </nav>
+<nav>
+  <app-menu></app-menu>
+</nav>
 
 <div class="content">
   <div class="alert alert-success alert-dismissible fade show" id="success-alert" *ngIf="message">{{message}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
   <div class="first-row">
     <div class="lessons-container">
       <div class="no-appointments" *ngIf="thereAreNoAppointments()">
@@ -20,19 +22,22 @@
           Click the button below to browse teachers</p>
         <p class="link-to-teachers" *ngIf="regService.isUserTeacher()">
           <span class="material-icons" id="event-busy-icon">event_busy</span>
-          </p>
-         <p  *ngIf="!regService.isUserTeacher()"> <button class="btn btn-success" id="go-btn" (click)="goToTeachers()"> Go </button>
         </p>
-        </div>
-      <h3>Classes: </h3>
+        <p *ngIf="!regService.isUserTeacher()">
+          <button class="btn btn-success" id="go-btn" (click)="goToTeachers()"> Go</button>
+        </p>
+      </div>
+      <h3>Classes </h3>
       <table>
         <tr *ngFor="let appointment of appointments">
           <td>{{appointment.date | date}}</td>
           <td>{{appointment.time}}</td>
           <td *ngIf="regService.isUserTeacher()">{{appointment.studentEmail}}</td>
-          <td *ngIf="!regService.isUserTeacher()">{{appointment.email}}</td>
-
-          <td><button id="cancel-btn" (click) = "cancelAppointment(appointment.appId)" class="btn btn-warning">Cancel</button></td>
+          <td *ngIf="regService.isUserStudent()">{{appointment.user.email}}</td>
+          <td>
+            <button id="cancel-btn" (click)="cancelAppointment(appointment.appId)" class="btn btn-warning">Cancel
+            </button>
+          </td>
         </tr>
       </table>
     </div>
@@ -40,81 +45,3 @@
 </div>
 </body>
 </html>
-
-
-
-<!--                 OLD VERSION                   -->
-<!--<div class="top-bar">-->
-<!--</div>-->
-
-<!--<div class="wrapper">-->
-<!--  &lt;!&ndash;  put top menu here&ndash;&gt;-->
-<!--  <div class="sidebar">-->
-<!--    <span class="logo-span"><a href="" class="logo">TeachIT</a></span>-->
-<!--    <ul>-->
-<!--      <li>-->
-<!--        <a routerLink="/profile">-->
-<!--          &lt;!&ndash;          <span class="icon"><i class="fas fa-user-shield"></i></span>&ndash;&gt;-->
-<!--          <span class="item">MyAccount</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a *ngIf="regService.isUserTeacher();" routerLink="/todoList" class="todos">-->
-<!--          <span>Todos</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a routerLink="/manageBooking"  class="active">-->
-<!--          <span> My Bookings</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a *ngIf="regService.isUserTeacher();" routerLink="/blogList" class="blogs">-->
-<!--          <span> My Blog Posts</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a *ngIf="regService.isUserTeacher();" routerLink="/schedule" class="schedule">-->
-<!--          <span> Manage Schedule</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--      <li>-->
-<!--        <a  routerLink="/logout" class="logout">-->
-<!--          <span>Logout</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<!--<div class="container">-->
-<!--  <h1>-->
-<!--    Here are your current bookings-->
-<!--  </h1>-->
-<!--  <table class="table">-->
-
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th>Date</th>-->
-<!--      <th> Student email</th>-->
-<!--      <th>Cancel</th>-->
-
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    &lt;!&ndash; *ngFor : as if there is a for loop around the entire <tr> section &ndash;&gt;-->
-<!--    <tr *ngFor="let appointment of appointments">-->
-
-<!--      <td>{{appointment.date | date}}</td>-->
-<!--      &lt;!&ndash; |date = a pipe, gives it more normal date format-->
-<!--      turn one value into another format&ndash;&gt;-->
-
-<!--      <td>{{appointment.studentEmail}}</td>-->
-<!--    </tr>-->
-
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-
-

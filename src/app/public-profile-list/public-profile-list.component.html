@@ -1,8 +1,8 @@
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header></header>
 <nav>
   <app-menu></app-menu>
 </nav>
@@ -27,8 +27,9 @@
               <img src="/assets/user-icon.png" alt="user icon" id="image" style="width:52px; height:52px;">
             </div>
             <div class="user-details">
-              <p>{{user.username}}</p>
-              <p>{{user.email}}</p>
+              <p id="name">{{user.username}}</p>
+              <p id="email">{{user.email}}</p>
+              <p id="nationality">{{user.nationality}}</p>
             </div>
           </div>
           <div class="profile-buttons">

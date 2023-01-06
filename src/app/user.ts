@@ -1,4 +1,3 @@
-import {FileHandler} from "./file-handler";
 
 export class User {
 
@@ -8,7 +7,6 @@ export class User {
   username:string;
   password:string;
   role:string;
-  picture:FileHandler;
   aboutMe:string
   nationality:string
 

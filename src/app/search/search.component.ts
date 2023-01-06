@@ -7,7 +7,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -20,7 +21,7 @@ export class SearchComponent implements OnInit {
   searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
 
   /* Method to raise the custom event*/
-  onSearchTextChanged(){
+  onSearchTextChanged() {
     //emit value that is stored in the enteredSearchValue property
     this.searchTextChanged.emit(this.enteredSearchValue)
   }

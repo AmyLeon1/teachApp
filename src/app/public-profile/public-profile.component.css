@@ -45,7 +45,7 @@ nav {
   transform: translate(-50%, -50%);
   margin: 0 auto;
   height: 100%;
-  width: 70%;
+  width: 50%;
   background: #f2f2f2;
 }
 
@@ -63,6 +63,7 @@ nav {
 
 .details {
   width: 100%;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
 }
 
 .profile-image {
@@ -92,7 +93,6 @@ nav {
   position: absolute;
   top: 120px;
   margin: 0 5px 20px 25px;
-
 }
 .about-me h5{
   /*padding:0 100px 0 0;*/
@@ -120,6 +120,7 @@ nav {
 .lesson-type {
   display: flex;
   width: 100%;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
 }
 
 .lesson-name {
@@ -169,6 +170,7 @@ nav {
   border-radius: 10px;
   margin: 0 15px 15px 0;
   float: left;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
 }
 
 #blog-title {

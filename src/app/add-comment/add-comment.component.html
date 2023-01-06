@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <title>TeachIT</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
 </head>
 <body>
-<header>
-</header>
 <nav>
   <app-menu></app-menu>
 </nav>
-
 <div class="content">
   <div class="first-section-blog">
     <h4 class="blog-title">{{blog.title}}</h4>
     <p class="blog-body" [innerHTML]="blog.description"></p>
   </div>
-
   <div class="second-section-comments">
     <div class="display-comments" *ngFor="let comment of comments">
       <div class="comment">
         <div>
-        <p id="comment-span">{{comment.owner}} <span class="material-icons" id="icon">
+          <p id="comment-span">{{comment.owner}} <span class="material-icons" id="icon">
           circle </span> {{comment.date| date}}</p>
         </div>
         <div>
-        {{comment.body}}
+          {{comment.body}}
         </div>
       </div>
     </div>
-
     <div class="comment-input">
       <form (ngSubmit)="saveComment(blog.id)" #commentForm="ngForm">
         <input type="text" [(ngModel)]="comment.body" #body="ngModel" class="form-control" name="body" maxlength="30"
                placeholder="Type your comment here..">
         <button id="comment-btn" type="btn btn-submit">Add comment</button>
       </form>
-
     </div>
-
   </div>
 </div>
-
 </body>
 </html>
 

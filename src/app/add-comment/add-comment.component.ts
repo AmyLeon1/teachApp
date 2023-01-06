@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {BlogDataService} from "../service/data/blog-data-service";
 import {Blog} from "../blog-list/blog-list.component";
 import {Comment} from "../blog-list/blog-list.component";
-import {User} from "../user";
 import {RegistrationService} from "../service/registration.service";
 import {DatePipe} from "@angular/common";
 
@@ -14,11 +13,6 @@ import {DatePipe} from "@angular/common";
 })
 export class AddCommentComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private blogService: BlogDataService, private router: Router,
-              public service: RegistrationService, private datepipe:DatePipe
-  ) {
-  }
-
   blog: Blog | undefined
   blogs: Blog[]
   comment: Comment
@@ -27,19 +21,22 @@ export class AddCommentComponent implements OnInit {
   body: string
   id: number
   owner = this.service.getAuthenticatedUser();
-  date:string
+  date: string
+
+  constructor(private route: ActivatedRoute, private blogService: BlogDataService, private router: Router,
+              public service: RegistrationService, private datepipe: DatePipe
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.getBlog(params["id"]))
     this.route.params.subscribe(params => this.saveComment(params["id"]))
     this.route.params.subscribe(params => this.refreshComments(params["id"]))
-
-
     this.comment = new Comment(this.commentId, '', this.owner, this.date);
     this.refreshComments(this.id);
-
   }
 
+  /* Method to retrieve comments */
   refreshComments(id: any) {
     this.blogService.retrieveAllComments(id).subscribe(
       response => {
@@ -49,6 +46,7 @@ export class AddCommentComponent implements OnInit {
     )
   }
 
+  /* Method to create a new comment */
   saveComment(id: any) {
     this.commentId = -1;
     let date = Date.now().toString();
@@ -70,19 +68,17 @@ export class AddCommentComponent implements OnInit {
       //call blogseviced
       this.blogService.updateComment(id, this.commentId, this.comment)
         //subscribe to make the call
-        //returns content of updated blog
         .subscribe(
           data => {
             console.log(data);
             //allows for page to be reloaded after submission of comment
             window.location.reload();
-
           }
         )
     }
   }
 
-
+  /* Method to retrieve a blog by the blog id */
   getBlog(id: any) {
     this.blogService.retrieveBlogById(id).subscribe(
       response => {
@@ -92,5 +88,4 @@ export class AddCommentComponent implements OnInit {
       }
     )
   }
-
 }

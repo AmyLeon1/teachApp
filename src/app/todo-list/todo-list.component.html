@@ -1,53 +1,45 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
 <header>
 </header>
-<nav><app-menu></app-menu></nav>
+<nav>
+  <app-menu></app-menu>
+</nav>
 <div class="content">
-<div class="alert alert-success" *ngIf="message">{{message}}</div>
+  <div class="alert alert-success" *ngIf="message">{{message}}</div>
 
-<div class="container">
-  <h4>TODO: </h4>
-<table class="table">
-
-  <thead>
-  <tr>
-    <th>Task</th>
-    <th> Due Date</th>
-    <th>Update</th>
-    <th>Delete</th>
-
-  </tr>
-  </thead>
-  <tbody>
-  <!-- *ngFor : as if there is a for loop around the entire <tr> section -->
-    <tr *ngFor="let todo of todos">
-
-      <td>{{todo.description}}</td>
-      <!-- |date = a pipe, gives it more normal date format
-      turn one value into another format-->
-      <td>{{todo.targetDate | date }}</td>
-      <td><button (click) = "updateTodo(todo.id)" class="btn btn-success">Update</button></td>
-      <td><button (click) = "deleteTodo(todo.id)" class="btn btn-success">Delete</button></td>
-    </tr>
-
-  </tbody>
-
-</table>
-
-  <div class="row">
-    <button (click) = "addTodo()" id="button" class="btn btn-success">Add</button>
+  <div class="container">
+    <h4>TODO: </h4>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Task</th>
+        <th> Due Date</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{todo.description}}</td>
+        <td>{{todo.targetDate | date }}</td>
+        <td>
+          <button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button>
+        </td>
+        <td>
+          <button (click)="deleteTodo(todo.id)" class="btn btn-success">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <button (click)="addTodo()" id="button" class="btn btn-success">Add</button>
+    </div>
   </div>
-</div>
-
-
-
 </div>
 </body>
 </html>

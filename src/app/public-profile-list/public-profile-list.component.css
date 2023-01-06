@@ -37,35 +37,41 @@ header {
 nav {
   background: white;
 }
-.banner{
-  display:flex;
-  position:absolute;
-  top:85px;
-  width:100%;
-  height:229px;
+
+.banner {
+  display: flex;
+  position: absolute;
+  top: 85px;
+  width: 100%;
+  height: 229px;
   background-color: white;
 }
-.banner .search{
+
+.banner .search {
   background: white;
-  width:100%;
+  width: 100%;
 }
-.banner-text{
-  width:60%;
+
+.banner-text {
+  width: 60%;
   margin: 50px 0 0 220px;
 }
-.banner #title{
-  width:700px;
+
+.banner #title {
+  width: 700px;
   font-size: 40px;
-  font-weight:800;
-  margin-bottom:10px;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
+
 .banner #p-details {
-  width:600px;
-  color:#515164;
+  width: 600px;
+  color: #515164;
 }
-.banner img{
+
+.banner img {
   left: 1100px;
-  position:absolute;
+  position: absolute;
 }
 
 .content {
@@ -82,10 +88,13 @@ nav {
 
 .profile-card {
   background: white;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
   border-radius: 5px;
   display: flex;
-  width: 100%;
-  margin: 15px;
+  width: 60%;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px;
 }
 
@@ -110,26 +119,42 @@ nav {
   float: right;
 }
 
+#name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#email {
+  color: #777474;
+  font-size: 14px;
+}
+
+#nationality {
+  color: #adadad;
+  font-size: 14px;
+}
+
 .profile-buttons {
   margin: 50px 0 0 0;
   padding: 10px;
-  height: 53px;
-  width:100px;
-  text-align:center;
+  height: 7%;
+  width: 25%;
+  text-align: center;
   align-items: center;
   border-radius: 5px;
 
 }
-#go-to-page-btn{
+
+#go-to-page-btn {
   background: #8e44ad;
   text-align: center;
-  width:100%;
+  width: 70%;
   color: white;
-  font-size:10px;
+  font-size: 65%;
+  font-weight: bold;
   border-style: none;
-  padding:10px;
-  height:53px;
-  width:60px;
+  padding: 10px;
+  height: 100%;
   border-radius: 15px;
 }
 

@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {HelloWorldBean, WelcomeDataService} from "../service/data/welcome-data.service";
 import {Blog} from "../blog-list/blog-list.component";
 import {RegistrationService} from "../service/registration.service";
-import {BlogDataService} from "../service/data/blog-data-service";
 import {User} from "../user";
 import {DatePipe} from "@angular/common";
 import {AppointmentDataService} from "../service/data/appointment-data.service";
 import {Appointment} from "../appointment";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -16,56 +15,59 @@ import {Appointment} from "../appointment";
 
 export class ProfileComponent implements OnInit {
 
-  message = "Welcome to your account"
-
+  // variable/object declaration
   name: string = ''
   user: User
   userEmail = this.regService.getAuthenticatedUser();
   blogs: Blog[]
   date: any
-
   appointment: Appointment;
   appointments: Appointment[]
   email = this.regService.getAuthenticatedUser();
   studentEmail = this.regService.getAuthenticatedUser();
 
   constructor(public regService: RegistrationService, public datepipe: DatePipe,
-              public appService: AppointmentDataService) {
-
+              public appService: AppointmentDataService, public router: Router) {
   }
 
   ngOnInit(): void {
 
     /* Methods that need to be run upon loading of page */
+
     this.getWordOfTheDay();
 
+    //if user is teacher execute this.refreshAppointments()
     if (this.regService.isUserTeacher()) {
-      this.refreshAppointments()
+      this.refreshAppointments();
     }
+    //if user is student execute  this.refreshStudentAppointments()
     if (!this.regService.isUserTeacher()) {
-      this.refreshStudentAppointments()
+      this.refreshStudentAppointments();
     }
+
     this.displayDate();
     this.getUser();
     this.doesUserHaveClassToday();
-
-
   }
 
-
+  // **** Method to redirect to desired users profile ****//
+  goToPage() {
+    this.router.navigate(['publicProfileList/userProfile', this.email]);
+  }
 
   /* Method to display todays' date */
-  displayDate(){
+  displayDate() {
     //get todays' date
     let now = Date.now();
     //change the format
     let todaysDate = this.datepipe.transform(now, 'dd-MM-yyyy')
     //get html element
-    let today= document.getElementById("current-date");
+    let today = document.getElementById("current-date");
     //set html element with todaysDate value
-    today!.innerHTML= todaysDate!;
+    today!.innerHTML = todaysDate!;
   }
 
+  /* Method to refresh page */
   reloadPage() {
     location.reload();
   }
@@ -74,7 +76,7 @@ export class ProfileComponent implements OnInit {
   getUser() {
     this.regService.retrieveUser(this.email).subscribe(
       response => {
-        //when response is received assign it to todos
+        //when response is received assign it to user object
         this.user = response;
       }
     )
@@ -82,15 +84,15 @@ export class ProfileComponent implements OnInit {
 
   // **** Method to find out if user has a class today **** //
   doesUserHaveClassToday() {
-    //get todays date and transform it to desired layout
+    //get today's date and transform it to desired layout
     let todaydate = Date.now();
     let today = this.datepipe.transform(todaydate, 'yyyy-MM-dd')
-    let today1 = "2021-22-22"
+
     //variable needed to verify if classes are found or not
     let found = ""
 
     /*if today's date can be found in the array of appointments
-     found has value of 'found'*/
+     'found' has value of 'found'*/
     if (this.appointments.find(e => e.date === today)) {
       found = "found";
     }
@@ -231,6 +233,5 @@ export class ProfileComponent implements OnInit {
     //send the request to the server
     request.send();
   }
-
 
 }

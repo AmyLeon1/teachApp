@@ -5,16 +5,10 @@ export class Appointment{
   date: any;
   studentEmail: any;
   time:any
-  email:any
+  email:any;
+  user:User;
 
-
-
-  constructor(
-  //   appId:any,
-  // date:any,
-  // studentEmail:any, time:any, email:any
-
-) {
+  constructor() {
   }
 
 }

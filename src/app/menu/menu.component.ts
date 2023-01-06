@@ -3,10 +3,6 @@ import {HardCodedAuthenticationService} from "../service/hard-coded-authenticati
 import {User} from "../user";
 import {RegistrationService} from "../service/registration.service";
 import {Router} from "@angular/router";
-import {FileHandler} from "../file-handler";
-import {DomSanitizer} from "@angular/platform-browser";
-import {windowCount} from "rxjs";
-import {Buffer} from "buffer";
 
 declare var window: any;
 
@@ -17,19 +13,22 @@ declare var window: any;
 })
 export class MenuComponent implements OnInit {
 
-
+  //variable/object declaration
   user = new User();
   formModal: any;
   regFormModal: any;
   invalidLogin = false
-  errorMessage = "Invalid Credentials"
+  errorMessage = "Invalid credentials entered. Please try again. " //error message for login modal
   msg = "";
   currentUserRole: User //currentUserRole to hold the role of logged-in user
-  constructor(public hardcodedAuthenticationService: HardCodedAuthenticationService, public regService: RegistrationService, private router: Router,
-              private sanitizer: DomSanitizer) {
+
+  constructor(public hardcodedAuthenticationService: HardCodedAuthenticationService, public regService: RegistrationService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
+    //methods that need to be executed upon loading of webpage
+
     this.formModal = new window.bootstrap.Modal(
       document.getElementById("loginModal")!
     )
@@ -38,27 +37,44 @@ export class MenuComponent implements OnInit {
     )
 
     this.getSelectedCountry();
+    this.hardcodedAuthenticationService.isUserLoggedIn();
+   this.toggleNavbar();
   }
 
+  /* Method to open navbar on smaller screen size*/
+  toggleNavbar(){
+    // let menu=document.querySelector('menu-icon');
+    let menu=document.getElementById('menu-icon');
+    let navbar = document.querySelector('.navbar');
+    menu!.onclick = () =>{
+      menu!.classList.toggle('bx-x');
+      navbar!.classList.toggle('open');
+    }
+  }
+
+  /* Open login modal */
   openModal() {
     this.formModal.show();
   }
 
+  /* Open registration modal */
   openRegistrationModal() {
     this.regFormModal.show();
   }
 
+  /* Close registration modal and open login modal */
   closeRegModalOpenLoginModal() {
     this.regFormModal.hide();
     this.formModal.show();
   }
 
+  /* Close login modal and open registration modal */
   closeLoginOpenRegModal() {
     this.formModal.hide();
     this.regFormModal.show();
   }
 
-
+  /* Close Modals */
   hideModal() {
     this.formModal.hide();
     this.regFormModal.hide();
@@ -72,13 +88,12 @@ export class MenuComponent implements OnInit {
     this.hardcodedAuthenticationService.logout();
   }
 
+  /* Method to login user */
   loginUser() {
     this.regService.loginUserFromRemote(this.user).subscribe(
       {
         next: data => {
-          console.log("success");
-          //let username = this.user.username;
-          //TODO: not sure if this is working sessionStorage
+          //if login is successful these items will be set
           sessionStorage.setItem("authenticatedUser", this.user.email);
           sessionStorage.setItem("username", this.user.username);
           this.currentUserRole = data;
@@ -91,26 +106,22 @@ export class MenuComponent implements OnInit {
         error: err => {
           console.log("error occured");
           this.invalidLogin = true;
-          //this.errorMessage;
         }
       }
     )
   }
 
+  /* Method to get name/username from session storage */
   getUsername() {
     sessionStorage.getItem("username")
-
   }
 
-  gotoregistration() {
-    this.router.navigate(["register"]);
-  }
-
+  /* Method to check if user is logged in to the system */
   isUserLoggedIn() {
+    //retreive key from session storage
+    //if user object isn't empty then user is logged in
     let user = sessionStorage.getItem("authenticatedUser");
     return !(user == null)
-
-
   }
 
   /* Method to utilise RestCountries API */
@@ -142,10 +153,6 @@ export class MenuComponent implements OnInit {
     )
   }
 
-
-  input: any = document.getElementById("about-me-text");
-  // user.about =  this.input.value;
-
   // *** REGISTER USER ***
   registerUser() {
     //get input from about-me-text
@@ -160,29 +167,20 @@ export class MenuComponent implements OnInit {
     this.regService.registerUserFromRemote(this.user)
       .subscribe({
           next: data => {
-            // this.router.navigate(['login']),
+            /* upon successful registration close the registration modal,
+            * and open the login modal */
             this.regFormModal.hide(),
               this.formModal.show(),
               this.msg = "Registration successful"
           },
           error: err => {
-            console.log("error occured"),
-              this.msg = err.error
+            //if error is thrown indicating that this email is already registered
+            //display this message to the user.
+            this.msg = "This email is already registered on the system. " +
+              " Please enter another email address or login."
           }
         }
       );
-  }
-
-  onFileSelection(event: any) {
-    console.log(event);
-    if (event.target.files) {
-      const file = event.target.files[0];
-      const fileHandler: FileHandler = {
-        file: file,
-        //create URL from the file
-        url: this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file))
-      }
-    }
   }
 
 }

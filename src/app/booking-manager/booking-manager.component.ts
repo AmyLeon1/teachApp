@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppointmentDataService} from "../service/data/appointment-data.service";
 import {Appointment} from "../appointment";
-import {Todo} from "../todo-list/todo-list.component";
 import {HttpClient} from "@angular/common/http";
 import {RegistrationService} from "../service/registration.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -13,6 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class BookingManagerComponent implements OnInit {
 
+  //variable declaration
   appointments: Appointment[]
   email = this.regService.getAuthenticatedUser();
   studentEmail = this.regService.getAuthenticatedUser();
@@ -24,12 +24,17 @@ export class BookingManagerComponent implements OnInit {
 
   ngOnInit(): void {
     //methods that need to executed upon loading of page
+
+    //if user is teacher execute this.refreshAppointments()
     if (this.regService.isUserTeacher()) {
       this.refreshAppointments()
     }
+
+    //if user is student execute this.refreshStudentAppointments()
     if (!this.regService.isUserTeacher()) {
       this.refreshStudentAppointments()
     }
+
     this.thereAreNoAppointments();
   }
 
@@ -40,22 +45,21 @@ export class BookingManagerComponent implements OnInit {
 
   /**** Method to check if there are no appointments ****/
   thereAreNoAppointments() {
-    //if the length of array is 0 return
+    //if the length of array is 0 return - if there are no appointments/bookings
     return this.appointments.length == 0;
   }
 
-  /**** Method to cancel appointment ****/
+  /**** Method to cancel a booking/appointment ****/
   cancelAppointment(id: any) {
     this.appService.cancelAppointment(id).subscribe(
       response => {
         //upon receipt of response refresh appointments and set message
         this.refreshAppointments();
         this.refreshStudentAppointments()
-        this.message = `Appointment has successfully been cancelled`
+        this.message = `Appointment has been successfully cancelled`
       }
     )
   }
-
 
   /**** Get appointments for students ****/
   refreshStudentAppointments() {

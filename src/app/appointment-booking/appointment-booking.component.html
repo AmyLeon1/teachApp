@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Title</title>
+  <title> TeachIT </title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <nav>
   <app-menu></app-menu>
 </nav>
-
 <div class="content">
   <div class="first-section">
-    <form (ngSubmit)="getDate1(user.email)" #dateForm="ngForm" id="date-form">
+    <div class="alert alert-danger" *ngIf="message">{{message}}</div>
+    <form (ngSubmit)="getDate(user.email)" #dateForm="ngForm" id="date-form">
       <fieldset class="form-group">
         <label class="date-label">Please select a date</label>
         <!--use banana box so we can load the description
@@ -24,231 +25,29 @@
   </div>
 
   <div class="second-section" *ngIf="isDateFound()">
-
     <div class="get-times">
-      <form (ngSubmit)="getAllTimesForDate();displayTimes()">
-
+      <form (ngSubmit)="getAllTimesForDate(); displayTimes()">
         <p id="times-p">You selected: <span>{{this.date}}</span></p>
         <button type="submit" class="time-btn"> View times</button>
       </form>
     </div>
-
     <div id="get-times-list">
       <div class="form-section">
-      <form (ngSubmit)="saveAppointment(user.email)" #timeForm="ngForm" class="times-form" id="time-form">
-        <fieldset class="form-group">
-        <ng-container *ngFor="let availableTimes of availableTimes">
+        <form (ngSubmit)="saveAppointment()" #timeForm="ngForm" class="times-form" id="time-form">
+          <fieldset class="form-group">
+            <ng-container *ngFor="let availableTimes of availableTimes">
 
-          <p><label> <input type="radio" #targetTime="ngModel" name="targetTime" value="{{availableTimes.time}}"
-                            [(ngModel)]="time"  [class.is-invalid]="targetTime.touched && targetTime.untouched" required>
-            {{availableTimes.time}}</label></p>
-
-
-        </ng-container>
-          <button type="submit" class="app-times-btn" [disabled]="timeForm.form.invalid">Make appointment</button>
-        </fieldset>
-      </form>
+              <p><label> <input type="radio" #targetTime="ngModel" name="targetTime" value="{{availableTimes.time}}"
+                                [(ngModel)]="time" [class.is-invalid]="targetTime.touched && targetTime.untouched"
+                                required>
+                {{availableTimes.time}}</label></p>
+            </ng-container>
+            <button type="submit" class="app-times-btn" [disabled]="timeForm.form.invalid">Make appointment</button>
+          </fieldset>
+        </form>
       </div>
     </div>
-
   </div>
 </div>
-
 </body>
 </html>
-
-<!--<div class="top-bar">-->
-
-<!--</div>-->
-
-<!--&lt;!&ndash;<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>&ndash;&gt;-->
-<!--&lt;!&ndash;<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>&ndash;&gt;-->
-
-<!--&lt;!&ndash;<div class ="container">&ndash;&gt;-->
-<!--&lt;!&ndash;  <p> To reserve a class with {{user.username}} please fill out the form below: </p>&ndash;&gt;-->
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--<div class="container">-->
-<!--<h1>Make a reservation</h1>-->
-<!--<div class = "date">-->
-<!--  <form (ngSubmit)="getDate1(user.email)" #date1Form="ngForm">-->
-
-<!--    <fieldset class="form-group">-->
-<!--      <label class="date-label">Please select a date</label>-->
-<!--      &lt;!&ndash;use banana box so we can load the description-->
-<!--      specify the layout of date field&ndash;&gt;-->
-<!--      <input type="date" #targetDate="ngModel" [(ngModel)]="this.date"-->
-
-<!--             class="form-control" name="targetDate" required="required">-->
-<!--    </fieldset>-->
-
-<!--    <button type ="submit" class="date-btn" >Save</button>-->
-<!--  </form>-->
-
-<!--</div>-->
-
-
-<!--<div *ngIf="isDateFound()">-->
-
-<!--  <h4> Select a time </h4>-->
-
-<!--  <div class="time">-->
-<!--  <form (ngSubmit)="getAllTimesForDate()">-->
-<!--    <button type ="submit"  class="time-btn" >To view available times, please click here </button>-->
-<!--  </form>-->
-
-<!--  <form (ngSubmit)="saveAppointment(user.email)" #timeForm="ngForm">-->
-<!--  <ng-container *ngFor="let availableTimes of availableTimes">-->
-
-<!--    <p> <label> <input type="radio"  name="timeapp" value="{{availableTimes.time}}" [(ngModel)]="time" > {{availableTimes.time}}</label></p>-->
-<!--&lt;!&ndash;   <p>{{availableTimes.time}}</p>&ndash;&gt;-->
-
-<!--</ng-container>-->
-<!--    <button type ="submit"  class="app-btn" >Make appointment </button>-->
-<!--  </form>-->
-
-<!--  <form>-->
-
-<!--  </form>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
-
-
-<!--<div class="form-container">-->
-<!--  <form (ngSubmit)="getDate(user.email)">-->
-<!--    <mat-form-field>-->
-<!--      <input [(ngModel)]="date"  matInput [matDatepicker]="picker" [value]="TodaysDate" [min]="TodaysDate" name="date "placeholder="{{TodaysDate}}">-->
-<!--      <mat-datepicker-toggle matSuffix [for]="picker">-->
-
-<!--      </mat-datepicker-toggle>-->
-
-<!--      <mat-datepicker #picker></mat-datepicker>-->
-<!--    </mat-form-field>-->
-
-<!--    <button mat-raised-button color="primary">Choose Date </button>-->
-<!--  </form>-->
-<!--</div>-->
-
-<!--<div *ngIf="isDateFound()">-->
-
-<!--  You did it-->
-<!--  {{availableDateObj.date}}-->
-
-
-<!--</div>-->
-<!--<div *ngIf="!isDateFound()">-->
-
-<!--  Nothing was found-->
-
-
-<!--</div>-->
-
-
-<!--<div class="container">-->
-<!--  <form (submit)="saveAppointment(user.email)">-->
-<!--    <label for="date">Choose a date:</label>-->
-<!--    <input type="date" [(ngModel)] = "appointment.date" [value]="TodaysDate"   [min]="TodaysDate" id="date" step="0">-->
-<!--    <br><br>-->
-<!--    <label for="time">Select a time:</label>-->
-<!--    <input type="time" id="time" name="appointmentTime">-->
-<!--    <br><br>-->
-<!--    <button mat-raised-button color="primary">Make Appointment</button>-->
-<!--  </form>-->
-
-<!--</div>-->
-
-<!--<div class="container">-->
-<!--&lt;!&ndash;  <form (submit)="getTimes(user.email, availableDate.date)">&ndash;&gt;-->
-<!--  <form (submit)="goToTimeBooking(availableDate.date)">-->
-
-<!--    <label for="date">Choose a date:</label>-->
-<!--    <input type="date" [(ngModel)] = "availableDate.date" [value]="TodaysDate"   [min]="TodaysDate" id="date1" step="0">-->
-<!--    <br><br>-->
-<!--    <label for="time">Select a time:</label>-->
-<!--    <input type="time" id="time2" name="appointmentTime">-->
-<!--    <br><br>-->
-
-<!--    <button mat-raised-button color="primary">Go to next page</button>-->
-<!--  </form>-->
-
-<!--</div>-->
-
-<!--<div class="container">-->
-<!--  &lt;!&ndash;  <form (submit)="getTimes(user.email, availableDate.date)">&ndash;&gt;-->
-<!--  <form (submit)="showDateTest()">-->
-
-<!--    <label for="date">Choose a date:</label>-->
-<!--    <input type="date" [(ngModel)] = "dateTest" [value]="TodaysDate"   [min]="TodaysDate" id="date3" step="0">-->
-<!--    <br><br>-->
-<!--    <label for="time">Select a time:</label>-->
-<!--    <input type="time" id="time3" name="test">-->
-<!--    <br><br>-->
-
-<!--    <button mat-raised-button color="primary">Go to next page</button>-->
-<!--  </form>-->
-
-<!--  <p>{{dateTest}}</p>-->
-
-<!--</div>-->
-
-
-<!--<div class="form-container">-->
-<!--  <form (submit)="saveAppointment(user.email)">-->
-<!--    <mat-form-field>-->
-<!--      <input [(ngModel)]="appointment.date"  matInput [matDatepicker]="picker" [value]="TodaysDate" [min]="TodaysDate" name="date "placeholder="{{TodaysDate}}">-->
-<!--      <mat-datepicker-toggle matSuffix [for]="picker">-->
-
-<!--      </mat-datepicker-toggle>-->
-
-<!--      <mat-datepicker #picker></mat-datepicker>-->
-<!--    </mat-form-field>-->
-
-<!--    <button mat-raised-button color="primary">Make Appointment</button>-->
-<!--  </form>-->
-<!--</div>-->
-
-
-<!--<div class="form-container">-->
-<!--  <form (submit)="saveAppointment(user.email)">-->
-<!--    <mat-form-field>-->
-<!--      <input [(ngModel)]="appointment.date"  matInput [matDatepicker]="picker" [value]="TodaysDate" [min]="TodaysDate" name="date "placeholder="{{TodaysDate}}">-->
-<!--      <mat-datepicker-toggle matSuffix [for]="picker">-->
-
-<!--      </mat-datepicker-toggle>-->
-
-<!--      <mat-datepicker #picker></mat-datepicker>-->
-<!--    </mat-form-field>-->
-
-<!--    <button mat-raised-button color="primary">Make Appointment</button>-->
-<!--  </form>-->
-<!--</div>-->
-
-
-<!--<mat-grid-list [cols]="5" gutterSize="20px" rowHeight="70px">-->
-<!--  <form>-->
-<!--    <mat-grid-tile>-->
-<!--      <mat-form-field appearance="outline" floatLabel="auto">-->
-<!--        <input type="datetime-local" matInput name="dateTime" formControlName="dateTime" placeholder="Please choose a date and time">-->
-
-<!--      </mat-form-field>-->
-<!--    </mat-grid-tile>-->
-<!--  </form>-->
-<!--</mat-grid-list>-->
-
-
-<!--    <input class="text"-->
-<!--           [(ngModel)]="appointment.date" #body="ngModel"placeholder="Enter date" name="date">-->
-
-<!--    <input class="text"-->
-<!--           [(ngModel)]="appointment.studentEmail" placeholder="Enter student email" name="studentEmail">-->
-
-
-<!--    <mat-form-field>-->
-<!--      <input [(ngModel)]="name" name="name" matInput placeholder="Name">-->
-<!--    </mat-form-field>-->
-<!--    <mat-form-field>-->
-<!--      <input [(ngModel)]="email" name="email" matInput placeholder="Email" type="email">-->
-<!--    </mat-form-field>-->
