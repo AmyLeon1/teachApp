@@ -10,33 +10,33 @@
 <header>
   <div><a href="" class="logo">TeachIT</a></div>
   <nav class="navbar">
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/todoList"
+    <li><a *ngIf="regService.isUserLoggedIn();" routerLink="/todoList"
            class="nav-link">Todos</a>
     </li>
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/profile" class="nav-link">My
+    <li><a *ngIf="regService.isUserLoggedIn();" routerLink="/profile" class="nav-link">My
       Account</a></li>
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" routerLink="/manageBooking" class="nav-link">My
+    <li><a *ngIf="regService.isUserLoggedIn();" routerLink="/manageBooking" class="nav-link">My
       Bookings</a></li>
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/blogList"
+    <li><a *ngIf="regService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/blogList"
            class="nav-link">My
       Blog Posts</a></li>
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/schedule"
+    <li><a *ngIf="regService.isUserLoggedIn() && regService.isUserTeacher();" routerLink="/schedule"
            class="nav-link">Manage Schedule</a></li>
   </nav>
 
   <div class="main">
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn() && regService.isUserStudent()"
+    <li><a *ngIf="regService.isUserLoggedIn() && regService.isUserStudent()"
            routerLink="/publicProfileList" class="nav-link" id="teacher-link">View our Teachers</a></li>
-    <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="openRegistrationModal()"
+    <li><a *ngIf="!regService.isUserLoggedIn();" role="button" (click)="openRegistrationModal()"
            class="nav-link">Register</a>
     </li>
-    <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="openModal()"
+    <li><a *ngIf="!regService.isUserLoggedIn();" role="button" (click)="openModal()"
            class="nav-link">Login</a>
     </li>
-    <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn();" role="button" (click)="logout()" class="nav-link">Logout</a>
+    <li><a *ngIf="regService.isUserLoggedIn();" role="button" (click)="logout()" class="nav-link">Logout</a>
     </li>
     <li>
-      <div class="bx bx-menu" id="menu-icon"><span *ngIf="hardcodedAuthenticationService.isUserLoggedIn();"
+      <div class="bx bx-menu" id="menu-icon"><span *ngIf="regService.isUserLoggedIn();"
                                                    class="material-icons">menu</span></div>
     </li>
   </div>

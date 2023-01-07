@@ -3,6 +3,7 @@
 <head>
   <title>TeachIT</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <nav>
@@ -10,8 +11,8 @@
 </nav>
 <div class="add-blog">
   <div class="add-content">
-    <p>Add a new post here</p>
-    <button id="add-button" (click)="addBlog()">Add Post</button>
+    <button (click)="addBlog()" id="add-btn"><span class="material-icons">add_circle</span></button>
+    <p>Add New Post</p>
   </div>
 </div>
 
@@ -28,11 +29,10 @@
       </div>
     </div>
   </ng-container>
-
-<!--  <div class="footer">-->
-  <!--    <app-footer></app-footer>-->
-  <!--    &lt;!&ndash;    here is the footer&ndash;&gt;-->
-  <!--  </div>-->
 </div>
+
+<footer class="footer">
+        <app-footer></app-footer>
+</footer>
 </body>
 </html>

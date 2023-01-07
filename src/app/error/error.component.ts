@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-error',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  errorMessage = "An Error occured! Contact Support at ***"
-  constructor() { }
+  errorMessage = "ERROR! Contact Support at 123-111-22222"
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HardCodedAuthenticationService} from "../service/hard-coded-authentication.service";
 import {User} from "../user";
 import {RegistrationService} from "../service/registration.service";
 import {Router} from "@angular/router";
@@ -22,8 +21,7 @@ export class MenuComponent implements OnInit {
   msg = "";
   currentUserRole: User //currentUserRole to hold the role of logged-in user
 
-  constructor(public hardcodedAuthenticationService: HardCodedAuthenticationService, public regService: RegistrationService,
-              private router: Router) {
+  constructor(public regService: RegistrationService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -37,16 +35,16 @@ export class MenuComponent implements OnInit {
     )
 
     this.getSelectedCountry();
-    this.hardcodedAuthenticationService.isUserLoggedIn();
-   this.toggleNavbar();
+    this.regService.isUserLoggedIn();
+    this.toggleNavbar();
   }
 
   /* Method to open navbar on smaller screen size*/
-  toggleNavbar(){
+  toggleNavbar() {
     // let menu=document.querySelector('menu-icon');
-    let menu=document.getElementById('menu-icon');
+    let menu = document.getElementById('menu-icon');
     let navbar = document.querySelector('.navbar');
-    menu!.onclick = () =>{
+    menu!.onclick = () => {
       menu!.classList.toggle('bx-x');
       navbar!.classList.toggle('open');
     }
@@ -85,7 +83,7 @@ export class MenuComponent implements OnInit {
   // from service to clear session storage of user's details
   logout() {
     this.router.navigate(['home']);
-    this.hardcodedAuthenticationService.logout();
+    this.regService.logout();
   }
 
   /* Method to login user */

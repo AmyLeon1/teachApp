@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   }
 
   /* Method to navigate to page with list of teachers */
+
+  /* the button related to this is currently disabled as awaiting further development */
   goToTeachers() {
     this.router.navigate(['publicProfileList']);
   }

@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from "@angular/router";
-import {HardCodedAuthenticationService} from "./hard-coded-authentication.service";
 import {RegistrationService} from "./registration.service";
 
 @Injectable({

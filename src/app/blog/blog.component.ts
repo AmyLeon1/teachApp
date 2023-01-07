@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Todo} from "../todo-list/todo-list.component";
 import {Blog} from "../blog-list/blog-list.component";
-import {TodoDataService} from "../service/data/todo-data.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {HardCodedAuthenticationService} from "../service/hard-coded-authentication.service";
 import {RegistrationService} from "../service/registration.service";
 import {BlogDataService} from "../service/data/blog-data-service";
 
@@ -25,7 +22,6 @@ export class BlogComponent implements OnInit {
     private blogService: BlogDataService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: HardCodedAuthenticationService,
     private service: RegistrationService
   ) {
   }

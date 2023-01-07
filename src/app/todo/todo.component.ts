@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {TodoDataService} from "../service/data/todo-data.service";
 import {Todo} from "../todo-list/todo-list.component";
 import {ActivatedRoute, Router} from "@angular/router";
-import {HardCodedAuthenticationService} from "../service/hard-coded-authentication.service";
 import {RegistrationService} from "../service/registration.service";
 
 @Component({
@@ -22,7 +21,6 @@ export class TodoComponent implements OnInit {
     private todoService: TodoDataService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: HardCodedAuthenticationService,
     private service: RegistrationService
   ) {
   }

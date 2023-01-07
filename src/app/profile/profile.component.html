@@ -17,7 +17,7 @@
       <span class="material-icons" id="person">face</span>
       <p id="user-name">{{user.username}}</p>
       <p id="user-email">Email: {{user.email}}</p>
-      <p><a role="button" (click)="goToPage()">View your profile page</a></p>
+      <p id="personal-page-link"><a role="button" (click)="goToPage()">View your profile page</a></p>
     </div>
     <div class="date-display">
       <div id="current-date"></div>
@@ -91,5 +91,8 @@
     </div>
   </div>
 </div>
+<footer class="footer">
+  <app-footer></app-footer>
+</footer>
 </body>
 </html>

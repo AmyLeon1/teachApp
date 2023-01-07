@@ -1,23 +1,36 @@
 
 html {
-  box-sizing: border-box;
-  position: relative;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
-  margin: 0;
-  padding: 0;
   background: #f2f2f2;
+  margin: 0;
+  overflow: hidden;
+
 }
 
 body {
-  box-sizing: border-box;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
-  margin: 0;
-  padding: 0;
   background: #f2f2f2;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+.footer{
+  background: white;
+  position:sticky;
+  top:100%;
+  bottom:0;
+  height:60px;
+  padding: 10px 0px 5px 0px;
+  width:100%;
+  margin-top:970px;
+  border-style: solid;
+  border-color: #f2f2f2;
+  border-left-style: none;
+  border-bottom-style: none;
+
+
 }
 
 header {
@@ -110,6 +123,7 @@ nav {
   position: absolute;
   top: 120%;
   width: 100%;
+  background: white;
 
 }
 

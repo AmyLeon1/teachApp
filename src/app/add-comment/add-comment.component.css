@@ -1,4 +1,4 @@
-*{
+* {
   list-style: none;
   text-decoration: none;
   margin: 0;
@@ -6,62 +6,68 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
-html{
-  min-height:100vh;
-  min-width: 100vw;
+
+html {
+  height: 100vh;
+  width: 100vw;
   background: #f2f2f2;
-  margin:0;
-  padding:0;
-  overflow-y: scroll;
+  margin: 0;
+  overflow: hidden;
 }
-body{
-  position:relative;
-  height:100vh;
-  width:100%;
-  padding:0;
-  /*background: #fafafa;*/
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100%;
   background: #f2f2f2;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
-header{
-  position:fixed;
-  width:100%;
-  top:0;
-  padding:0;
-  margin:0;
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 0;
+  margin: 0;
   background: white;
 }
 
-nav{
-  z-index:500;
+nav {
+  z-index: 500;
   background: white;
 }
-.content{
-  position:absolute;
-  top:65%;
-  left:50%;
+
+.content {
+  position: absolute;
+  top: 65%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  margin:0 auto;
-  height:100%;
-  width:60%;
+  margin: 0 auto;
+  height: 100%;
+  width: 50%;
   background: #f2f2f2;
 }
-.first-section-blog{
-  background:white;
-  width:100%;
-  height:fit-content;
+
+.first-section-blog {
+  background: white;
+  width: 100%;
+  height: fit-content;
   min-height: 400px;
   border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
 
 }
-.blog-title{
+
+.blog-title {
   text-align: center;
-  padding:30px;
+  padding: 30px;
 
 }
-.blog-body{
-  margin:30px;
+
+.blog-body {
+  margin: 30px;
 }
+
 .second-section-comments {
   position: relative;
   background: white;
@@ -70,31 +76,47 @@ nav{
   width: 100%;
   height: fit-content;
   min-height: 200px;
+  box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
 }
-.display-comments{
-  margin:5px;
+
+.display-comments {
+  margin: 5px;
 
 }
-#comment-span{
+
+#comment-span {
   font-size: 14px;
   color: #b2afaf;
 }
-.comment{
-  margin:10px;
+
+.comment {
+  margin: 10px;
 }
 
-.comment-input{
+.comment-input {
   margin-top: 50px;
-  padding:10px;
+  padding: 10px;
 
 }
-#comment-btn{
+
+#comment-btn {
   background: #8e44ad;
-  color:white;
+  color: white;
   border-style: none;
   border-radius: 30px;
-  padding:5px;
+  padding: 5px;
 }
-#icon{
-  font-size:9px;
+
+#icon {
+  font-size: 9px;
+}
+
+.footer {
+  background: white;
+  position: sticky;
+  top: 100%;
+  bottom: 0;
+  height: 60px;
+  padding: 5px 0px 5px 0px;
+  width: 100%;
 }

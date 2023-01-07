@@ -63,6 +63,15 @@ export class RegistrationService {
     return this.http.get<User[]>(`http://localhost:8080/users`)
   }
 
+  /* Method to log out of the system */
+  logout(){
+    //clear session storage of saved keys
+    sessionStorage.removeItem("authenticatedUser");
+    sessionStorage.removeItem('role');
+    sessionStorage.removeItem('email');
+    sessionStorage.clear();
+  }
+
 
 }
 

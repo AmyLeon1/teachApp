@@ -8,23 +8,19 @@
 }
 
 html {
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  width: 100vw;
   background: #f2f2f2;
   margin: 0;
-  padding: 0;
-  overflow-y: scroll;
-
+  overflow: hidden;
 }
 
 body {
   position: relative;
   height: 100vh;
   width: 100%;
-  padding: 0;
   background: #f2f2f2;
-  overflow-y: scroll;
-
+  overflow-y: auto;
 }
 
 header {
@@ -149,3 +145,12 @@ nav {
   padding: 5px;
 }
 
+.footer {
+  background: white;
+  position: sticky;
+  top: 100%;
+  bottom: 0;
+  height: 60px;
+  padding: 5px 0px 5px 0px;
+  width: 100%;
+}

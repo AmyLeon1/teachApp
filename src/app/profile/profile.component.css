@@ -8,12 +8,11 @@
 }
 
 html {
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  width: 100vw;
   background: #f2f2f2;
   margin: 0;
-  padding: 0;
-  overflow-y: scroll;
+  overflow: hidden;
 
 }
 
@@ -21,9 +20,8 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
-  padding: 0;
   background: #f2f2f2;
-
+  overflow-y: auto;
 }
 
 header {
@@ -82,6 +80,12 @@ nav {
   font-size: 20px;
   margin-bottom: 5px;
 }
+.user-details #personal-page-link{
+  color: #7c7c7c;
+  font-size:16px;
+  text-decoration: underline;
+}
+
 
 .user-details #user-email {
   font-size: 14px;
@@ -94,7 +98,6 @@ nav {
   width: 20%;
   padding: 20px;
   margin: 4px;
-  border-radius: 5px;
   position: relative;
   align-items: center;
 }
@@ -119,7 +122,6 @@ nav {
   width: 40%;
   padding: 20px 0 20px 20px;
   margin: 4px;
-  border-radius: 5px;
 }
 
 #school-icon {
@@ -323,17 +325,17 @@ nav {
   display: flex;
   align-items: center;
   flex-direction: row;
-  margin-left: 10px;
+  margin-left: 60px;
   margin-right: auto;
 }
 
 #btn {
-  margin: 0px 20px;
-  padding: 10px 40px;
+  margin: 20px 20px;
+  padding: 5px 5px 5px 5px;
   background-color: #8e44ad;
   color: #fff;
   border: none;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 50px;
   box-shadow: 7px 7px 7px #dad8d8;
   transition: box-shadow 0.5s;
@@ -348,11 +350,11 @@ nav {
 
 #refresh-btn {
   margin: 0px 0px;
-  padding: 10px 40px;
+  padding: 5px 10px 5px 10px;
   background-color: #8e44ad;
   color: #fff;
   border: none;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 50px;
   box-shadow: 10px 10px 15px #a8a8a8;
   transition: box-shadow 0.5s;
@@ -390,14 +392,12 @@ nav {
 .searchResult {
   visibility: hidden;
   margin: 0px 2px 0px 3px;
-  /*display: flex;*/
-  justify-content: left;
   flex-direction: column;
   /*margin: 10px 400px;*/
   max-height: fit-content;
   background: white;
   width: 557px;
-  height: fit-content;
+  /*height: fit-content;*/
   box-shadow: 0 2px 12px rgba(0, 40, 117, .06);
   justify-content: center;
   border-radius: 5px;
@@ -423,6 +423,16 @@ section .searchResult div p {
 
 #book-icon {
   font-size: 30px;
+}
+.footer{
+  background: white;
+  position:sticky;
+  top:100%;
+  bottom:0;
+  height:60px;
+  padding: 5px 0px 5px 0px;
+  width:100%;
+  margin-top:200px;
 }
 
 
@@ -450,4 +460,56 @@ section .searchResult div p {
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+@media (max-width: 1090px) {
+  .user-details #user-email{
+    display: none;
+  }
+  .user-details #personal-page-link{
+    font-size:12px
+  }
+  .user-details #person{
+    font-size: 15px;
+  }
+  .third-row{
+    display:inline-block;
+    width:100%;
+  }
+  .third-row .blank-section{
+    display:none;
+  }
+  .third-row .word-of-day{
+  width: 100%;
+  }
+  .third-row .section{
+    width:100%;
+  }
+  .searchForm{
+    text-align: center;
+  }
+  #searchBox{
+   width:20px;
+    height:10px;
 
+  }
+  #book-icon{
+    display:none;
+  }
+
+  #btn{
+    font-size:12px;
+    padding:6px;
+  }
+  #refresh-btn{
+    font-size:12px;
+    padding:6px 8px 6px 8px;
+  }
+  .fourth-row{
+    width:100%;
+  }
+  .fourth-row #searchResult{
+    width:100%;
+    margin-top:2px;
+  }
+
+
+}
